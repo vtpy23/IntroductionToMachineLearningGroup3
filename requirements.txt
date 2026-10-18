@@ -1,0 +1,9 @@
+# Preliminary dependencies; Python >=3.9
+# Pin exact versions after paper acceptance and environment verification.
+numpy
+scipy
+scikit-learn
+torch
+wandb
+datasets
+# Add other libraries only when required; justify non-standard dependencies in README.
