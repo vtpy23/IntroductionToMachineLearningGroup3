@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from src.utils.reproducibility import write_json
+from scripts.sync_wandb import synced_metadata
 
 
 PAPER = {
@@ -23,6 +24,7 @@ def main():
         summary = json.loads(path.read_text(encoding="utf-8"))
         if "last_accuracy" not in summary:
             continue
+        summary.update(synced_metadata(path, args.root))
         config = json.loads((path.parent / "config.json").read_text(encoding="utf-8"))
         analytic = config["analytic"]
         method = "dsal" if analytic.get("use_compensation", True) else "acil"

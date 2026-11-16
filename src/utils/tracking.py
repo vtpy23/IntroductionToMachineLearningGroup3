@@ -1,17 +1,19 @@
 """W&B tracking with explicit offline status and a local JSONL audit trail."""
 import json
+import os
 from pathlib import Path
 
 from .reproducibility import write_json
 
 
-def public_run_accessible(entity, project, run_id):
+def public_run_accessible(entity, project, run_id, base_url=None):
     """Check unauthenticated read access without consulting .netrc or cookies."""
     import requests
     try:
         with requests.Session() as session:
             session.trust_env = False
-            response = session.post("https://api.wandb.ai/graphql", timeout=20, json={
+            endpoint = base_url or os.environ.get("WANDB_BASE_URL", "https://api.forge.coreweave.com")
+            response = session.post(endpoint.rstrip("/") + "/graphql", timeout=20, json={
                 "query": "query($e:String!,$p:String!,$r:String!){project(name:$p,entityName:$e){run(name:$r){id}}}",
                 "variables": {"e": entity, "p": project, "r": run_id}})
             payload = response.json() if response.ok else {}
@@ -38,10 +40,14 @@ class Tracker:
         if mode != "disabled":
             import wandb
             settings = config.get("tracking", {})
+            base_url = settings.get("base_url") or os.environ.get("WANDB_BASE_URL")
             self.run = wandb.init(project=settings.get("project", "intro-ml-group3-dsal"),
                                   entity=settings.get("entity"), mode=mode,
                                   name=self.directory.name, config=config,
-                                  tags=[group], dir=str(self.directory))
+                                  tags=[group], dir=str(self.directory),
+                                  settings=wandb.Settings(base_url=base_url) if base_url else None)
+            self.run.define_metric("base/*", step_metric="base/epoch")
+            self.run.define_metric("cil/*", step_metric="cil/phase")
             self.run_id = self.run.id
             if mode == "online":
                 self.url = self.run.url
@@ -55,7 +61,8 @@ class Tracker:
 
     def finish(self, summary: dict) -> None:
         """Persist summary and W&B metadata and close the W&B run."""
-        public = bool(self.url) and public_run_accessible(self.run.entity, self.run.project, self.run_id)
+        public = bool(self.url) and public_run_accessible(
+            self.run.entity, self.run.project, self.run_id, self.run.settings.base_url)
         summary.update({"wandb_url": self.url, "wandb_run_id": self.run_id, "tracking_mode": self.mode,
                         "submission_ready": public, "public_visibility_verified": public})
         write_json(self.directory / "summary.json", summary)

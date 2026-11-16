@@ -25,7 +25,8 @@ def load_config(path):
     load_dotenv()
     config = json.loads(Path(path).read_text(encoding="utf-8"))
     tracking = config.setdefault("tracking", {})
-    for key, env in [("entity", "WANDB_ENTITY"), ("project", "WANDB_PROJECT")]:
+    for key, env in [("entity", "WANDB_ENTITY"), ("project", "WANDB_PROJECT"),
+                     ("base_url", "WANDB_BASE_URL")]:
         if os.environ.get(env):
             tracking[key] = os.environ[env]
     return config

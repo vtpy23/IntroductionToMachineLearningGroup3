@@ -22,8 +22,9 @@ Trạng thái pipeline và epoch hiện tại được đọc trực tiếp bằ
 - Full CIFAR-100: huấn luyện backbone160 epochs và suite m8192. Chỉ xem là
   hoàn tất khi summary của từng run ghi completed=true.
 - Mean/std ba seed chỉ có sau `scripts.multiseed`, không tự tạo từ một seed.
-- W&B công khai: người dùng tạo project và đăng nhập cục bộ. Chưa có URL
-  công khai được xác minh thì các artifact thực nghiệm chưa đủ điều kiện nộp.
+- W&B: đã xác minh đăng nhập và quyền ghi/đọc công khai trên Forge. Các run
+  smoke, cơ chế tổng hợp và đối chiếu công thức có liên kết tại [W&B](WANDB.md).
+  Benchmark đầy đủ vẫn chờ huấn luyện và đồng bộ các run hoàn tất.
 - Bản bổ sung ImageNet-100/Full chưa nằm trong triển khai hiện tại.
 
 ## Quyết định triển khai
