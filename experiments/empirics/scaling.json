@@ -1,0 +1,92 @@
+[
+  {
+    "seed": 0,
+    "buffer_size": 64,
+    "fit_seconds": 0.002638099998875987,
+    "two_correlation_matrices_bytes": 65536
+  },
+  {
+    "seed": 0,
+    "buffer_size": 128,
+    "fit_seconds": 0.0034164999960921705,
+    "two_correlation_matrices_bytes": 262144
+  },
+  {
+    "seed": 0,
+    "buffer_size": 256,
+    "fit_seconds": 0.00903660000039963,
+    "two_correlation_matrices_bytes": 1048576
+  },
+  {
+    "seed": 0,
+    "buffer_size": 512,
+    "fit_seconds": 0.00858919999882346,
+    "two_correlation_matrices_bytes": 4194304
+  },
+  {
+    "seed": 0,
+    "buffer_size": 1024,
+    "fit_seconds": 0.028288000001339242,
+    "two_correlation_matrices_bytes": 16777216
+  },
+  {
+    "seed": 1,
+    "buffer_size": 64,
+    "fit_seconds": 0.002650100002938416,
+    "two_correlation_matrices_bytes": 65536
+  },
+  {
+    "seed": 1,
+    "buffer_size": 128,
+    "fit_seconds": 0.0027941000007558614,
+    "two_correlation_matrices_bytes": 262144
+  },
+  {
+    "seed": 1,
+    "buffer_size": 256,
+    "fit_seconds": 0.004293399993912317,
+    "two_correlation_matrices_bytes": 1048576
+  },
+  {
+    "seed": 1,
+    "buffer_size": 512,
+    "fit_seconds": 0.008871899997757282,
+    "two_correlation_matrices_bytes": 4194304
+  },
+  {
+    "seed": 1,
+    "buffer_size": 1024,
+    "fit_seconds": 0.021846900002856273,
+    "two_correlation_matrices_bytes": 16777216
+  },
+  {
+    "seed": 2,
+    "buffer_size": 64,
+    "fit_seconds": 0.0023978999961400405,
+    "two_correlation_matrices_bytes": 65536
+  },
+  {
+    "seed": 2,
+    "buffer_size": 128,
+    "fit_seconds": 0.003181200001563411,
+    "two_correlation_matrices_bytes": 262144
+  },
+  {
+    "seed": 2,
+    "buffer_size": 256,
+    "fit_seconds": 0.004805900003702845,
+    "two_correlation_matrices_bytes": 1048576
+  },
+  {
+    "seed": 2,
+    "buffer_size": 512,
+    "fit_seconds": 0.008378200000151992,
+    "two_correlation_matrices_bytes": 4194304
+  },
+  {
+    "seed": 2,
+    "buffer_size": 1024,
+    "fit_seconds": 0.02509009999630507,
+    "two_correlation_matrices_bytes": 16777216
+  }
+]

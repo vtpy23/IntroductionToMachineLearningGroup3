@@ -2,22 +2,22 @@
 
 **Team:** Vũ · Nam · Đạt  
 **Project theme:** Continual Learning / Online Learning / Lifelong Learning  
-**Status:** Paper selection — waiting for Moodle acceptance
+**Status:** DS-AL accepted (confirmed by the team on 17 Nov 2026); implementation and experiment pipeline active.
 
 > This is the semester-long team repository for reading, independently reimplementing, reproducing, critiquing, and empirically stress-testing one published Machine Learning paper.
 
 ## 1. Selected paper
 
-Complete this section **only after registration is marked Accepted** in Moodle's Topics sheet.
+Registration has been **Accepted**, as confirmed by the team. See [project status](docs/STATUS.md).
 
 | Field | Value |
 | --- | --- |
-| Title | TBD |
-| Authors | TBD |
-| Venue / year | TBD |
-| Official URL | TBD |
-| Paper registration status | Pending |
-| Reproduction scope | To choose: Full or Core |
+| Title | DS-AL: A Dual-Stream Analytic Learning for Exemplar-Free Class-Incremental Learning |
+| Authors | Huiping Zhuang, Run He, Kai Tong, Ziqian Zeng, Cen Chen, Zhiping Lin |
+| Venue / year | AAAI 2024, 38(15), 17237–17244 |
+| Official URL | https://doi.org/10.1609/aaai.v38i15.29670 |
+| Paper registration status | Accepted, confirmed by the team |
+| Reproduction scope | Core: CIFAR-100 / ResNet-32; comparisons, ablations, phase-count and buffer-width analyses |
 
 **Selection checklist:** publication within 60 months; never chosen by another team; research fits Never-Ending Learning and ML material; conference CORE A/A*, journal SCIE Q1, or qualifying Google Scholar citations; sufficient datasets and computation. Paper registration is via Moodle, and instructor acceptance is needed before proceeding.
 
@@ -61,7 +61,7 @@ tests/                      Unit/regression tests
 
 ## 5. Environment and running
 
-Use **Python >= 3.9**; record and pin tested package versions after paper acceptance.
+Tested with **Python 3.11.8**, PyTorch 2.5.1+cu121, torchvision 0.20.1+cu121 on an RTX 4050 Laptop 6 GB / 16 GB RAM. Dependencies are pinned in requirements.txt. See [run guide](docs/REPRODUCTION.md).
 
 ```bash
 python -m venv .venv
@@ -77,7 +77,7 @@ pip install -r requirements.txt
 
 ## 6. Dataset preparation
 
-Datasets must be fetched **programmatically** during the run from **Hugging Face or Kaggle**, with automatic preprocessing and split construction. Prefer existing public versions. If unavailable, upload a prepared version to one of these platforms so scripts can download it end to end. Dataset ID, license, version and preprocessing: **TBD**.
+The pipeline downloads **uoft-cs/cifar100 from Hugging Face** programmatically and pins its resolved revision. Images are normalized automatically and fine labels are remapped to an explicitly recorded class order. The dataset card declares its license unknown; do not assign a license to the data. See [dataset and preprocessing](docs/DATA.md).
 
 ## 7. Reading (Milestone 2) + Reproduction (Lab 1)
 
@@ -95,7 +95,8 @@ Use **one public W&B project** for both labs; tag reproduction runs `lab1-reprod
 
 | Experiment | Script/notebook | Config/dataset | W&B run URL | Observation |
 | --- | --- | --- | --- | --- |
-| TBD | TBD | TBD | TBD | TBD |
+| ACIL / DS-AL / DAC-PLC / phase counts / buffer widths | `python -m scripts.run --config configs/cifar100_core.json --stage suite` | CIFAR-100 B50 | See [generated results](experiments/reproduction/RESULTS.md) | Full runs must finish; offline runs require public W&B sync |
+| Original implementation output comparison | `python -m scripts.compare_reference` | Controlled synthetic features | Recorded under `outputs/reference-comparison/` | Verifies equations and detects minibatch semantic differences; not a CIFAR benchmark |
 
 **Presentation:** one **PPTX 20–40 slides**, appendix included, **under 20 MB**. Every slide contains speaker notes **≤ 500 words**; slides should use team-created figures, visual diagrams/tables (no pasted original figures or raw code dumps). IEEE numbered citations at the **bottom of each citing slide**, with **no separate references slide**. Deck PPTX and public repo URL are submitted as separate Moodle entries.
 
@@ -110,9 +111,10 @@ Critique only **the theory**: hidden assumptions, proof/claim soundness, formula
 
 | Item | Theoretical argument and reference | Status |
 | --- | --- | --- |
-| Strength 1 / 2 / 3 | TBD | Not started |
-| Limitation 1 / 2 | TBD | Not started |
-| Future direction 1 / 2 | TBD | Not started |
+| Strengths | Exact fixed-feature ridge solution, exemplar-free sufficient statistics, complementary residual fitting | Argued in [theory critique](docs/THEORY_CRITIQUE.md) |
+| Limitation 1 | Main-stream equivalence does not imply exact phase invariance of DAC targets | Controlled synthetic measurements available |
+| Limitation 2 | Ridge residual satisfies X^T E = gamma W, requiring care with the null-space interpretation | Controlled synthetic measurements available |
+| Future directions | Recompute residual targets with cross moments; formally specified orthogonal/residual compensation | Proposals, not implemented method improvements |
 
 ## 9. Empirical Demonstration (Lab 2)
 
@@ -122,7 +124,9 @@ Design controlled experiments showing whether theoretically identified weaknesse
 
 | Limitation tested | Script/notebook | Config/dataset | W&B run URL | Evidence |
 | --- | --- | --- | --- | --- |
-| TBD | TBD | TBD | TBD | TBD |
+| Phase dependence of DAC | `python -m scripts.empirics` | Same synthetic data and projection, varying phase partitions | Requires public W&B sync | [Measured records](experiments/empirics/phase-dependence.json) |
+| Ridge residual geometry | `python -m scripts.empirics` | Fixed synthetic features, gamma sweep | Requires public W&B sync | [Measured records](experiments/empirics/ridge-residue.json) |
+| Buffer scaling (supporting analysis) | `python -m scripts.empirics` | Synthetic data, width sweep | Requires public W&B sync | [Measured records](experiments/empirics/scaling.json) |
 
 **Poster:** one **PPTX containing a single portrait A2 slide**. Place the argued theoretical weakness beside its supporting empirical measurement. If >2 weaknesses are established both theoretically and empirically, display the **two most notable** on the poster and explain other proven weaknesses with W&B links **in this README**. Upload poster via Moodle and defend it at the final oral workshop.
 
@@ -133,8 +137,22 @@ Design controlled experiments showing whether theoretically identified weaknesse
 - Keep the history of meaningful commits visible and experiments traceable.
 - Record reused libraries, datasets, models, references and licenses here as work progresses.
 
-**References and reused software:** TBD.
+**References and reused software:** DS-AL main paper and Supplement A–C, ACIL (NeurIPS 2022), standard CIFAR ResNet architecture, torchvision transforms, HF hub/pyarrow, Pillow, W&B and matplotlib. Method equations are independently implemented in `src/methods/analytic.py`; the official implementation is isolated under gitignored `artifacts/reference/official` for comparison only. See [reading notes](docs/READING_NOTES.md) and [reproduction decisions](docs/REPRODUCTION.md).
 
 ---
 
-**Initial scaffold only.** Do not invent experiment results; replace TBD entries once the paper is accepted and experiments have been run.
+## 11. Automated workflow
+
+```powershell
+./scripts/bootstrap.ps1 -Cuda
+./scripts/start_pipeline.ps1 -Tracking offline
+.venv/Scripts/python.exe -X utf8 -m scripts.status
+```
+
+The unattended pipeline runs mathematical checks, a reduced-data smoke suite, controlled mechanism tests, full CIFAR-100 base training and the configured core suite, then generates result tables. It checkpoints each training epoch and skips completed matching analytic runs. Create `.stop-project` to request a pause after the current epoch/run; remove it before restarting.
+
+For independent seeds: `python -m scripts.multiseed --seeds 0 1 2 --tracking offline`.
+For cloud execution: [Colab/Kaggle notebook](notebooks/Colab_Kaggle.ipynb).
+After W&B login: `python -m scripts.sync_wandb --entity YOUR_ENTITY`, followed by `python -m scripts.summarize`.
+
+**Evidence policy:** smoke tests, synthetic mechanism tests and paper-protocol image experiments are labeled separately. Offline measurements are real but do not meet the public tracking requirement until synced and verified. No incomplete experiment is filled with estimated or invented results. AI-assisted code/document preparation is recorded honestly; each team member must independently understand and defend the work.

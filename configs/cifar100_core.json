@@ -1,0 +1,23 @@
+{
+  "seed": 0,
+  "class_order_seed": 0,
+  "result_label": "CIFAR-100 B50 ResNet-32; supplementary base training; paper-sized 8192 buffer; independent implementation",
+  "output": "outputs/core-seed0",
+  "cpu_threads": 8,
+  "dataset": {"cache": "data/cache", "revision": "main"},
+  "protocol": {"base_classes": 50, "phases": 5},
+  "training": {"checkpoint": "checkpoints/core-seed0-resnet32.pt", "device": "auto", "epochs": 160, "batch_size": 128, "workers": 0, "lr": 0.1, "weight_decay": 0.0005, "milestones": [80, 120], "augment": true},
+  "analytic": {"buffer_size": 8192, "gamma": 0.1, "compensation_ratio": 0.6, "activation": "tanh", "solver": "stats", "device": "cpu", "dtype": "float64", "projection_std": 1.0, "random_bias": false},
+  "analytic_batch_size": 512,
+  "tracking": {"project": "intro-ml-group3-dsal"},
+  "suite": [
+    {"name": "acil-k5", "analytic": {"use_compensation": false}},
+    {"name": "dac-no-plc-k5", "analytic": {"plc": false}},
+    {"name": "dsal-k5"},
+    {"name": "dsal-k25", "protocol": {"phases": 25}},
+    {"name": "dsal-k50", "protocol": {"phases": 50}},
+    {"name": "buffer-512", "analytic": {"buffer_size": 512}},
+    {"name": "buffer-1024", "analytic": {"buffer_size": 1024}},
+    {"name": "buffer-2048", "analytic": {"buffer_size": 2048}}
+  ]
+}

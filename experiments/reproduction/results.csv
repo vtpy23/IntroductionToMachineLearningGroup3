@@ -1,0 +1,4 @@
+run,method,protocol,phases,buffer_size,seed,average_accuracy,last_accuracy,fit_seconds,wandb_url,submission_ready,paper_average_accuracy,paper_last_accuracy,last_gap_percentage_points,last_relative_deviation_percent
+outputs/smoke/acil,acil,"SMOKE TEST: reduced data, short backbone training, small buffer; not paper reproduction",5,128,0,10.940806878306878,8.7,0.08442109999305103,,False,,,,
+outputs/smoke/dac-no-plc,dsal,"SMOKE TEST: reduced data, short backbone training, small buffer; not paper reproduction",5,128,0,10.951785714285714,8.3,0.021038300001237076,,False,,,,
+outputs/smoke/dsal,dsal,"SMOKE TEST: reduced data, short backbone training, small buffer; not paper reproduction",5,128,0,11.240806878306879,8.3,0.021744600002421066,,False,,,,

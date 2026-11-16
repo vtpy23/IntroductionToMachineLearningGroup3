@@ -1,0 +1,146 @@
+[
+  {
+    "seed": 0,
+    "gamma": 0.0001,
+    "cross_residual_norm": 4.881923228334549e-05,
+    "gamma_weight_norm": 4.881923217235246e-05,
+    "normal_equation_error": 1.6407308957226342e-12,
+    "normalized_cross_residual": 7.860688876230696e-09
+  },
+  {
+    "seed": 0,
+    "gamma": 0.01,
+    "cross_residual_norm": 0.0048815770786297405,
+    "gamma_weight_norm": 0.0048815770785746474,
+    "normal_equation_error": 1.6107822258042041e-12,
+    "normalized_cross_residual": 7.86013151338615e-07
+  },
+  {
+    "seed": 0,
+    "gamma": 0.1,
+    "cross_residual_norm": 0.048784353892607026,
+    "gamma_weight_norm": 0.04878435389275517,
+    "normal_equation_error": 1.5251480731663952e-12,
+    "normalized_cross_residual": 7.855072327810206e-06
+  },
+  {
+    "seed": 0,
+    "gamma": 1.0,
+    "cross_residual_norm": 0.48475065782929944,
+    "gamma_weight_norm": 0.48475065782927096,
+    "normal_equation_error": 1.6323051442640955e-12,
+    "normalized_cross_residual": 7.805217985515733e-05
+  },
+  {
+    "seed": 0,
+    "gamma": 10.0,
+    "cross_residual_norm": 4.578916298312446,
+    "gamma_weight_norm": 4.578916298312368,
+    "normal_equation_error": 1.4832853055154922e-12,
+    "normalized_cross_residual": 0.0007368621776052409
+  },
+  {
+    "seed": 0,
+    "gamma": 100.0,
+    "cross_residual_norm": 33.66122313779092,
+    "gamma_weight_norm": 33.661223137790834,
+    "normal_equation_error": 1.1783289488064043e-12,
+    "normalized_cross_residual": 0.005324151945786889
+  },
+  {
+    "seed": 1,
+    "gamma": 0.0001,
+    "cross_residual_norm": 4.454472961637786e-05,
+    "gamma_weight_norm": 4.4544729559045486e-05,
+    "normal_equation_error": 1.777391167903483e-12,
+    "normalized_cross_residual": 6.976148287232336e-09
+  },
+  {
+    "seed": 1,
+    "gamma": 0.01,
+    "cross_residual_norm": 0.00445417547598141,
+    "gamma_weight_norm": 0.004454175475859212,
+    "normal_equation_error": 1.957414986103834e-12,
+    "normalized_cross_residual": 6.975682390590721e-07
+  },
+  {
+    "seed": 1,
+    "gamma": 0.1,
+    "cross_residual_norm": 0.04451474656752049,
+    "gamma_weight_norm": 0.04451474656727889,
+    "normal_equation_error": 1.76589226913152e-12,
+    "normalized_cross_residual": 6.971452196628915e-06
+  },
+  {
+    "seed": 1,
+    "gamma": 1.0,
+    "cross_residual_norm": 0.44248126217558587,
+    "gamma_weight_norm": 0.44248126217552053,
+    "normal_equation_error": 1.830280269685629e-12,
+    "normalized_cross_residual": 6.929653717458728e-05
+  },
+  {
+    "seed": 1,
+    "gamma": 10.0,
+    "cross_residual_norm": 4.188360103138043,
+    "gamma_weight_norm": 4.1883601031379225,
+    "normal_equation_error": 1.7004606043496294e-12,
+    "normalized_cross_residual": 0.0006555956903293906
+  },
+  {
+    "seed": 1,
+    "gamma": 100.0,
+    "cross_residual_norm": 30.740430900671484,
+    "gamma_weight_norm": 30.74043090067144,
+    "normal_equation_error": 1.4544401244196355e-12,
+    "normalized_cross_residual": 0.004732288131754241
+  },
+  {
+    "seed": 2,
+    "gamma": 0.0001,
+    "cross_residual_norm": 5.016025483472209e-05,
+    "gamma_weight_norm": 5.016025478181537e-05,
+    "normal_equation_error": 1.6864113857868333e-12,
+    "normalized_cross_residual": 7.837249814273547e-09
+  },
+  {
+    "seed": 2,
+    "gamma": 0.01,
+    "cross_residual_norm": 0.00501557204373106,
+    "gamma_weight_norm": 0.00501557204373818,
+    "normal_equation_error": 1.4547980410890627e-12,
+    "normalized_cross_residual": 7.836541333845581e-07
+  },
+  {
+    "seed": 2,
+    "gamma": 0.1,
+    "cross_residual_norm": 0.05011457864074858,
+    "gamma_weight_norm": 0.05011457864058389,
+    "normal_equation_error": 1.7737198047283697e-12,
+    "normalized_cross_residual": 7.83011247074471e-06
+  },
+  {
+    "seed": 2,
+    "gamma": 1.0,
+    "cross_residual_norm": 0.49710866416393745,
+    "gamma_weight_norm": 0.4971086641639601,
+    "normal_equation_error": 2.0295407255044278e-12,
+    "normalized_cross_residual": 7.766967752664741e-05
+  },
+  {
+    "seed": 2,
+    "gamma": 10.0,
+    "cross_residual_norm": 4.630394028143201,
+    "gamma_weight_norm": 4.630394028143266,
+    "normal_equation_error": 1.6490971396286274e-12,
+    "normalized_cross_residual": 0.0007229826482516775
+  },
+  {
+    "seed": 2,
+    "gamma": 100.0,
+    "cross_residual_norm": 32.801414432925675,
+    "gamma_weight_norm": 32.80141443292569,
+    "normal_equation_error": 1.61264894514546e-12,
+    "normalized_cross_residual": 0.0050342940608864625
+  }
+]

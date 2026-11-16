@@ -1,0 +1,53 @@
+[
+  {
+    "run": "outputs/smoke/acil",
+    "method": "acil",
+    "protocol": "SMOKE TEST: reduced data, short backbone training, small buffer; not paper reproduction",
+    "phases": 5,
+    "buffer_size": 128,
+    "seed": 0,
+    "average_accuracy": 10.940806878306878,
+    "last_accuracy": 8.7,
+    "fit_seconds": 0.08442109999305103,
+    "wandb_url": null,
+    "submission_ready": false,
+    "paper_average_accuracy": null,
+    "paper_last_accuracy": null,
+    "last_gap_percentage_points": null,
+    "last_relative_deviation_percent": null
+  },
+  {
+    "run": "outputs/smoke/dac-no-plc",
+    "method": "dsal",
+    "protocol": "SMOKE TEST: reduced data, short backbone training, small buffer; not paper reproduction",
+    "phases": 5,
+    "buffer_size": 128,
+    "seed": 0,
+    "average_accuracy": 10.951785714285714,
+    "last_accuracy": 8.3,
+    "fit_seconds": 0.021038300001237076,
+    "wandb_url": null,
+    "submission_ready": false,
+    "paper_average_accuracy": null,
+    "paper_last_accuracy": null,
+    "last_gap_percentage_points": null,
+    "last_relative_deviation_percent": null
+  },
+  {
+    "run": "outputs/smoke/dsal",
+    "method": "dsal",
+    "protocol": "SMOKE TEST: reduced data, short backbone training, small buffer; not paper reproduction",
+    "phases": 5,
+    "buffer_size": 128,
+    "seed": 0,
+    "average_accuracy": 11.240806878306879,
+    "last_accuracy": 8.3,
+    "fit_seconds": 0.021744600002421066,
+    "wandb_url": null,
+    "submission_ready": false,
+    "paper_average_accuracy": null,
+    "paper_last_accuracy": null,
+    "last_gap_percentage_points": null,
+    "last_relative_deviation_percent": null
+  }
+]
