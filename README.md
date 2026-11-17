@@ -93,7 +93,7 @@ Compare the paper's numbers with measured results and report relative deviations
 
 Use **one public W&B project** for both labs; tag reproduction runs `lab1-reproduction`.
 
-Project and verified run URLs: [W&B on Forge](docs/WANDB.md). Completed smoke and synthetic runs are public; full benchmark runs remain pending.
+Project and verified run URLs: [W&B on Forge](docs/WANDB.md). Smoke/synthetic runs and all eight CIFAR-100 seed-0 variants are public; multi-seed validation remains pending.
 
 | Experiment | Script/notebook | Config/dataset | W&B run URL | Observation |
 | --- | --- | --- | --- | --- |

@@ -17,7 +17,7 @@ Các run dưới đây xuất phát từ log offline đã có, được giữ ng
 | Cơ chế: chi phí theo buffer | [scaling](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/p343muf2) | Tổng hợp, 3 seed |
 | Đối chiếu công thức với mã tác giả | [reference-comparison](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/nv8x5tld) | Đầu vào tổng hợp nhỏ |
 
-Các run này không phải kết quả tái hiện benchmark đầy đủ của bài báo. Backbone CIFAR-100 B50/160 epoch và suite buffer 8192 đang chạy offline để giữ nguyên tiến trình hiện tại; chỉ đồng bộ sau khi từng run hoàn tất.
+Các run trong bảng trên là smoke/synthetic/đối chiếu công thức. CIFAR-100 seed 0 hiện đã hoàn tất 160 epoch và đủ 8 biến thể; cả backbone và các biến thể đã đồng bộ công khai. Xem [bảng kết quả benchmark](../experiments/reproduction/RESULTS.md). Benchmark hiện mới có một seed, chưa có mean/std nhiều seed.
 
 Logging hiện có lưu config, provenance, seed, loss/accuracy/lr từng epoch, accuracy lớp gốc/lớp mới/tổng và thời gian fit từng pha, cùng summary trung bình/pha cuối. Trục biểu đồ run mới sử dụng `base/epoch` và `cil/phase`. Các thí nghiệm cơ chế giữ phép đo thật của từng seed trong history.
 
