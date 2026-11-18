@@ -46,16 +46,12 @@ wandb/
 logs/
 # Slides/poster: decide deliberately whether to track PPTX binaries
 *.pptx
+!reports/*.pptx
+!reports/output/*.pptx
+!reports/milestone2_final/*.pptx
 .stop-project
 .codex-finalizer/
 reports/.build/
+reports/**/.build/
 reports/node_modules/
 docs/references/*.pdf
-# Presentation work is maintained locally until approved for publication.
-reports/*
-!reports/.gitkeep
-scripts/prepare_reports.py
-scripts/refresh_reports.py
-scripts/render_reports.ps1
-scripts/validate_reports.py
-scripts/fetch_wandb.py

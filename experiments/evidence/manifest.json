@@ -1,0 +1,293 @@
+{
+  "policy": "Byte-identical lightweight experiment evidence; no weights, feature arrays, credentials or offline W&B binary logs.",
+  "files": [
+    {
+      "source": "outputs/core-seed0/base-training/config.json",
+      "published": "experiments/evidence/base-training/config.json",
+      "sha256": "d2eb8a56d7490f7e69487f918f51c80a1e9354c72eb8d0a54af05d746bb4ca02",
+      "bytes": 5927
+    },
+    {
+      "source": "outputs/core-seed0/base-training/summary.json",
+      "published": "experiments/evidence/base-training/summary.json",
+      "sha256": "c0d0bcd52f18055b0837e28bf29e2756758ff8c3638e0e537d1cb9a1746e47e7",
+      "bytes": 289
+    },
+    {
+      "source": "outputs/core-seed0/base-training/metrics.jsonl",
+      "published": "experiments/evidence/base-training/metrics.jsonl",
+      "sha256": "ae9a6fe42abdeddfaa3cfc071f47730d31428cc248552bca4260eca92f6d4ad5",
+      "bytes": 29647
+    },
+    {
+      "source": "outputs/core-seed0/acil-k5/config.json",
+      "published": "experiments/evidence/acil-k5/config.json",
+      "sha256": "2ac2fb2159ed1aace7e51823293521aedde1cd984de641657dd93d6fc4a89490",
+      "bytes": 7116
+    },
+    {
+      "source": "outputs/core-seed0/acil-k5/summary.json",
+      "published": "experiments/evidence/acil-k5/summary.json",
+      "sha256": "da1c7129d48caf0745aa10c6e144645ca6222e14645fc3b36c8a03dd7b8a13f6",
+      "bytes": 609
+    },
+    {
+      "source": "outputs/core-seed0/acil-k5/metrics.jsonl",
+      "published": "experiments/evidence/acil-k5/metrics.jsonl",
+      "sha256": "edecb9a6100a79abc10b3f805409cdb4cc874937f4e451eab88e7b9ba0f8e0b5",
+      "bytes": 1030
+    },
+    {
+      "source": "outputs/core-seed0/acil-k5/phases.json",
+      "published": "experiments/evidence/acil-k5/phases.json",
+      "sha256": "ad6d361a46b31e346bed01c086be02c3d6c24f5eef24cc9704ffa655bf45cd5b",
+      "bytes": 1079
+    },
+    {
+      "source": "outputs/core-seed0/dac-no-plc-k5/config.json",
+      "published": "experiments/evidence/dac-no-plc-k5/config.json",
+      "sha256": "64a6806af726369723a4277c367928c5b4cbddb66d43510b4ec47239a0c5f19c",
+      "bytes": 7103
+    },
+    {
+      "source": "outputs/core-seed0/dac-no-plc-k5/summary.json",
+      "published": "experiments/evidence/dac-no-plc-k5/summary.json",
+      "sha256": "156bbdb0d34cf03411edd688646d65e46cffadb3aa0688d6769b3efc3bce2e19",
+      "bytes": 609
+    },
+    {
+      "source": "outputs/core-seed0/dac-no-plc-k5/metrics.jsonl",
+      "published": "experiments/evidence/dac-no-plc-k5/metrics.jsonl",
+      "sha256": "066f1817798a391c9087a74ade9e94be2830de7183e9cf632512d8081e199368",
+      "bytes": 1025
+    },
+    {
+      "source": "outputs/core-seed0/dac-no-plc-k5/phases.json",
+      "published": "experiments/evidence/dac-no-plc-k5/phases.json",
+      "sha256": "18851975efeff793779b39928bd1c0e87870cb40f2cf07594078998e2bd9ab5f",
+      "bytes": 1074
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k5/config.json",
+      "published": "experiments/evidence/dsal-k5/config.json",
+      "sha256": "11c596456a6a73cfab6990b13414f451643e38924e260e7470fcf03adadb53d6",
+      "bytes": 7084
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k5/summary.json",
+      "published": "experiments/evidence/dsal-k5/summary.json",
+      "sha256": "539eefaed5733778eee69e7fe46a426f6e1c93d1e6e4bbf0c377c9c3a0459364",
+      "bytes": 621
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k5/metrics.jsonl",
+      "published": "experiments/evidence/dsal-k5/metrics.jsonl",
+      "sha256": "0cd3768224ecdb47c1f719696a5da797d85d186ca6faf741931627fe7e54373a",
+      "bytes": 1050
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k5/phases.json",
+      "published": "experiments/evidence/dsal-k5/phases.json",
+      "sha256": "ccb5edd5de5b1dd9578d6f0ba25cee516fc0feb3cd01bfcdc271de97f3c23261",
+      "bytes": 1099
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k25/config.json",
+      "published": "experiments/evidence/dsal-k25/config.json",
+      "sha256": "0cd8bde4d8cec992fdbed6bbe813e249b97452382deb7e51d4859005af4f936b",
+      "bytes": 7085
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k25/summary.json",
+      "published": "experiments/evidence/dsal-k25/summary.json",
+      "sha256": "1ab93774ac8449550e1e4de17581a157cd2c0669ac2cb321f7ba8cae66bda8aa",
+      "bytes": 625
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k25/metrics.jsonl",
+      "published": "experiments/evidence/dsal-k25/metrics.jsonl",
+      "sha256": "49fa5b8802c965bccbe2de98c98a191c9d9e4949847b0e242966ced285b9354a",
+      "bytes": 4866
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k25/phases.json",
+      "published": "experiments/evidence/dsal-k25/phases.json",
+      "sha256": "d376c853752b18933746576123a942f618862a5cb20b18cf9450b63ef689bc4b",
+      "bytes": 4959
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k50/config.json",
+      "published": "experiments/evidence/dsal-k50/config.json",
+      "sha256": "a34385a949f8eb233809f86cef62e65e6c33b8c0350733349cc00fcee8c59fbe",
+      "bytes": 7085
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k50/summary.json",
+      "published": "experiments/evidence/dsal-k50/summary.json",
+      "sha256": "39cf83426fca9b3d3c206eeae21bf9f7dd34941776c4b018cdf334870a0c706e",
+      "bytes": 611
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k50/metrics.jsonl",
+      "published": "experiments/evidence/dsal-k50/metrics.jsonl",
+      "sha256": "53bf878c30348e5cad03013e838393774619ef40c94e952aee9dd904131d07e5",
+      "bytes": 9609
+    },
+    {
+      "source": "outputs/core-seed0/dsal-k50/phases.json",
+      "published": "experiments/evidence/dsal-k50/phases.json",
+      "sha256": "22cc0f838eb04875c39c51967a918a8907cd7220743842debc9bb877f3d68f0d",
+      "bytes": 9752
+    },
+    {
+      "source": "outputs/core-seed0/buffer-512/config.json",
+      "published": "experiments/evidence/buffer-512/config.json",
+      "sha256": "a4410493ba5630169916269485298de33b61877eb7c84c3505663b1e628945c4",
+      "bytes": 7083
+    },
+    {
+      "source": "outputs/core-seed0/buffer-512/summary.json",
+      "published": "experiments/evidence/buffer-512/summary.json",
+      "sha256": "9cbdbd0e822364de517da3dde9ef690143b33d9da5e4da89fd7b794025435755",
+      "bytes": 622
+    },
+    {
+      "source": "outputs/core-seed0/buffer-512/metrics.jsonl",
+      "published": "experiments/evidence/buffer-512/metrics.jsonl",
+      "sha256": "5f82dacdef88824fbcdb8157e70d70664d4b126ea848341ec258b95369771782",
+      "bytes": 1065
+    },
+    {
+      "source": "outputs/core-seed0/buffer-512/phases.json",
+      "published": "experiments/evidence/buffer-512/phases.json",
+      "sha256": "d3bba2f166e8918672e657948bdcb5fc5c6b1ad214db5b171dfe634a922435d5",
+      "bytes": 1114
+    },
+    {
+      "source": "outputs/core-seed0/buffer-1024/config.json",
+      "published": "experiments/evidence/buffer-1024/config.json",
+      "sha256": "cef7a8ab4cd134294d60ddd4550a5ab748d6b9c4fbe6b862eb55f4d01c285c9e",
+      "bytes": 7084
+    },
+    {
+      "source": "outputs/core-seed0/buffer-1024/summary.json",
+      "published": "experiments/evidence/buffer-1024/summary.json",
+      "sha256": "e3c8c512087917bfa2c921a53768a92d114be6a7bde524705f4f73a4034365bf",
+      "bytes": 611
+    },
+    {
+      "source": "outputs/core-seed0/buffer-1024/metrics.jsonl",
+      "published": "experiments/evidence/buffer-1024/metrics.jsonl",
+      "sha256": "a5f288ba807bd93c98c827be23a6cc22b0c1ac1dfdc45b2e9a05c014717e4312",
+      "bytes": 1025
+    },
+    {
+      "source": "outputs/core-seed0/buffer-1024/phases.json",
+      "published": "experiments/evidence/buffer-1024/phases.json",
+      "sha256": "56d8ca550f4cf1e22183fbfb968687943705dbbd29339f4ac1456b98309952b3",
+      "bytes": 1074
+    },
+    {
+      "source": "outputs/core-seed0/buffer-2048/config.json",
+      "published": "experiments/evidence/buffer-2048/config.json",
+      "sha256": "536d9e2b8c12de302206c0750fab14a2026ac68d3923b31f433d682c506c0533",
+      "bytes": 7084
+    },
+    {
+      "source": "outputs/core-seed0/buffer-2048/summary.json",
+      "published": "experiments/evidence/buffer-2048/summary.json",
+      "sha256": "6533d999ba6a49764cfa701a7441b33a9247edbc33a74f3aac0f992d709d696f",
+      "bytes": 609
+    },
+    {
+      "source": "outputs/core-seed0/buffer-2048/metrics.jsonl",
+      "published": "experiments/evidence/buffer-2048/metrics.jsonl",
+      "sha256": "ba4c367a424e039436fc0f207e9cc4d87689eb25bdbe25883fe7828dd82f737c",
+      "bytes": 1060
+    },
+    {
+      "source": "outputs/core-seed0/buffer-2048/phases.json",
+      "published": "experiments/evidence/buffer-2048/phases.json",
+      "sha256": "a0166042af24a40411e4b84f1e37a13aee9944f67a27bc82cc69ce3f2596947b",
+      "bytes": 1109
+    },
+    {
+      "source": "outputs/reference-comparison/config.json",
+      "published": "experiments/evidence/reference-comparison/config.json",
+      "sha256": "0ec72f0b1d0c2229cb344251a8e2f73df2e70900147207a60e7453aeb71f159c",
+      "bytes": 3314
+    },
+    {
+      "source": "outputs/reference-comparison/summary.json",
+      "published": "experiments/evidence/reference-comparison/summary.json",
+      "sha256": "7f04d63408eaa227c2552ef4d5c113aa40d60bd4ec7c2caebf7ffba98130cd36",
+      "bytes": 261
+    },
+    {
+      "source": "outputs/reference-comparison/metrics.jsonl",
+      "published": "experiments/evidence/reference-comparison/metrics.jsonl",
+      "sha256": "1ae364baeab40991198013a3d845ecdd92e4d61a7fd3a5ccff980c98341f145c",
+      "bytes": 379
+    },
+    {
+      "source": "outputs/reference-comparison/comparison.json",
+      "published": "experiments/evidence/reference-comparison/comparison.json",
+      "sha256": "867e6cb223cf7aea3aa819a8901d3f45e27e1aa07574335dad6d0b89f8be01ea",
+      "bytes": 530
+    },
+    {
+      "source": "outputs/empirics-synthetic/phase-dependence/config.json",
+      "published": "experiments/evidence/phase-dependence/config.json",
+      "sha256": "fbdd1d1dd3ad628baf1e878b7d1dadb60f8747703998d13740bb60e79d0b0bb2",
+      "bytes": 823
+    },
+    {
+      "source": "outputs/empirics-synthetic/phase-dependence/summary.json",
+      "published": "experiments/evidence/phase-dependence/summary.json",
+      "sha256": "da587658882db7e45f947bc5af2d7179ba447e91f462d47d866e3301db3eb392",
+      "bytes": 210
+    },
+    {
+      "source": "outputs/empirics-synthetic/phase-dependence/metrics.jsonl",
+      "published": "experiments/evidence/phase-dependence/metrics.jsonl",
+      "sha256": "423c170caf88ccbc31501e743c835061e153bb881f178278eef26865c068940f",
+      "bytes": 1873
+    },
+    {
+      "source": "outputs/empirics-synthetic/ridge-residue/config.json",
+      "published": "experiments/evidence/ridge-residue/config.json",
+      "sha256": "c094cd5382cc9b456a8ad769c6ec45cd1e08375386fc95c2da9cef4d3d875da6",
+      "bytes": 820
+    },
+    {
+      "source": "outputs/empirics-synthetic/ridge-residue/summary.json",
+      "published": "experiments/evidence/ridge-residue/summary.json",
+      "sha256": "64a71df55398873b0c3173fcb26eb0007aa50939eb525a0d89218187b54c4eef",
+      "bytes": 211
+    },
+    {
+      "source": "outputs/empirics-synthetic/ridge-residue/metrics.jsonl",
+      "published": "experiments/evidence/ridge-residue/metrics.jsonl",
+      "sha256": "c3e99e851b6d8069ae6507735c3a1b41dca9cbd44942ff357a9b46766ae64199",
+      "bytes": 4067
+    },
+    {
+      "source": "outputs/empirics-synthetic/scaling/config.json",
+      "published": "experiments/evidence/scaling/config.json",
+      "sha256": "d5d99183ff2a481ef49b90fd8931e4f972525a3104740137ea7d646305f869c5",
+      "bytes": 814
+    },
+    {
+      "source": "outputs/empirics-synthetic/scaling/summary.json",
+      "published": "experiments/evidence/scaling/summary.json",
+      "sha256": "6963c1f1b06b4d56ca7f35b079602e1dbbe3e520e8b5fd1e9aa8507c21a78831",
+      "bytes": 211
+    },
+    {
+      "source": "outputs/empirics-synthetic/scaling/metrics.jsonl",
+      "published": "experiments/evidence/scaling/metrics.jsonl",
+      "sha256": "f318f154030e254ace0ae5153f38c3a0610379d5cbff3dead44b803b176277fa",
+      "bytes": 1860
+    }
+  ]
+}

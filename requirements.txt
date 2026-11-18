@@ -11,3 +11,4 @@ Pillow==10.2.0
 python-dotenv==1.0.1
 matplotlib==3.10.7
 pytest==9.0.2
+pypdf==6.10.2

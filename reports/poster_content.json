@@ -1,0 +1,275 @@
+{
+  "title": "DS-AL: giới hạn của hai diễn giải lý thuyết",
+  "subtitle": "Kiểm chứng cơ chế trên đặc trưng tổng hợp cố định, ba seed độc lập",
+  "authors": "Vũ · Nam · Đạt | Nhập môn Học máy",
+  "size_mm": [
+    420,
+    594
+  ],
+  "status": "BẢN LÀM VIỆC: W&B đã xác minh; chờ nhóm rà soát trước khi nộp",
+  "strengths": [
+    "Head chính đạt nghiệm ridge học gộp khi feature cố định",
+    "Duy trì thống kê bậc hai thay cho exemplar",
+    "DAC bổ sung mô hình học residual, có hỗ trợ thực nghiệm trong paper"
+  ],
+  "limitations": [
+    {
+      "title": "L1. Nhánh bù phụ thuộc cách chia pha",
+      "argument": "Residual phụ thuộc W_M ở thời điểm kết thúc mỗi pha. Đổi phân hoạch pha làm đổi nhãn bù lịch sử. Theorem1 của nhánh chính chưa bảo đảm W_C bất biến.",
+      "design": "Giữ dữ liệu, projection, gamma0.1, C0.6 và float64. Chỉ thay số pha mới1/2/5. Mười lớp, base5 lớp,40 mẫu/lớp,12 feature, buffer64. Dữ liệu kiểm tra độc lập.",
+      "main_max_relative_delta": 2.0115462559897454e-14,
+      "comp_mean_relative_delta": 0.5145704092865693,
+      "comp_sample_std": 0.02508595226280725,
+      "scores_mean_relative_delta": 0.07013891646012667,
+      "measurements": [
+        {
+          "seed": 0,
+          "increments": 1,
+          "gamma": 0.1,
+          "main_relative_difference": 0.0,
+          "comp_relative_difference": 0.0,
+          "scores_relative_difference": 0.0,
+          "accuracy": 85.0
+        },
+        {
+          "seed": 0,
+          "increments": 2,
+          "gamma": 0.1,
+          "main_relative_difference": 1.4143718160192935e-14,
+          "comp_relative_difference": 0.4540402089631375,
+          "scores_relative_difference": 0.061867958769837215,
+          "accuracy": 85.5
+        },
+        {
+          "seed": 0,
+          "increments": 5,
+          "gamma": 0.1,
+          "main_relative_difference": 1.7343911324181895e-14,
+          "comp_relative_difference": 0.5285392700066699,
+          "scores_relative_difference": 0.07312627986679342,
+          "accuracy": 85.25
+        },
+        {
+          "seed": 1,
+          "increments": 1,
+          "gamma": 0.1,
+          "main_relative_difference": 0.0,
+          "comp_relative_difference": 0.0,
+          "scores_relative_difference": 0.0,
+          "accuracy": 87.75
+        },
+        {
+          "seed": 1,
+          "increments": 2,
+          "gamma": 0.1,
+          "main_relative_difference": 1.574858201354845e-14,
+          "comp_relative_difference": 0.4211974196725797,
+          "scores_relative_difference": 0.056844887247874704,
+          "accuracy": 88.25
+        },
+        {
+          "seed": 1,
+          "increments": 5,
+          "gamma": 0.1,
+          "main_relative_difference": 1.8698635810113766e-14,
+          "comp_relative_difference": 0.5295622888662852,
+          "scores_relative_difference": 0.06982753921346307,
+          "accuracy": 87.5
+        },
+        {
+          "seed": 2,
+          "increments": 1,
+          "gamma": 0.1,
+          "main_relative_difference": 0.0,
+          "comp_relative_difference": 0.0,
+          "scores_relative_difference": 0.0,
+          "accuracy": 79.75
+        },
+        {
+          "seed": 2,
+          "increments": 2,
+          "gamma": 0.1,
+          "main_relative_difference": 1.846048033476531e-14,
+          "comp_relative_difference": 0.35121745391164605,
+          "scores_relative_difference": 0.050606201569784626,
+          "accuracy": 80.25
+        },
+        {
+          "seed": 2,
+          "increments": 5,
+          "gamma": 0.1,
+          "main_relative_difference": 2.0115462559897454e-14,
+          "comp_relative_difference": 0.4856096689867528,
+          "scores_relative_difference": 0.0674629303001235,
+          "accuracy": 80.25
+        }
+      ],
+      "conclusion": "Cùng dữ liệu cuối chưa bảo đảm cùng W_C hoặc cùng scores. Accuracy chỉ đổi nhỏ ở phép thử này, chưa chứng minh suy giảm lớn trên benchmark ảnh.",
+      "future": "F1. Duy trì moment chéo để tính lại residual theo head hiện tại, rồi phân tích objective và PLC riêng.",
+      "wandb_summary": "outputs/empirics-synthetic/phase-dependence/summary.json",
+      "wandb_url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/hh31425p"
+    },
+    {
+      "title": "L2. Residual ridge không trực giao chính xác",
+      "argument": "Điều kiện tối ưu là XᵀE=gamma W. Với gamma>0, E nói chung không thuộc trực giao không gian cột của X. Diễn giải null-space cần điều kiện và không gian rõ ràng.",
+      "design": "Giữ dữ liệu/embedding. Quét gamma từ1e-4 đến100. Đo ||XᵀE|| và ||XᵀE−gamma W|| trên ba seed.",
+      "normal_equation_max_error": 2.0295407255044278e-12,
+      "measurements": [
+        {
+          "seed": 0,
+          "gamma": 0.0001,
+          "cross_residual_norm": 4.881923228334549e-05,
+          "gamma_weight_norm": 4.881923217235246e-05,
+          "normal_equation_error": 1.6407308957226342e-12,
+          "normalized_cross_residual": 7.860688876230696e-09
+        },
+        {
+          "seed": 0,
+          "gamma": 0.01,
+          "cross_residual_norm": 0.0048815770786297405,
+          "gamma_weight_norm": 0.0048815770785746474,
+          "normal_equation_error": 1.6107822258042041e-12,
+          "normalized_cross_residual": 7.86013151338615e-07
+        },
+        {
+          "seed": 0,
+          "gamma": 0.1,
+          "cross_residual_norm": 0.048784353892607026,
+          "gamma_weight_norm": 0.04878435389275517,
+          "normal_equation_error": 1.5251480731663952e-12,
+          "normalized_cross_residual": 7.855072327810206e-06
+        },
+        {
+          "seed": 0,
+          "gamma": 1.0,
+          "cross_residual_norm": 0.48475065782929944,
+          "gamma_weight_norm": 0.48475065782927096,
+          "normal_equation_error": 1.6323051442640955e-12,
+          "normalized_cross_residual": 7.805217985515733e-05
+        },
+        {
+          "seed": 0,
+          "gamma": 10.0,
+          "cross_residual_norm": 4.578916298312446,
+          "gamma_weight_norm": 4.578916298312368,
+          "normal_equation_error": 1.4832853055154922e-12,
+          "normalized_cross_residual": 0.0007368621776052409
+        },
+        {
+          "seed": 0,
+          "gamma": 100.0,
+          "cross_residual_norm": 33.66122313779092,
+          "gamma_weight_norm": 33.661223137790834,
+          "normal_equation_error": 1.1783289488064043e-12,
+          "normalized_cross_residual": 0.005324151945786889
+        },
+        {
+          "seed": 1,
+          "gamma": 0.0001,
+          "cross_residual_norm": 4.454472961637786e-05,
+          "gamma_weight_norm": 4.4544729559045486e-05,
+          "normal_equation_error": 1.777391167903483e-12,
+          "normalized_cross_residual": 6.976148287232336e-09
+        },
+        {
+          "seed": 1,
+          "gamma": 0.01,
+          "cross_residual_norm": 0.00445417547598141,
+          "gamma_weight_norm": 0.004454175475859212,
+          "normal_equation_error": 1.957414986103834e-12,
+          "normalized_cross_residual": 6.975682390590721e-07
+        },
+        {
+          "seed": 1,
+          "gamma": 0.1,
+          "cross_residual_norm": 0.04451474656752049,
+          "gamma_weight_norm": 0.04451474656727889,
+          "normal_equation_error": 1.76589226913152e-12,
+          "normalized_cross_residual": 6.971452196628915e-06
+        },
+        {
+          "seed": 1,
+          "gamma": 1.0,
+          "cross_residual_norm": 0.44248126217558587,
+          "gamma_weight_norm": 0.44248126217552053,
+          "normal_equation_error": 1.830280269685629e-12,
+          "normalized_cross_residual": 6.929653717458728e-05
+        },
+        {
+          "seed": 1,
+          "gamma": 10.0,
+          "cross_residual_norm": 4.188360103138043,
+          "gamma_weight_norm": 4.1883601031379225,
+          "normal_equation_error": 1.7004606043496294e-12,
+          "normalized_cross_residual": 0.0006555956903293906
+        },
+        {
+          "seed": 1,
+          "gamma": 100.0,
+          "cross_residual_norm": 30.740430900671484,
+          "gamma_weight_norm": 30.74043090067144,
+          "normal_equation_error": 1.4544401244196355e-12,
+          "normalized_cross_residual": 0.004732288131754241
+        },
+        {
+          "seed": 2,
+          "gamma": 0.0001,
+          "cross_residual_norm": 5.016025483472209e-05,
+          "gamma_weight_norm": 5.016025478181537e-05,
+          "normal_equation_error": 1.6864113857868333e-12,
+          "normalized_cross_residual": 7.837249814273547e-09
+        },
+        {
+          "seed": 2,
+          "gamma": 0.01,
+          "cross_residual_norm": 0.00501557204373106,
+          "gamma_weight_norm": 0.00501557204373818,
+          "normal_equation_error": 1.4547980410890627e-12,
+          "normalized_cross_residual": 7.836541333845581e-07
+        },
+        {
+          "seed": 2,
+          "gamma": 0.1,
+          "cross_residual_norm": 0.05011457864074858,
+          "gamma_weight_norm": 0.05011457864058389,
+          "normal_equation_error": 1.7737198047283697e-12,
+          "normalized_cross_residual": 7.83011247074471e-06
+        },
+        {
+          "seed": 2,
+          "gamma": 1.0,
+          "cross_residual_norm": 0.49710866416393745,
+          "gamma_weight_norm": 0.4971086641639601,
+          "normal_equation_error": 2.0295407255044278e-12,
+          "normalized_cross_residual": 7.766967752664741e-05
+        },
+        {
+          "seed": 2,
+          "gamma": 10.0,
+          "cross_residual_norm": 4.630394028143201,
+          "gamma_weight_norm": 4.630394028143266,
+          "normal_equation_error": 1.6490971396286274e-12,
+          "normalized_cross_residual": 0.0007229826482516775
+        },
+        {
+          "seed": 2,
+          "gamma": 100.0,
+          "cross_residual_norm": 32.801414432925675,
+          "gamma_weight_norm": 32.80141443292569,
+          "normal_equation_error": 1.61264894514546e-12,
+          "normalized_cross_residual": 0.0050342940608864625
+        }
+      ],
+      "conclusion": "Normal equation khớp ở sai số số học trong khi XᵀE khác0. Đây là giới hạn của lý giải hình học, không phải bác bỏ nghiệm ridge hoặc hiệu quả DAC.",
+      "future": "F2. Phát biểu bù trực giao chính xác hoặc residual regression có điều chuẩn, rồi đối sánh accuracy và chi phí.",
+      "wandb_summary": "outputs/empirics-synthetic/ridge-residue/summary.json",
+      "wandb_url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/is6rnul0"
+    }
+  ],
+  "citations": [
+    "[1] H. Zhuang et al., DS-AL: A Dual-Stream Analytic Learning for Exemplar-Free Class-Incremental Learning, AAAI, vol. 38, no. 15, pp. 17237–17244, 2024, doi:10.1609/aaai.v38i15.29670.",
+    "[2] H. Zhuang et al., Supplementary Material for DS-AL, Sections A–C, 2024, github.com/ZHUANGHP/Analytic-continual-learning."
+  ],
+  "repository": "https://github.com/vtpy23/IntroductionToMachineLearningGroup3",
+  "notes": "Phản biện lý thuyết dựa trên công thức và kiểm chứng cơ chế. Số liệu là dữ liệu tổng hợp, không phải CIFAR hoặc ImageNet. Mỗi hạn chế có lập luận, thiết kế kiểm chứng và hướng phát triển. W&B URL phải đọc từ summary đã sync, không tự tạo URL hoặc QR không hoạt động.\n\nBằng chứng W&B đã xác minh công khai:\nhttps://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/hh31425p\nhttps://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/is6rnul0"
+}

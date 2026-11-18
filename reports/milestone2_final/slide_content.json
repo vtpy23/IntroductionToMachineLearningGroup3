@@ -1,0 +1,625 @@
+{
+  "title": "DS-AL: Milestone 2 + Lab 1",
+  "authors": [
+    "Vũ",
+    "Nam",
+    "Đạt"
+  ],
+  "date": "2026-11-19",
+  "references": {
+    "1": {
+      "short": "[1] H. Zhuang et al., “DS-AL,” AAAI, vol. 38, no. 15, pp. 17237–17244, 2024, doi:10.1609/aaai.v38i15.29670.",
+      "full": "[1] H. Zhuang, R. He, K. Tong, Z. Zeng, C. Chen, and Z. Lin, “DS-AL: A Dual-Stream Analytic Learning for Exemplar-Free Class-Incremental Learning,” Proceedings of the AAAI Conference on Artificial Intelligence, vol. 38, no. 15, pp. 17237–17244, 2024, doi:10.1609/aaai.v38i15.29670.",
+      "url": "https://doi.org/10.1609/aaai.v38i15.29670"
+    },
+    "2": {
+      "short": "[2] H. Zhuang et al., Supplementary Material for DS-AL, Sec. A–C, 2024.",
+      "full": "[2] H. Zhuang et al., “Supplementary Material for DS-AL: A Dual-Stream Analytic Learning for Exemplar-Free Class-Incremental Learning,” Sec. A: proof, Sec. B: algorithms, Sec. C: training details, 2024. Local source: docs/references/DS-AL-supplementary.pdf.",
+      "url": "https://github.com/ZHUANGHP/Analytic-continual-learning"
+    },
+    "3": {
+      "short": "[3] H. Zhuang et al., “ACIL,” Advances in Neural Information Processing Systems, vol. 35, pp. 11602–11614, 2022.",
+      "full": "[3] H. Zhuang et al., “ACIL: Analytic Class-Incremental Learning with Absolute Memorization and Privacy Protection,” Advances in Neural Information Processing Systems, vol. 35, pp. 11602–11614, 2022.",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/4b74a42fc81fc7ee252f6bcb6e26c8be-Abstract.html"
+    },
+    "4": {
+      "short": "[4] Z. Li and D. Hoiem, “Learning without Forgetting,” IEEE TPAMI, vol. 40, no. 12, pp. 2935–2947, 2018.",
+      "full": "[4] Z. Li and D. Hoiem, “Learning without Forgetting,” IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 40, no. 12, pp. 2935–2947, 2018, doi:10.1109/TPAMI.2017.2773081.",
+      "url": "https://doi.org/10.1109/TPAMI.2017.2773081"
+    },
+    "5": {
+      "short": "[5] S.-A. Rebuffi et al., “iCaRL,” CVPR, pp. 2001–2010, 2017.",
+      "full": "[5] S.-A. Rebuffi, A. Kolesnikov, G. Sperl, and C. H. Lampert, “iCaRL: Incremental Classifier and Representation Learning,” CVPR, pp. 2001–2010, 2017.",
+      "url": "https://openaccess.thecvf.com/content_cvpr_2017/html/Rebuffi_iCaRL_Incremental_Classifier_CVPR_2017_paper.html"
+    },
+    "6": {
+      "short": "[6] K. He et al., “Deep Residual Learning for Image Recognition,” CVPR, pp. 770–778, 2016.",
+      "full": "[6] K. He, X. Zhang, S. Ren, and J. Sun, “Deep Residual Learning for Image Recognition,” CVPR, pp. 770–778, 2016.",
+      "url": "https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "title": "DS-AL",
+      "kind": "cover",
+      "message": "Đọc hiểu, tự triển khai và tái hiện trên CIFAR-100",
+      "notes": "Nhóm Vũ, Nam, Đạt nghiên cứu DS-AL của Zhuang và cộng sự tại AAAI 2024. Bộ slide trình bày phương pháp bằng ký hiệu thống nhất, sau đó kiểm chứng bằng triển khai độc lập và thực nghiệm thật. Chọn Core scope vì máy có RTX 4050 6 GB và RAM 16 GB, trong khi bài báo còn đánh giá ImageNet. Toàn bộ benchmark ở đây là seed 0 trên CPU. Những kết quả từ bài báo, số đo của nhóm và suy luận của nhóm được gắn nhãn riêng. Bộ slide là sản phẩm đọc hiểu và tái hiện, không tuyên bố tái hiện toàn bộ SOTA. Chuyển sang tình huống cần học lớp mới mà vẫn nhận ra lớp cũ.",
+      "section": "MILESTONE 2 + LAB 1",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 2,
+      "title": "Học thêm lớp, vẫn nhận ra lớp cũ",
+      "kind": "timeline",
+      "message": "Bộ phân loại phải xử lý tất cả các lớp đã gặp",
+      "notes": "Ví dụ minh họa do nhóm xây dựng: hệ thống nhận diện động vật học chó và mèo, sau đó học chim và cá. Ở pha sau, đầu vào vẫn có thể là ảnh mèo. Không có task ID cho biết ảnh đến từ giai đoạn nào. Vì thế bài toán là phân loại trên hợp các lớp đã gặp, không phải chọn một head riêng khi đã biết nhiệm vụ. Lịch sử này mô tả vấn đề chứ không phải một kết quả thực nghiệm. Các thí nghiệm thật dùng CIFAR-100 với 50 lớp base. Điều quan trọng ở đây là thay đổi không gian nhãn và sự cạnh tranh giữa lớp cũ với lớp mới. Chuyển sang ràng buộc exemplar-free.",
+      "section": "BÀI TOÁN",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 3,
+      "title": "Exemplar-free và replay",
+      "kind": "replay",
+      "message": "DS-AL giữ trạng thái đại số thay cho ảnh replay",
+      "notes": "Replay lưu một phần dữ liệu cũ rồi trộn với dữ liệu mới. Điều đó hỗ trợ cập nhật biểu diễn, nhưng cần ngân sách exemplar và quyền lưu dữ liệu. DS-AL giữ backbone cố định, phép chiếu, head và ma trận thống kê, không cần replay ảnh cũ trong bước học tăng dần. Tuy nhiên, lưu thống kê không phải một chứng minh differential privacy và không có nghĩa mọi thông tin về dữ liệu bị xóa. Trong triển khai phục vụ kiểm chứng, dataset và feature cache vẫn có trên đĩa để đánh giá; lời khẳng định exemplar-free chỉ áp dụng việc fit mỗi pha không lấy mẫu cũ trở lại. Chuyển sang các phương pháp tiền nhiệm.",
+      "section": "BÀI TOÁN",
+      "refs": [
+        "1",
+        "5"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 4,
+      "title": "Từ distillation đến analytic learning",
+      "kind": "related",
+      "message": "Mỗi hướng giải quyết một phần của bài toán",
+      "notes": "LwF dùng distillation trên dữ liệu mới để giữ hành vi cũ. Khi dữ liệu pha mới không đại diện cho dữ liệu cũ, ràng buộc này có thể không giữ đủ khả năng phân biệt, nên cần cân bằng hai mục tiêu. iCaRL sử dụng exemplar để hỗ trợ phân loại và học biểu diễn, nhưng yêu cầu lưu dữ liệu cũ. ACIL giữ đặc trưng cố định và nghiệm ridge qua thống kê, nên tránh cập nhật gây lệch nghiệm head; hạn chế là năng lực biểu diễn của một ánh xạ tuyến tính trong embedding mở rộng. Đây là hạn chế mà DS-AL nhắm đến bằng nhánh bù. Các mô tả là phân tích cơ chế, không phải thứ hạng từ một benchmark mà nhóm chưa chạy.",
+      "section": "BỐI CẢNH",
+      "refs": [
+        "3",
+        "4",
+        "5"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 5,
+      "title": "Khoảng trống và đóng góp",
+      "kind": "contributions",
+      "message": "Thêm khả năng khớp mà vẫn giữ cấu trúc cập nhật đại số",
+      "notes": "Bài báo nêu ba loại đóng góp. Về lý thuyết, C-RLS cho nhánh chính trùng nghiệm ridge học gộp khi thỏa điều kiện. Về kỹ thuật, DAC học phần dư với activation bổ sung, còn PLC áp cấu trúc lớp mới vào mục tiêu bù. Về thực nghiệm, tác giả đánh giá trên CIFAR-100 và ImageNet với các số pha khác nhau. Ba đóng góp có mức độ bảo đảm khác nhau: định lý của head chính là đẳng thức toán học, còn tăng accuracy nhờ nhánh bù là kết quả thực nghiệm. Không suy ra nhánh bù luôn giúp mọi dữ liệu. Triển khai và ablation của nhóm sẽ kiểm tra cụ thể điều đó.",
+      "section": "BỐI CẢNH",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 6,
+      "title": "Kiến trúc tổng thể DS-AL",
+      "kind": "architecture",
+      "message": "Đóng băng biểu diễn, cập nhật hai head rồi cộng điểm",
+      "notes": "Ảnh đi qua CNN đã huấn luyện trên lớp base. Đầu ra 64 chiều của ResNet-32 được mở rộng bằng phép chiếu cố định B. Cùng một Z tạo hai embedding: ReLU cho main stream và tanh cho compensation stream. Main stream học nhãn one-hot, sau đó tạo residual cho nhánh bù. Pha mới dùng PLC trước khi cập nhật compensation head. Khi dự đoán, cộng score của nhánh chính với C lần score nhánh bù rồi lấy argmax. Luồng tạo nhãn bù chỉ tồn tại khi huấn luyện và được vẽ riêng với luồng suy luận. Hình do nhóm dựng lại từ mô tả và Algorithm 1–2, không dùng hình tác giả.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 7,
+      "title": "Protocol CIFAR-100 B50",
+      "kind": "protocol",
+      "message": "50 lớp base, 50 lớp mới chia đều qua K pha",
+      "notes": "CIFAR-100 có 50.000 ảnh train và 10.000 ảnh test. Sau khi remap theo class order, 50 lớp đầu chỉ dùng để huấn luyện backbone. Phần còn lại chia thành K pha disjoint. Với K=5, mỗi pha thêm 10 lớp; K=25 thêm 2 lớp; K=50 thêm 1 lớp. Mỗi pha đánh giá trên tất cả lớp đã gặp với test split cố định, không cung cấp task ID. Backbone không cập nhật trong analytic learning. Nhóm dùng checkpoint epoch cuối thay vì chọn checkpoint có test accuracy tốt nhất. Dataset tải bằng mã từ Hugging Face và lưu revision cụ thể.",
+      "section": "PROTOCOL",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 8,
+      "title": "Ký hiệu và kích thước",
+      "kind": "notation",
+      "message": "X là embedding theo hàng mẫu, W mở rộng theo số lớp",
+      "notes": "Tại pha k, n_k là số mẫu hiện tại, c_k là tổng số lớp đã gặp, d là chiều feature backbone và m là chiều buffer. X_M,k và X_C,k đều có n_k hàng, m cột. Y_k là one-hot đã đặt vào hệ chỉ số nhãn toàn cục, có c_k cột. W_M,k và W_C,k có m hàng, c_k cột. R là nghịch đảo tương quan kích thước m×m. K là số pha tăng dần sau pha base, nên có K+1 lần đánh giá. Gamma điều chuẩn ridge, C là hệ số hợp nhất score. Dùng chỉ số này xuyên suốt để tránh nhầm số lớp của riêng pha với số lớp tích lũy.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 9,
+      "title": "Backbone học một lần trên lớp base",
+      "kind": "training",
+      "message": "160 epoch hoàn tất, checkpoint cuối được giữ cố định",
+      "notes": "Đường cong là log huấn luyện thật của nhóm trên 50 lớp base, không phải accuracy cuối trên đủ 100 lớp. ResNet-32 dùng SGD, momentum 0,9, batch 128, learning rate 0,1 và weight decay 5e-4. Scheduler giảm learning rate tại epoch 80 và 120, phù hợp Supplement C. Augmentation crop và flip chỉ dùng lúc huấn luyện backbone. Khi kết thúc epoch 160, test accuracy trên lớp base là 76,92%. Đây là checkpoint cuối chứ không chọn đỉnh đường cong theo test set. Thực nghiệm chạy CPU với PyTorch 2.5.1+cpu; không đối chiếu tốc độ với RTX 3090 của tác giả.",
+      "section": "TRIỂN KHAI",
+      "refs": [
+        "2",
+        "6"
+      ],
+      "runs": [
+        "base-training"
+      ],
+      "dark": false
+    },
+    {
+      "number": 10,
+      "title": "Một phép chiếu, hai embedding",
+      "kind": "embeddings",
+      "message": "ReLU và tanh tạo hai không gian đặc trưng bổ sung",
+      "notes": "Buffer ở đây là phép mở rộng feature ngẫu nhiên, không phải replay buffer. Triển khai lấy B từ phân phối chuẩn với độ lệch chuẩn 1, không bias, seed cố định. Z=f(x)B đi vào cả hai activation. Nhánh chính dùng ReLU, nhánh bù dùng tanh theo cấu hình CIFAR-100 trong paper. Đồ thị ReLU/tanh chỉ minh họa định nghĩa toán học, không phải đo trên dataset. Hai activation khác nhau làm tăng lớp hàm score có thể biểu diễn. Việc tăng lớp hàm chưa bảo đảm tăng accuracy kiểm tra. Khác biệt phân phối projection chưa được PDF mô tả đầy đủ là một giả thuyết cần kiểm chứng khi phân tích gap.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 11,
+      "title": "Ridge regression của nhánh chính",
+      "kind": "ridge",
+      "message": "Cân bằng độ khớp nhãn và độ lớn trọng số",
+      "notes": "Mục tiêu là tối thiểu hóa tổng bình phương sai số giữa Y và XW cộng gamma lần bình phương Frobenius của W. Gamma dương làm ma trận XᵀX+gamma I xác định dương, cho nghiệm duy nhất ngay cả khi feature thiếu hạng. Nhánh chính tuyến tính trong embedding, nhưng pipeline từ pixel đã phi tuyến nhờ CNN và ReLU. Công thức nghịch đảo diễn đạt nghiệm; mã dùng Cholesky solve để tránh tính nghịch đảo tường minh trong chế độ stats. Gamma được cộng đúng một lần cho mục tiêu tích lũy. Đây là nền tảng để xem học tăng dần như cập nhật thống kê của cùng một bài toán ridge.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 12,
+      "title": "Padding khi xuất hiện lớp mới",
+      "kind": "padding",
+      "message": "Giữ các cột cũ và thêm cột 0 đúng hệ chỉ số nhãn",
+      "notes": "Minh họa dùng hai lớp cũ và hai lớp mới, không phải giá trị thực nghiệm. Khi tổng lớp tăng từ hai lên bốn, head cũ được thêm hai cột 0. Nhãn của dữ liệu mới có bốn cột, với phần cũ bằng 0. Đồng thời cross-correlation của dữ liệu quá khứ được padding 0 cho các lớp chưa xuất hiện lúc đó. Nếu one-hot chỉ chứa các lớp trong minibatch mà không remap về nhãn toàn cục, các cột bị trùng ý nghĩa và định lý không còn áp dụng. Padding chỉ là bước chuẩn bị; cập nhật tiếp theo vẫn có thể thay đổi score lớp cũ.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 13,
+      "title": "C-RLS cập nhật nghiệm ridge",
+      "kind": "crls",
+      "message": "Gain Lₖ truyền sai số pha hiện tại vào head đã padding",
+      "notes": "L_k là gain kích thước m×n_k, không phải learning rate tối ưu gradient. Trước tiên tính gain từ R cũ và embedding pha hiện tại. Sau đó cập nhật R và head đã padding bằng residual với head trước cập nhật. Công thức dùng L_k tương đương Eq. 11 vì Supplement A.11 chứng minh L_k=R_k X_kᵀ. Nghịch đảo ở đây có kích thước minibatch, trong khi chế độ stats giải hệ m×m ở cuối pha. Điều kiện ban đầu có thể viết R trước dữ liệu bằng gamma⁻¹I. Bản minh họa đã thống nhất Y_k là nhãn toàn cục n_k×c_k, tránh nhầm kích thước trong ký hiệu gốc.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 14,
+      "title": "Vì sao C-RLS bằng học gộp?",
+      "kind": "proof",
+      "message": "Thống kê cộng dồn giữ cùng một hệ phương trình chuẩn",
+      "notes": "Đặt G_k=gamma I+ tổng các X_iᵀX_i và Q_k là tổng cross-correlation X_iᵀY_i đã padding. Khi đó W_k=G_k⁻¹Q_k. Thêm pha chỉ cộng vào G và Q; không cần đọc lại mẫu cũ. Dùng Woodbury cho G_k⁻¹ thu được cập nhật R. Sau đó thế Q đã padding và dùng L_k=R_k X_kᵀ sẽ thu được Eq. 11. Phép cộng thống kê không phụ thuộc cách chia nhóm trong số học chính xác. Trên máy tính, thứ tự cộng và giải hệ có sai số làm tròn, vì thế kiểm tra dùng tolerance. Phác thảo này trình bày ý chính của Supplement A, không chép toàn bộ chứng minh.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 15,
+      "title": "Phạm vi của Theorem 1",
+      "kind": "guarantee",
+      "message": "Tương đương nghiệm head chính có điều kiện",
+      "notes": "Bảo đảm cần backbone, phép chiếu và activation chính cố định, gamma cố định, padding đúng và cập nhật đủ dữ liệu. Đó là tương đương với ridge học gộp trên cùng feature, không phải tương đương huấn luyện joint CNN trên tất cả ảnh. Accuracy lớp cũ vẫn có thể giảm vì lớp mới cạnh tranh và vì biểu diễn được học chủ yếu trên base. Residual của DAC được tạo ở từng thời điểm khác nhau, nên không tự suy ra toàn bộ DS-AL bất biến chính xác theo phân hoạch pha. Các test số học xác nhận main head ở tolerance đã nêu; chúng không thay thế chứng minh hoặc benchmark rộng.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 16,
+      "title": "RLS và sufficient statistics",
+      "kind": "solvers",
+      "message": "Cùng objective, khác cách giải và chi phí tính toán",
+      "notes": "Nhóm triển khai cả Woodbury RLS và stats. RLS duy trì R rồi cập nhật qua batch; stats duy trì G=gamma I+XᵀX cùng Q=XᵀY rồi giải Cholesky khi kết thúc pha. Benchmark seed 0 dùng stats, float64. Vì thế thời gian đo không thể nhận là runtime của công thức RLS trong paper. Test đối chiếu hai solver và nghiệm joint ridge cho thấy chúng giải cùng objective trong sai số cho phép. Với batch b, RLS có các thành phần O(m²b+mb²+b³). Stats tích lũy khoảng O(Nm²) rồi giải O(m³) mỗi lần finalize. Đây là bậc chi phí chính khi số lớp và chiều backbone nhỏ hơn m; còn có tích XᵀY, projection và giải nhiều vế phải. Các công thức là phân tích toán học, không phải profiling RAM/CPU.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 17,
+      "title": "DAC học phần dư sau toàn bộ pha",
+      "kind": "residual",
+      "message": "Hoàn tất main stream trước khi tạo nhãn bù",
+      "notes": "Ở pha k, nhóm cập nhật main head bằng toàn bộ dữ liệu pha hiện tại rồi mới tạo E_k=Y_k-X_M,k W_M,k. Nhánh bù dùng activation khác và học E_k bằng ridge. Không recompute mục tiêu cũ khi sang pha sau; lịch sử residual vì thế là một phần của cơ chế DAC. Nếu tạo residual ngay sau từng minibatch, head chính chưa phải nghiệm cuối của pha và kết quả sẽ phụ thuộc chunk size. Đây là vị trí mà nhóm đối chiếu với mã tác giả trên đầu vào nhỏ. Các vector minh họa trên slide là phép tính giáo dục, không phải một sample test đã được log.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 18,
+      "title": "PLC trước và sau làm sạch nhãn",
+      "kind": "plc",
+      "message": "Đặt phần residual của lớp cũ bằng 0 ở pha mới",
+      "notes": "Ví dụ giả định có hai lớp cũ và hai lớp mới. Nhãn one-hot của mẫu mới bằng 0 trên các cột cũ. Dự đoán của main head thường khác 0 ở các cột đó, nên residual cũ là số âm. PLC thay đúng hai cột cũ bằng 0 và giữ nguyên phần residual mới, kể cả phần tử âm trong những cột mới không phải lớp đúng. Pha base không áp PLC. Đây là điều kiện cấu trúc nhãn, không phải đóng băng trọng số cũ hoặc bảo đảm điểm lớp cũ bất biến. Ví dụ được tính lại từng ô để người đọc thấy tác dụng mà một ma trận toàn 0 sẽ không thể hiện.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 19,
+      "title": "Hợp nhất hai nhánh khi dự đoán",
+      "kind": "fusion",
+      "message": "C điều khiển đóng góp của compensation score",
+      "notes": "Điểm dự đoán bằng X_M W_M cộng C X_C W_C. Chọn lớp bằng argmax trên tất cả cột đã gặp. Score ridge không mặc nhiên là xác suất đã hiệu chỉnh, nên không gọi các giá trị trong sơ đồ là confidence được calibrated. C càng lớn thì đóng góp nhánh bù càng lớn, nhưng tính chính xác có thể tăng hoặc giảm tùy cân bằng lớp cũ và mới. Paper dùng C=0,6 cho CIFAR-100, 0,8 cho ImageNet-100, 1,4 cho ImageNet-Full. Nhóm giữ 0,6 trong suite CIFAR để đối sánh. Chưa chạy grid search của riêng nhóm và không chọn C từ test tốt nhất.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 20,
+      "title": "Bộ nhớ trạng thái và chi phí thực tế",
+      "kind": "memory",
+      "message": "Hai ma trận FP64 tại m=8192 chiếm đúng 1 GiB",
+      "notes": "Số 1 GiB được tính từ 2×8192²×8 byte, chỉ gồm hai ma trận tương quan hoặc nghịch đảo tương quan. Nó không phải tổng RAM đo khi chạy. Với cùng m và FP64, ACIL cần một ma trận này, 512 MiB; DS-AL cần hai. Replay còn cần O(M lần kích thước ảnh) cho M exemplar và có thể huấn luyện lại CNN; không có một runtime chung cho mọi phương pháp replay. Với m và số lớp c cố định, trạng thái không tăng theo số mẫu lịch sử, nhưng head vẫn tăng theo c với O(mc). Phép chiếu có O(dm). Workspace Cholesky, cross-correlation, head, backbone và feature cache làm RAM thực tế lớn hơn. Nhóm không có phép đo peak RAM đủ tin cậy cho suite CPU, nên không tạo đường cong RAM đo. Thời gian fit báo riêng từ log, không gộp thời gian huấn luyện CNN.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "3",
+        "5"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 21,
+      "title": "Hai thước đo, hai góc nhìn",
+      "kind": "metrics",
+      "message": "A-bar mô tả tiến trình, A_K mô tả trạng thái cuối",
+      "notes": "A_k là phần trăm phân loại đúng trên các lớp đã gặp ở pha k. A-bar lấy trung bình K+1 giá trị, bao gồm pha base. A_K là accuracy ở pha cuối sau khi học đủ 100 lớp. Đường cong minh họa lấy từ DS-AL K=5 của nhóm; test set mở rộng từ 50 đến 100 lớp nên accuracy giảm không thể đọc đơn giản là quên hoàn toàn lớp cũ. Khi so K=5 với K=50, A-bar còn thay đổi vì số điểm và tập lớp ở thời điểm trung gian khác nhau. Vì vậy cần nhìn đồng thời A_K và A-bar.",
+      "section": "THỰC NGHIỆM",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 22,
+      "title": "Phạm vi tái hiện: Core scope",
+      "kind": "scope",
+      "message": "Hai nhóm thí nghiệm chính và một khảo sát tự thiết kế",
+      "notes": "Theo hướng dẫn Lab 1, Core scope cần ít nhất hai thí nghiệm quan trọng, trong đó có headline comparison, và một phân tích bổ sung do nhóm thiết kế. Nhóm chọn E1: ACIL so với DS-AL trên CIFAR-100, tương ứng Table 1. E2: ablation DAC/PLC, nhưng chuyển Table 2 từ ImageNet-Full C=1,4 sang CIFAR-100 C=0,6 vì giới hạn tài nguyên. Do đó E2 kiểm tra cùng cơ chế, không tái hiện nguyên số Table 2 và mức tương đương phạm vi cần giảng viên chấp nhận. E3: khảo sát buffer 512 đến 8192 với accuracy và thời gian fit. Chưa làm ImageNet, ResNet-18 hoặc K=500. Không tự nhận Full scope.",
+      "section": "THỰC NGHIỆM",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 23,
+      "title": "Thiết lập và khả năng tái lập",
+      "kind": "setup",
+      "message": "Giữ cùng backbone, dữ liệu và seed giữa các biến thể",
+      "notes": "Dataset tải từ uoft-cs/cifar100 trên Hugging Face, revision được pin trong feature identity. Class order là permutation 100 lớp của NumPy RandomState(0). Suite dùng cùng feature cache và checkpoint SHA-256; gamma=0,1, tanh, C=0,6, projection chuẩn không bias. Phiên bản khi thực nghiệm là Python 3.11.8, torch 2.5.1+cpu, torchvision 0.20.1+cpu và W&B 0.23.1. SDK hiện dùng để đọc/sync là 0.31.0, không gán nó thành phiên bản đã chạy benchmark. Chỉ có seed 0 cho CIFAR; các thí nghiệm tổng hợp ba seed là bộ bằng chứng khác.",
+      "section": "THỰC NGHIỆM",
+      "refs": [
+        "2"
+      ],
+      "runs": [
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 24,
+      "title": "Nhóm tự triển khai và kiểm tra gì?",
+      "kind": "tests",
+      "message": "11 kiểm thử đạt, gồm hợp đồng toán học và tính toàn vẹn",
+      "notes": "Core nằm trong AnalyticRidge và DualStreamAnalytic, độc lập với mã tác giả. Các test xác nhận hai solver bằng nghiệm joint ridge khi mở rộng nhãn; mục tiêu compensation dùng main head cuối pha và PLC; chunk size không đổi ngữ nghĩa pha; dữ liệu vi phạm disjoint bị từ chối; checkpoint resume khôi phục chính xác quỹ đạo. Các test sync bổ sung bảo vệ file gốc và chặn remote ID collision. Kết quả 11 passed được chạy lại trong đợt kiểm tra này. Tái sử dụng torch, torchvision và bộ nạp dữ liệu là thành phần hỗ trợ được ghi nhận. Đối chiếu mã tác giả là kiểm chứng riêng, không dùng code đó trong benchmark.",
+      "section": "THỰC NGHIỆM",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 25,
+      "title": "Từ số trên slide tới bằng chứng",
+      "kind": "trace",
+      "message": "Config, log và W&B cùng xác định một kết quả",
+      "notes": "Mỗi run có config và summary, accuracy từng pha, phiên bản thư viện, dataset revision, class order và feature/checkpoint identity. Mỗi URL trên slide đã được đọc lại bằng API Forge và kiểm tra công khai không dùng credentials. Khi thực nghiệm, git_commit là d8d485f và dirty=true. Vì vậy commit ID đơn lẻ chưa mô tả toàn bộ trạng thái mã; source_sha256 trong provenance là bằng chứng bổ sung và cần giữ cùng config. Không nói các run xuất phát từ một commit sạch. Repository được xác nhận public khi công bố; snapshot log/config nhẹ và mapping thí nghiệm được giữ trong repo để người đọc truy vết.",
+      "section": "THỰC NGHIỆM",
+      "refs": [],
+      "runs": [
+        "base-training",
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 26,
+      "title": "Kết quả gốc trên CIFAR-100",
+      "kind": "paper_table",
+      "message": "DS-AL: ResNet-32, mean ± std từ 3 lần chạy",
+      "notes": "Bảng này là kết quả của tác giả, không phải của nhóm. Đã đối chiếu trực quan Table 1, chỉ lấy hàng CIFAR-100 ResNet-32, không lấy các giá trị trong ngoặc của ResNet-18. Với DS-AL, paper nêu mean và standard deviation của ba lần chạy; các con số 58,26/58,32/58,37 là A_K cho K=5/25/50. A-bar tương ứng là 66,39/66,20/66,33. ACIL là baseline trong cùng bảng. Đây là nguồn đối sánh E1; ablation Table 2 của paper dùng ImageNet-Full nên không trộn vào bảng CIFAR của nhóm.",
+      "section": "KẾT QUẢ TÁC GIẢ",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 27,
+      "title": "Paper và tái hiện trên cùng protocol CIFAR",
+      "kind": "paper_compare",
+      "message": "DS-AL seed 0 đạt A_K = 56,87%",
+      "notes": "Đối sánh dùng CIFAR-100 B50, ResNet-32, K=5, buffer 8192, gamma 0,1 và C 0,6 cho DS-AL. ACIL của nhóm đạt A-bar 65,7880%, A_K 56,56%; DS-AL đạt 65,8219% và 56,87%. Paper tương ứng 66,30/57,78 cho ACIL và 66,39/58,26 cho DS-AL. Các thanh đồ thị bắt đầu từ 0 để không phóng đại chênh lệch. Nhóm chỉ chạy một seed, trong khi paper lấy mean ba run. Vì vậy kết quả gần về protocol nhưng chưa chứng minh tái hiện đúng phân phối thống kê. Các URL đầy đủ dẫn đến run tương ứng, không dùng nhãn “đã có URL”.",
+      "section": "KẾT QUẢ NHÓM",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "acil-k5",
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 28,
+      "title": "Định lượng sai lệch ở pha cuối",
+      "kind": "gap",
+      "message": "Khoảng cách DS-AL là −1,39 điểm phần trăm",
+      "notes": "Delta tuyệt đối theo điểm phần trăm bằng kết quả nhóm trừ paper. Độ lệch tương đối bằng 100×(nhóm−paper)/paper. ACIL: 56,56−57,78=−1,22 pp, tương đối khoảng −2,11%. DS-AL: 56,87−58,26=−1,39 pp, tương đối khoảng −2,39%. A-bar của ACIL thấp hơn khoảng 0,512 pp, DS-AL khoảng 0,568 pp. Không gọi chênh lệch 1,39 pp là giảm 1,39% tương đối. Những giá trị này mô tả khoảng cách của seed 0; chúng không xác định nguyên nhân. Phần thảo luận sau tách khác biệt đã kiểm tra khỏi các giả thuyết cần chạy thêm.",
+      "section": "PHÂN TÍCH KẾT QUẢ",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "acil-k5",
+        "dsal-k5"
+      ],
+      "dark": true
+    },
+    {
+      "number": 29,
+      "title": "Ablation DAC và PLC",
+      "kind": "ablation",
+      "message": "Ở seed 0, PLC khôi phục lợi ích của nhánh bù",
+      "notes": "Tất cả biến thể dùng cùng backbone, feature cache, class order, projection seed và gamma. Khi thêm DAC nhưng không PLC, A_K từ 56,56 giảm xuống 56,24, chênh −0,32 pp. Khi bật PLC, A_K tăng từ 56,24 lên 56,87, tức +0,63 pp. DS-AL đầy đủ hơn ACIL +0,31 pp ở pha cuối, nhưng A-bar chỉ hơn khoảng 0,034 pp. Dữ liệu hỗ trợ nhận định PLC hữu ích trong cấu hình này, không cho phép khẳng định DAC đơn lẻ luôn cải thiện. Thí nghiệm là bản ablation chuyển từ ImageNet-Full sang CIFAR, không phải các giá trị Table 2 của tác giả. Một seed chưa có kiểm định ý nghĩa thống kê.",
+      "section": "PHÂN TÍCH KẾT QUẢ",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 30,
+      "title": "Accuracy theo từng pha tăng dần",
+      "kind": "phase_curves",
+      "message": "Nhánh bù thay đổi cân bằng lớp cũ và lớp mới",
+      "notes": "Đường cong vẽ accuracy trên các lớp đã gặp ở mỗi pha, lấy trực tiếp từ phases.json. Cả ba biến thể dùng cùng protocol K=5. Ở pha cuối, ACIL có base accuracy 69,56% và novel accuracy 43,56%; DS-AL có 67,58% và 46,16%. Vì base và novel đều có 5.000 ảnh test, trung bình hai giá trị bằng accuracy tổng. DS-AL tăng novel +2,60 pp đồng thời giảm base −1,98 pp, tạo lợi ích tổng +0,31 pp. Đây phù hợp cơ chế đánh đổi stability/plasticity của paper, nhưng chỉ là mô tả của seed 0 và chưa chứng minh tổng quát. Không so hai nhóm có số ảnh khác nhau mà bỏ qua trọng số.",
+      "section": "PHÂN TÍCH KẾT QUẢ",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 31,
+      "title": "Khảo sát số pha K",
+      "kind": "phase_sweep",
+      "message": "A_K dao động 0,04 pp khi K thay đổi từ 5 tới 50",
+      "notes": "Dùng cùng backbone và cùng phép chiếu ở seed 0, K=5/25/50 cho A_K lần lượt 56,87/56,83/56,87%. A-bar tương ứng 65,8219/65,5433/65,5361%. Đường cong cuối gần nhau hỗ trợ quan sát ổn định ở cấu hình này. Tuy nhiên, khác biệt 0,04 pp không chứng minh head bù hoặc score bất biến chính xác theo pha. Thay K còn làm thay đổi các điểm đánh giá trung gian nên A-bar cần diễn giải thận trọng. Paper khảo sát tới K=500 trên ImageNet-Full, còn đây là mở rộng vừa sức trên CIFAR-100. Không ghi đã tái hiện thí nghiệm 500 pha.",
+      "section": "PHÂN TÍCH KẾT QUẢ",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "dsal-k5",
+        "dsal-k25",
+        "dsal-k50"
+      ],
+      "dark": false
+    },
+    {
+      "number": 32,
+      "title": "Phân tích tự thiết kế: chiều buffer",
+      "kind": "research_design",
+      "message": "Đánh đổi accuracy với thời gian fit khi thay m",
+      "notes": "Câu hỏi là giảm chiều buffer tiết kiệm bao nhiêu thời gian và phải đánh đổi accuracy thế nào trên cùng feature CIFAR-100. Đây là khảo sát nhóm khai báo trong suite, không phải sao chép một bảng m tương ứng của DS-AL. Giả thuyết làm việc là m lớn tăng năng lực biểu diễn nhưng tăng chi phí tính toán; đây là giả thuyết trước diễn giải kết quả, không phải định lý về accuracy. Giữ dữ liệu, backbone, thứ tự lớp, seed, gamma, C, activation và solver; thay m trong 512/1024/2048/8192. Các ma trận projection cùng seed nhưng khác shape không lồng nhau, nên hiệu ứng còn có thể chứa khác biệt hiện thực hóa ngẫu nhiên. Cần nhiều seed để tách yếu tố đó.",
+      "section": "PHÂN TÍCH TỰ THIẾT KẾ",
+      "refs": [],
+      "runs": [
+        "buffer-512",
+        "buffer-1024",
+        "buffer-2048",
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 33,
+      "title": "Accuracy và thời gian theo buffer",
+      "kind": "buffer_results",
+      "message": "m=8192 tăng 5,41 pp so với m=512, với chi phí fit lớn hơn",
+      "notes": "Bảng kết hợp các giá trị thực đo: m=512/1024/2048/8192 có A_K 51,46/53,36/54,97/56,87%. Thời gian fit lần lượt khoảng 0,901/1,672/5,177/86,513 giây, cộng trên sáu pha và không gồm base training, trích feature hay logging. Không thay bằng elapsed_seconds vì chỉ số đó bao gồm chi phí khác. Xu hướng accuracy tăng trong bốn cấu hình này phù hợp giả thuyết về capacity, nhưng chưa bảo đảm tính đơn điệu cho seed hoặc dataset khác. Runtime còn phụ thuộc máy CPU và tải hệ thống; không so với thời gian GPU của paper. Không có số đo peak RAM, vì vậy chỉ báo accuracy/time thực đo trên slide này.",
+      "section": "PHÂN TÍCH TỰ THIẾT KẾ",
+      "refs": [],
+      "runs": [
+        "buffer-512",
+        "buffer-1024",
+        "buffer-2048",
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 34,
+      "title": "Đã biết gì về reproduction gap?",
+      "kind": "evidence_gap",
+      "message": "Phân biệt khác biệt đã thấy và nguyên nhân chưa được đo",
+      "notes": "Đã xác minh: paper dùng mean ba run trên RTX 3090, nhóm có một seed CPU; benchmark dùng stats thay vì đường chạy RLS; ablation chuyển dataset; phép so sánh với mã tác giả cho thấy khác biệt residual khi chia minibatch. Nhưng chưa đo thí nghiệm đối chứng để quy gap 1,39 pp cho từng yếu tố. Class order, khởi tạo backbone, phân phối projection, phiên bản thư viện và chi tiết kiến trúc có thể ảnh hưởng. Nói chúng là giả thuyết, không phải nguyên nhân đã chứng minh. Hardware giải thích chênh runtime, không tự giải thích chênh accuracy. Các tests tương đương solver giảm khả năng lỗi phương trình, nhưng không xác nhận toàn bộ pipeline giống hệt tác giả.",
+      "section": "THẢO LUẬN",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [
+        "reference-comparison"
+      ],
+      "dark": false
+    },
+    {
+      "number": 35,
+      "title": "Kết luận trong phạm vi seed 0",
+      "kind": "conclusion",
+      "message": "Đã tái dựng được cơ chế và đo rõ lợi ích cùng giới hạn",
+      "notes": "Nhóm đã tự triển khai main ridge, DAC và PLC, kiểm tra bằng tests và đầu ra mã tham chiếu, rồi hoàn tất tám biến thể CIFAR-100 seed 0. DS-AL K=5 đạt A_K 56,87%, cao hơn ACIL 0,31 pp và thấp hơn paper 1,39 pp. Trong ablation, PLC giúp +0,63 pp so với DAC không PLC. Khảo sát K cho kết quả pha cuối gần nhau, còn tăng m cải thiện accuracy ở seed đang xét với chi phí fit tăng mạnh. Giới hạn còn lại là một seed, ablation chuyển miền và chưa tái hiện ImageNet. Bước tiếp theo là nhiều seed và xác minh cấu hình chưa nêu rõ, không điền thêm số khi chưa chạy. Phụ lục cung cấp chứng cứ kỹ thuật để người đọc kiểm tra.",
+      "section": "KẾT LUẬN",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ],
+      "dark": true
+    },
+    {
+      "number": 36,
+      "title": "Phụ lục: gain và kích thước ma trận",
+      "kind": "gain_detail",
+      "message": "Lₖ = RₖXₖᵀ là mắt xích trong chứng minh",
+      "notes": "Từ Woodbury, R_k=R_prev−R_prev Xᵀ(I+X R_prev Xᵀ)⁻¹X R_prev. Nhân hai vế với Xᵀ và dùng I−(I+A)⁻¹A=(I+A)⁻¹, thu R_k Xᵀ=R_prev Xᵀ(I+X R_prev Xᵀ)⁻¹=L_k. Đặt W_prev đã padding có kích thước m×c_k thì Y_k−X_k W_prev có n_k×c_k. Nhân L_k tạo cập nhật m×c_k đúng kích thước. Điều này nối hình thức gain phổ biến trong RLS với Eq. 11 của paper. Ma trận I trong gain là n_k×n_k, còn I trong regularization là m×m. Tách hai kích thước là điểm cần chú ý khi giải thích.",
+      "section": "PHỤ LỤC",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 37,
+      "title": "Phụ lục: đối chiếu mã tác giả",
+      "kind": "reference",
+      "message": "Sai khác xuất hiện ở cách tạo residual theo minibatch",
+      "notes": "Nhóm dùng checkout 0afd6bf để kiểm chứng trên đầu vào tổng hợp nhỏ, cùng projection và nhãn. Khi mỗi pha là một batch 20 mẫu, sai số score tối đa khoảng 7,88e-13 và head bù khoảng 2,32e-12, phù hợp sai số số học. Khi mã tác giả chia batch 4, head chính vẫn gần nhau nhưng head bù lệch tối đa 0,2257 và score lệch 0,0815. Đây là bằng chứng hai cách xác định thời điểm tạo residual khác nhau. Không từ đó kết luận toàn bộ mã tác giả sai hay rằng đã tìm được nguyên nhân gap CIFAR. Benchmark nhóm giữ residual sau main head cuối pha theo Algorithm 1 của supplementary.",
+      "section": "PHỤ LỤC",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [
+        "reference-comparison"
+      ],
+      "dark": false
+    },
+    {
+      "number": 38,
+      "title": "Phụ lục: phạm vi của bất biến pha",
+      "kind": "mechanism",
+      "message": "Head chính gần bất biến, head bù có thể đổi",
+      "notes": "Đây là thí nghiệm cơ chế tổng hợp hỗ trợ đọc hiểu và là bằng chứng Lab 2, không dùng thay benchmark CIFAR của Lab 1. Giữ dữ liệu, projection và gamma, thay số pha 1/2/5 trên ba seed. W_M cuối khác nhau khoảng cỡ 1e-14, còn W_C và score thay đổi rõ. Điều đó cho thấy không thể dùng riêng Theorem 1 để kết luận toàn DS-AL bất biến chính xác theo cách chia pha. Nó không phủ nhận quan sát accuracy gần ổn định trên dataset ảnh. Kết luận cần phân biệt nghiệm của main head, trọng số compensation, score và accuracy; chúng là bốn phát biểu khác nhau.",
+      "section": "PHỤ LỤC",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "phase-dependence"
+      ],
+      "dark": false
+    },
+    {
+      "number": 39,
+      "title": "Phụ lục: cấu hình và provenance",
+      "kind": "provenance_detail",
+      "message": "Một run cần nhiều hơn một nhãn seed",
+      "notes": "Phụ lục ghi lại seed, class order, revision dữ liệu, checksum checkpoint và feature cache, cùng phiên bản đã chạy. Đây là thông tin truy vết, không phải dữ liệu thay thế kết quả. Config dùng revision main để bắt đầu, nhưng loader resolve một lần và feature identity giữ commit SHA của dataset; chạy lại phải giữ SHA này. Random projection không bias và chuẩn độ lệch chuẩn 1 là lựa chọn công khai của nhóm khi paper không cho đủ chi tiết. Provenance có git_dirty=true nên cần giữ manifest source SHA-256, không chỉ checkout commit. Không đưa API key vào bất kỳ config công khai hoặc slide nào.",
+      "section": "PHỤ LỤC",
+      "refs": [],
+      "runs": [
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 40,
+      "title": "Điều kiện trước khi nộp",
+      "kind": "readiness",
+      "message": "Sản phẩm có bằng chứng seed 0, còn các giới hạn cần công khai",
+      "notes": "Bộ slide có đủ phần đọc hiểu, phương pháp, kết quả, phân tích và phụ lục; mọi số thực nghiệm được đối chiếu local/W&B. Repository đã được xác nhận public khi chuẩn bị công bố theo yêu cầu mới của nhóm. Bản công bố kèm nguồn tạo slide, snapshot log/config nhẹ và mapping W&B để truy vết. Core scope có một ablation chuyển dataset; nhóm phải trình bày rõ hoặc xin giảng viên chấp nhận phạm vi, không tự coi là tái hiện nguyên Table 2. Chưa có nhiều seed benchmark nên không trình bày mean/std của nhóm. Những điểm này là điều kiện thực tế trước nộp, không phải placeholder cho dữ liệu đã có.",
+      "section": "PHỤ LỤC",
+      "refs": [],
+      "runs": [],
+      "dark": true
+    }
+  ],
+  "evidence_file": "assets/verified_evidence.json"
+}

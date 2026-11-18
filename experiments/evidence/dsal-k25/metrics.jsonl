@@ -1,0 +1,26 @@
+{"step": 0, "cil/phase": 0, "cil/classes": 50, "cil/fit_seconds": 35.731679499993334, "cil/accuracy": 77.44, "cil/base_accuracy": 77.44}
+{"step": 1, "cil/phase": 1, "cil/classes": 52, "cil/fit_seconds": 3.844010500004515, "cil/accuracy": 76.28846153846153, "cil/base_accuracy": 76.44, "cil/novel_accuracy": 72.5}
+{"step": 2, "cil/phase": 2, "cil/classes": 54, "cil/fit_seconds": 3.672548900009133, "cil/accuracy": 75.07407407407408, "cil/base_accuracy": 75.3, "cil/novel_accuracy": 72.25}
+{"step": 3, "cil/phase": 3, "cil/classes": 56, "cil/fit_seconds": 3.918548200002988, "cil/accuracy": 73.73214285714286, "cil/base_accuracy": 74.56, "cil/novel_accuracy": 66.83333333333333}
+{"step": 4, "cil/phase": 4, "cil/classes": 58, "cil/fit_seconds": 3.7506592999998247, "cil/accuracy": 72.0, "cil/base_accuracy": 73.94, "cil/novel_accuracy": 59.875}
+{"step": 5, "cil/phase": 5, "cil/classes": 60, "cil/fit_seconds": 3.6181391999998596, "cil/accuracy": 71.48333333333333, "cil/base_accuracy": 73.72, "cil/novel_accuracy": 60.3}
+{"step": 6, "cil/phase": 6, "cil/classes": 62, "cil/fit_seconds": 3.7506644999957643, "cil/accuracy": 70.37096774193549, "cil/base_accuracy": 73.36, "cil/novel_accuracy": 57.91666666666667}
+{"step": 7, "cil/phase": 7, "cil/classes": 64, "cil/fit_seconds": 3.641954299993813, "cil/accuracy": 69.34375, "cil/base_accuracy": 72.89999999999999, "cil/novel_accuracy": 56.64285714285714}
+{"step": 8, "cil/phase": 8, "cil/classes": 66, "cil/fit_seconds": 4.265412499997183, "cil/accuracy": 68.77272727272728, "cil/base_accuracy": 72.44, "cil/novel_accuracy": 57.3125}
+{"step": 9, "cil/phase": 9, "cil/classes": 68, "cil/fit_seconds": 4.441430399994715, "cil/accuracy": 67.82352941176471, "cil/base_accuracy": 71.96000000000001, "cil/novel_accuracy": 56.333333333333336}
+{"step": 10, "cil/phase": 10, "cil/classes": 70, "cil/fit_seconds": 3.785585000005085, "cil/accuracy": 66.67142857142856, "cil/base_accuracy": 71.56, "cil/novel_accuracy": 54.449999999999996}
+{"step": 11, "cil/phase": 11, "cil/classes": 72, "cil/fit_seconds": 3.7016096000006655, "cil/accuracy": 65.76388888888889, "cil/base_accuracy": 71.28, "cil/novel_accuracy": 53.22727272727272}
+{"step": 12, "cil/phase": 12, "cil/classes": 74, "cil/fit_seconds": 3.78815740000573, "cil/accuracy": 64.9054054054054, "cil/base_accuracy": 70.92, "cil/novel_accuracy": 52.37500000000001}
+{"step": 13, "cil/phase": 13, "cil/classes": 76, "cil/fit_seconds": 3.6735085000109393, "cil/accuracy": 64.05263157894737, "cil/base_accuracy": 70.66, "cil/novel_accuracy": 51.34615384615384}
+{"step": 14, "cil/phase": 14, "cil/classes": 78, "cil/fit_seconds": 3.7488946999947075, "cil/accuracy": 63.98717948717949, "cil/base_accuracy": 70.48, "cil/novel_accuracy": 52.39285714285714}
+{"step": 15, "cil/phase": 15, "cil/classes": 80, "cil/fit_seconds": 3.7477399000053992, "cil/accuracy": 62.8, "cil/base_accuracy": 70.16, "cil/novel_accuracy": 50.53333333333333}
+{"step": 16, "cil/phase": 16, "cil/classes": 82, "cil/fit_seconds": 3.8161648999957833, "cil/accuracy": 61.829268292682926, "cil/base_accuracy": 69.67999999999999, "cil/novel_accuracy": 49.5625}
+{"step": 17, "cil/phase": 17, "cil/classes": 84, "cil/fit_seconds": 3.8207526999904076, "cil/accuracy": 61.035714285714285, "cil/base_accuracy": 69.34, "cil/novel_accuracy": 48.8235294117647}
+{"step": 18, "cil/phase": 18, "cil/classes": 86, "cil/fit_seconds": 3.7796847999998135, "cil/accuracy": 60.44186046511628, "cil/base_accuracy": 69.19999999999999, "cil/novel_accuracy": 48.27777777777777}
+{"step": 19, "cil/phase": 19, "cil/classes": 88, "cil/fit_seconds": 3.9640059000084875, "cil/accuracy": 60.04545454545455, "cil/base_accuracy": 68.94, "cil/novel_accuracy": 48.3421052631579}
+{"step": 20, "cil/phase": 20, "cil/classes": 90, "cil/fit_seconds": 3.794534400003613, "cil/accuracy": 59.42222222222222, "cil/base_accuracy": 68.36, "cil/novel_accuracy": 48.25}
+{"step": 21, "cil/phase": 21, "cil/classes": 92, "cil/fit_seconds": 3.8745824999932665, "cil/accuracy": 59.30434782608695, "cil/base_accuracy": 68.30000000000001, "cil/novel_accuracy": 48.595238095238095}
+{"step": 22, "cil/phase": 22, "cil/classes": 94, "cil/fit_seconds": 3.760801900003571, "cil/accuracy": 58.92553191489361, "cil/base_accuracy": 68.12, "cil/novel_accuracy": 48.47727272727273}
+{"step": 23, "cil/phase": 23, "cil/classes": 96, "cil/fit_seconds": 3.645368299999973, "cil/accuracy": 58.32291666666667, "cil/base_accuracy": 67.82000000000001, "cil/novel_accuracy": 48.0}
+{"step": 24, "cil/phase": 24, "cil/classes": 98, "cil/fit_seconds": 3.798830600004294, "cil/accuracy": 57.45918367346938, "cil/base_accuracy": 67.58, "cil/novel_accuracy": 46.916666666666664}
+{"step": 25, "cil/phase": 25, "cil/classes": 100, "cil/fit_seconds": 3.684044699999504, "cil/accuracy": 56.830000000000005, "cil/base_accuracy": 67.44, "cil/novel_accuracy": 46.22}

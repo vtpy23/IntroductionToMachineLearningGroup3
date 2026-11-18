@@ -1,0 +1,50 @@
+{
+  "reference_sha": "0afd6bf87622e808ce7f730f8556e78229b9e758",
+  "provenance": {
+    "python": "3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "source_sha256": {
+      "src/__init__.py": "bc936895c590b2f12bcf6e4b0ce2c0973e8abe5709474b0eb9f13f506fe824b5",
+      "src/datasets/cifar100.py": "e2b065807b2f77df9cb968a12066359abc149839ab47ed1a7fa9bfe004f041fe",
+      "src/datasets/__init__.py": "6af4ee626a8148258c33fc172c3089787981b8d46d22e61e297d6b0ca5950c70",
+      "src/methods/analytic.py": "523ede0cc19844528b69e6d5d45a13caf695be600e8dbeca1a207deec4f7f4b3",
+      "src/methods/__init__.py": "ff434eac1324c27264932a3d8585ec12eaca061fd8a52ce31f9d4b1f86be73f6",
+      "src/models/resnet.py": "6b71ebdc855fcda2eeab4f2e575572e0bd84331edf10db921e76c567d6858407",
+      "src/models/__init__.py": "26aaa147e0cdeb2d47d8d0e191b3565a0233440e165c18c37ccf01f3ebd4bcac",
+      "src/utils/reproducibility.py": "5e4e5b76e3af8b8e035eca850dcc2fd5fc4cad8f6281cb8104fd80a165052504",
+      "src/utils/tracking.py": "bfb2288a340d5b922cbe7505a52cfcc374f580ddd3524aa16e3508236fbfe856",
+      "src/utils/__init__.py": "484b26e19e4b885d7ebfd2d4d5b6fe44bdc16f457f62d6b707f3a417f0ee6bc2",
+      "scripts/bootstrap.ps1": "07b73eec622d49fe58f7f35da449a4c9ebd04b58efbbe9a18ec0789f3af8319e",
+      "scripts/compare_reference.py": "01e7acbc6a7e5ad199f16bc014b83eab6cbc7c82c12be77940c1ea9b2dded757",
+      "scripts/doctor.py": "7647d11522b58d65dd2fb0ee1cd55d2bc0c789cdf3ac911c0dfc20dc737d7145",
+      "scripts/empirics.py": "2447be780c8afefc0411937db45822e49561fd1d7783bcb52df1399c7fdf195b",
+      "scripts/multiseed.py": "b3e8fc17a4856cab2228d59210a03495ef11ec0f17af1dc95fc620fa4adbf16f",
+      "scripts/pipeline.py": "5067895e21c7f387a20611b6727cec142eeb6599aa2e412df8e08c3f955cd195",
+      "scripts/run.py": "d352ab379a7e82008fbefa42d49313573ad1fa388190d1e42dbfa2a8eb04a7f6",
+      "scripts/start_pipeline.ps1": "3e93caf5c7fee643f646ccdb085ca29b0cf8edf55729def84c5c9ec0db4e5dc1",
+      "scripts/status.py": "11b44e799634aeff9acf72e811552c9fe8fa3eaa3f07e665c6da14d947b3524f",
+      "scripts/suite.py": "cf655c951ee940f688f8d9771bf8a490c47b1f8360f2ac276e6a5000c02602f1",
+      "scripts/summarize.py": "2d1e70d64625d9c91053fa784768eb430d70e33d2e469351b3e4cc6d93d6a6a0",
+      "scripts/sync_wandb.py": "bc375ffdda13c36e389277291d0c14a81d82abe76558cc2f826e936c5a7a9ea9",
+      "scripts/__init__.py": "328be08082da3387229ff3d196f8391afd3f7a081384b70321565dceeb50f1c0",
+      "configs/cifar100_core.json": "9cf9f723e03faa198932e301c94f7609e72eaac8fb07377a94bc616b3259f4a4",
+      "configs/cifar100_smoke.json": "d6afb102d754a36567334c569f1fa1ba05c712c936139bd16b78da503a38597c"
+    },
+    "torch": "2.5.1+cu121",
+    "numpy": "1.26.4",
+    "cuda_available": true,
+    "cuda_runtime": "12.1",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "command": [
+      "D:\\HCMUS\\HK1-N4\\Nhập môn học máy\\IntroductionToMachineLearningGroup3\\scripts\\compare_reference.py",
+      "--tracking",
+      "offline"
+    ],
+    "git_commit": "cc8e5ce373e640461a2e5f63af0765b0e75fa06e",
+    "git_dirty": true
+  },
+  "tracking": {
+    "project": "intro-ml-group3-dsal"
+  },
+  "data": "tiny synthetic output comparison"
+}

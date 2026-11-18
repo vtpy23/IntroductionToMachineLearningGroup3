@@ -1,0 +1,9 @@
+{"step": 1, "seed": 0, "increments": 1, "gamma": 0.1, "main_relative_difference": 0.0, "comp_relative_difference": 0.0, "scores_relative_difference": 0.0, "accuracy": 85.0}
+{"step": 2, "seed": 0, "increments": 2, "gamma": 0.1, "main_relative_difference": 1.4143718160192935e-14, "comp_relative_difference": 0.4540402089631375, "scores_relative_difference": 0.061867958769837215, "accuracy": 85.5}
+{"step": 3, "seed": 0, "increments": 5, "gamma": 0.1, "main_relative_difference": 1.7343911324181895e-14, "comp_relative_difference": 0.5285392700066699, "scores_relative_difference": 0.07312627986679342, "accuracy": 85.25}
+{"step": 4, "seed": 1, "increments": 1, "gamma": 0.1, "main_relative_difference": 0.0, "comp_relative_difference": 0.0, "scores_relative_difference": 0.0, "accuracy": 87.75}
+{"step": 5, "seed": 1, "increments": 2, "gamma": 0.1, "main_relative_difference": 1.574858201354845e-14, "comp_relative_difference": 0.4211974196725797, "scores_relative_difference": 0.056844887247874704, "accuracy": 88.25}
+{"step": 6, "seed": 1, "increments": 5, "gamma": 0.1, "main_relative_difference": 1.8698635810113766e-14, "comp_relative_difference": 0.5295622888662852, "scores_relative_difference": 0.06982753921346307, "accuracy": 87.5}
+{"step": 7, "seed": 2, "increments": 1, "gamma": 0.1, "main_relative_difference": 0.0, "comp_relative_difference": 0.0, "scores_relative_difference": 0.0, "accuracy": 79.75}
+{"step": 8, "seed": 2, "increments": 2, "gamma": 0.1, "main_relative_difference": 1.846048033476531e-14, "comp_relative_difference": 0.35121745391164605, "scores_relative_difference": 0.050606201569784626, "accuracy": 80.25}
+{"step": 9, "seed": 2, "increments": 5, "gamma": 0.1, "main_relative_difference": 2.0115462559897454e-14, "comp_relative_difference": 0.4856096689867528, "scores_relative_difference": 0.0674629303001235, "accuracy": 80.25}

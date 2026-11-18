@@ -4,7 +4,7 @@ import zipfile
 
 
 def main():
-    roots = ["src", "scripts", "configs", "tests", "docs", "notebooks", "experiments"]
+    roots = ["src", "scripts", "configs", "tests", "docs", "notebooks", "reports", "experiments"]
     allowed = {".py", ".json", ".md", ".ps1", ".ipynb", ".mjs", ".csv", ".png"}
     files = [Path(p) for p in ["README.md", "requirements.txt", "pyproject.toml", ".env.example"]]
     files += [p for root in roots for p in Path(root).rglob("*") if p.is_file()

@@ -1,0 +1,28 @@
+{
+  "experiment": "scaling",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "data": "synthetic fixed-feature Gaussian class clusters; NOT CIFAR reproduction",
+  "tracking": {
+    "project": "intro-ml-group3-dsal"
+  },
+  "provenance": {
+    "python": "3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "torch": "2.5.1+cu121",
+    "numpy": "1.26.4",
+    "cuda_available": true,
+    "cuda_runtime": "12.1",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "command": [
+      "D:\\HCMUS\\HK1-N4\\Nhập môn học máy\\IntroductionToMachineLearningGroup3\\scripts\\empirics.py",
+      "--tracking",
+      "offline"
+    ],
+    "git_commit": "cc8e5ce373e640461a2e5f63af0765b0e75fa06e",
+    "git_dirty": true
+  }
+}

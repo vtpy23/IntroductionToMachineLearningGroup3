@@ -1,0 +1,17 @@
+{
+  "reference_sha": "0afd6bf87622e808ce7f730f8556e78229b9e758",
+  "measurements": [
+    {
+      "official_batch_size": 20,
+      "main_max_abs_difference": 9.163780845256042e-13,
+      "comp_max_abs_difference": 2.3151619510386467e-12,
+      "scores_max_abs_difference": 7.877587471227798e-13
+    },
+    {
+      "official_batch_size": 4,
+      "main_max_abs_difference": 9.43689570931383e-15,
+      "comp_max_abs_difference": 0.22572422389027513,
+      "scores_max_abs_difference": 0.08151723861414839
+    }
+  ]
+}

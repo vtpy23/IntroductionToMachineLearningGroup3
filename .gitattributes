@@ -1,0 +1,5 @@
+# Preserve original experiment evidence bytes across platforms for SHA-256 verification.
+experiments/evidence/** -text whitespace=cr-at-eol
+*.pptx binary
+*.pdf binary
+*.png binary

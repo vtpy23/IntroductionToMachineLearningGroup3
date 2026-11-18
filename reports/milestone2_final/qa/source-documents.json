@@ -1,0 +1,32 @@
+[
+  {
+    "file": "01653-AAAI24.ZhuangH.pdf",
+    "alias": "paper",
+    "pages": 8,
+    "sha256": "0722e85b416a7edc19532159e4b558382238721175aaad760e540c626f1390d5"
+  },
+  {
+    "file": "Bản dịch Form đăng ký.pdf",
+    "alias": "registration",
+    "pages": 4,
+    "sha256": "38cc3954c0f047bde81083ea99ca889c3e34db3ce8dc7cd3f85cbe64de792117"
+  },
+  {
+    "file": "Bản dịch Đồ án.pdf",
+    "alias": "requirements-translated",
+    "pages": 14,
+    "sha256": "10d4049917f0d54e5271a2303050cd25edac61405c8cf8d0360796744b1c5d0c"
+  },
+  {
+    "file": "index.pdf",
+    "alias": "requirements-original",
+    "pages": 2,
+    "sha256": "1df2db000d7e60596463586ed9a2b1c22582e5cf6067c322523c109c3827642c"
+  },
+  {
+    "file": "docs/references/DS-AL-supplementary.pdf",
+    "alias": "supplementary",
+    "pages": 3,
+    "sha256": "cfdbbb5450b912d22d0a1d0e7edbbe5b22630394ffc9da65e5a9517859119275"
+  }
+]

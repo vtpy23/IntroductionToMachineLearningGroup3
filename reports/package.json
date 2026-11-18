@@ -1,0 +1,7 @@
+{
+  "name": "dsal-group3-reports",
+  "private": true,
+  "type": "module",
+  "scripts": {"build": "node build_slides.mjs"},
+  "dependencies": {"pptxgenjs": "4.0.1", "jszip": "3.10.1"}
+}

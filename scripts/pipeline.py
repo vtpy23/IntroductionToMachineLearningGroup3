@@ -27,6 +27,7 @@ def main():
         ("core-backbone-features", ["-m", "scripts.run", "--config", args.config, "--stage", "prepare", "--tracking", args.tracking]),
         ("core-suite", ["-m", "scripts.run", "--config", args.config, "--stage", "analytic", "--tracking", args.tracking]),
         ("summary", ["-m", "scripts.summarize"]),
+        ("reports", ["-m", "scripts.refresh_reports", "--group-id", "03"]),
     ]
     status = {"started": time.time(), "config": args.config, "tracking": args.tracking, "stages": []}
     cpu_python = Path(".venv-cpu/Scripts/python.exe")

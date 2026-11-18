@@ -1,0 +1,20 @@
+{
+  "average_accuracy": 65.53609586105254,
+  "last_accuracy": 56.87,
+  "base_accuracy": 67.46,
+  "novel_accuracy": 46.28,
+  "elapsed_seconds": 194.28723219998938,
+  "fit_seconds": 181.9600285000197,
+  "peak_cuda_bytes": null,
+  "protocol": "CIFAR-100 B50 ResNet-32; supplementary base training; paper-sized 8192 buffer; independent implementation",
+  "completed": true,
+  "phases": 50,
+  "buffer_size": 8192,
+  "solver": "stats",
+  "seed": 0,
+  "wandb_url": null,
+  "wandb_run_id": "mb9xncbl",
+  "tracking_mode": "offline",
+  "submission_ready": false,
+  "public_visibility_verified": false
+}

@@ -2,7 +2,7 @@
 
 **Team:** Vũ · Nam · Đạt  
 **Project theme:** Continual Learning / Online Learning / Lifelong Learning  
-**Status:** DS-AL accepted (confirmed by the team on 17 Nov 2026); implementation and experiment pipeline active.
+**Status:** DS-AL accepted; CIFAR-100 seed 0 completed; verified 40-slide Milestone 2 + Lab 1 deck published. Benchmark seeds 1/2 and acceptance of the adapted ablation scope remain pending.
 
 > This is the semester-long team repository for reading, independently reimplementing, reproducing, critiquing, and empirically stress-testing one published Machine Learning paper.
 
@@ -95,10 +95,21 @@ Use **one public W&B project** for both labs; tag reproduction runs `lab1-reprod
 
 Project and verified run URLs: [W&B on Forge](docs/WANDB.md). Smoke/synthetic runs and all eight CIFAR-100 seed-0 variants are public; multi-seed validation remains pending.
 
-| Experiment | Script/notebook | Config/dataset | W&B run URL | Observation |
+| Experiment | Script | Published config / history | W&B run | Result / scope |
 | --- | --- | --- | --- | --- |
-| ACIL / DS-AL / DAC-PLC / phase counts / buffer widths | `python -m scripts.run --config configs/cifar100_core.json --stage suite` | CIFAR-100 B50 | See [generated results](experiments/reproduction/RESULTS.md) | Full runs must finish; offline runs require public W&B sync |
-| Original implementation output comparison | `python -m scripts.compare_reference` | Controlled synthetic features | Recorded under `outputs/reference-comparison/` | Verifies equations and detects minibatch semantic differences; not a CIFAR benchmark |
+| base-training | [scripts/run.py](scripts/run.py) | [Config](experiments/evidence/base-training/config.json), [history](experiments/evidence/base-training/metrics.jsonl) | [zuc29egg](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/zuc29egg) | 160 epochs; final base test 76.92% |
+| acil-k5 | [scripts/run.py](scripts/run.py) | [Config](experiments/evidence/acil-k5/config.json), [history](experiments/evidence/acil-k5/metrics.jsonl) | [h2sljkd5](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/h2sljkd5) | A-bar 65.7880%; A_K 56.56% (CIFAR seed 0) |
+| dac-no-plc-k5 | [scripts/run.py](scripts/run.py) | [Config](experiments/evidence/dac-no-plc-k5/config.json), [history](experiments/evidence/dac-no-plc-k5/metrics.jsonl) | [gpx1ehdu](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/gpx1ehdu) | A-bar 65.4830%; A_K 56.24% (CIFAR seed 0) |
+| dsal-k5 | [scripts/run.py](scripts/run.py) | [Config](experiments/evidence/dsal-k5/config.json), [history](experiments/evidence/dsal-k5/metrics.jsonl) | [i0kiycme](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/i0kiycme) | A-bar 65.8219%; A_K 56.87% (CIFAR seed 0) |
+| dsal-k25 | [scripts/run.py](scripts/run.py) | [Config](experiments/evidence/dsal-k25/config.json), [history](experiments/evidence/dsal-k25/metrics.jsonl) | [c0niqv2k](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/c0niqv2k) | A-bar 65.5433%; A_K 56.83% (CIFAR seed 0) |
+| dsal-k50 | [scripts/run.py](scripts/run.py) | [Config](experiments/evidence/dsal-k50/config.json), [history](experiments/evidence/dsal-k50/metrics.jsonl) | [mb9xncbl](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/mb9xncbl) | A-bar 65.5361%; A_K 56.87% (CIFAR seed 0) |
+| buffer-512 | [scripts/run.py](scripts/run.py) | [Config](experiments/evidence/buffer-512/config.json), [history](experiments/evidence/buffer-512/metrics.jsonl) | [k64nfaxk](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/k64nfaxk) | A-bar 62.7726%; A_K 51.46% (CIFAR seed 0) |
+| buffer-1024 | [scripts/run.py](scripts/run.py) | [Config](experiments/evidence/buffer-1024/config.json), [history](experiments/evidence/buffer-1024/metrics.jsonl) | [ec7ki95r](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/ec7ki95r) | A-bar 63.8973%; A_K 53.36% (CIFAR seed 0) |
+| buffer-2048 | [scripts/run.py](scripts/run.py) | [Config](experiments/evidence/buffer-2048/config.json), [history](experiments/evidence/buffer-2048/metrics.jsonl) | [rugifzey](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/rugifzey) | A-bar 65.1099%; A_K 54.97% (CIFAR seed 0) |
+| reference-comparison | [scripts/compare_reference.py](scripts/compare_reference.py) | [Config](experiments/evidence/reference-comparison/config.json), [history](experiments/evidence/reference-comparison/metrics.jsonl) | [nv8x5tld](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/nv8x5tld) | Synthetic equation/mechanism test; not CIFAR benchmark |
+| phase-dependence | [scripts/empirics.py](scripts/empirics.py) | [Config](experiments/evidence/phase-dependence/config.json), [history](experiments/evidence/phase-dependence/metrics.jsonl) | [hh31425p](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/hh31425p) | Synthetic equation/mechanism test; not CIFAR benchmark |
+| ridge-residue | [scripts/empirics.py](scripts/empirics.py) | [Config](experiments/evidence/ridge-residue/config.json), [history](experiments/evidence/ridge-residue/metrics.jsonl) | [is6rnul0](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/is6rnul0) | Synthetic equation/mechanism test; not CIFAR benchmark |
+| scaling | [scripts/empirics.py](scripts/empirics.py) | [Config](experiments/evidence/scaling/config.json), [history](experiments/evidence/scaling/metrics.jsonl) | [p343muf2](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/p343muf2) | Synthetic equation/mechanism test; not CIFAR benchmark |
 
 **Presentation:** one **PPTX 20–40 slides**, appendix included, **under 20 MB**. Every slide contains speaker notes **≤ 500 words**; slides should use team-created figures, visual diagrams/tables (no pasted original figures or raw code dumps). IEEE numbered citations at the **bottom of each citing slide**, with **no separate references slide**. Deck PPTX and public repo URL are submitted as separate Moodle entries.
 
@@ -126,9 +137,9 @@ Design controlled experiments showing whether theoretically identified weaknesse
 
 | Limitation tested | Script/notebook | Config/dataset | W&B run URL | Evidence |
 | --- | --- | --- | --- | --- |
-| Phase dependence of DAC | `python -m scripts.empirics` | Same synthetic data and projection, varying phase partitions | Requires public W&B sync | [Measured records](experiments/empirics/phase-dependence.json) |
-| Ridge residual geometry | `python -m scripts.empirics` | Fixed synthetic features, gamma sweep | Requires public W&B sync | [Measured records](experiments/empirics/ridge-residue.json) |
-| Buffer scaling (supporting analysis) | `python -m scripts.empirics` | Synthetic data, width sweep | Requires public W&B sync | [Measured records](experiments/empirics/scaling.json) |
+| Phase dependence of DAC | `python -m scripts.empirics` | Same synthetic data and projection, varying phase partitions | [Verified run](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/hh31425p) | [Measured records](experiments/empirics/phase-dependence.json) |
+| Ridge residual geometry | `python -m scripts.empirics` | Fixed synthetic features, gamma sweep | [Verified run](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/is6rnul0) | [Measured records](experiments/empirics/ridge-residue.json) |
+| Buffer scaling (supporting analysis) | `python -m scripts.empirics` | Synthetic data, width sweep | [Verified run](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/p343muf2) | [Measured records](experiments/empirics/scaling.json) |
 
 **Poster:** one **PPTX containing a single portrait A2 slide**. Place the argued theoretical weakness beside its supporting empirical measurement. If >2 weaknesses are established both theoretically and empirically, display the **two most notable** on the poster and explain other proven weaknesses with W&B links **in this README**. Upload poster via Moodle and defend it at the final oral workshop.
 
@@ -144,6 +155,13 @@ Design controlled experiments showing whether theoretically identified weaknesse
 ---
 
 ## 11. Automated workflow
+
+Current Vietnamese deck: [submission 03.pptx](reports/milestone2_final/03.pptx), [full-name PPTX](reports/milestone2_final/DSAL_Milestone2_Lab1_Final.pptx), [PDF preview](reports/milestone2_final/DSAL_Milestone2_Lab1_Final.pdf), and [editable PptxGenJS source](reports/milestone2_final/build_slides.mjs).
+The deck contains 40 slides with speaker notes, IEEE citations, native charts/tables and real W&B hyperlinks. Results are the completed seed-0 measurements, with paper results and synthetic tests labeled separately. The earlier 30-slide deck and A2 poster remain available under `reports/output/` as **legacy / draft**, not the current Milestone 2 submission.
+
+Trace every reported number through the [experiment mapping](reports/milestone2_final/EXPERIMENT_TRACEABILITY.md), [byte-identical config/summary/history snapshots](experiments/evidence/README.md), [source hashes and verified W&B snapshot](reports/milestone2_final/assets/verified_evidence.json), and [academic content / notes](reports/milestone2_final/SLIDE_CONTENT.md). See the [review report](reports/milestone2_final/SLIDE_REVIEW_REPORT.md) and [update guide](reports/milestone2_final/HOW_TO_UPDATE_SLIDES.md).
+
+**Scope limitation:** DAC/PLC ablation adapts the paper's ImageNet-Full experiment to CIFAR-100; it is not an exact reproduction of Table 2 and requires instructor acceptance of this scope. Benchmark mean/std is not yet available. The repository is public; do not interpret published slides as completion of the later poster/Lab 2 assessment.
 
 ```powershell
 ./scripts/bootstrap.ps1 -Cuda

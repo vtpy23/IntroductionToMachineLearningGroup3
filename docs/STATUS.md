@@ -12,9 +12,16 @@ Trạng thái pipeline và epoch hiện tại được đọc trực tiếp bằ
 - Implementation C-RLS/RLS, sufficient statistics, DAC và PLC độc lập.
 - ResNet-32 chuẩn, HF CIFAR-100 loader, caching có hash và class splits.
 - Mathematical tests và pipeline smoke hoàn tất trên dữ liệu ảnh thật rút gọn.
-- Ba thí nghiệm cơ chế tổng hợp, mỗi thí nghiệm ba seed, có số đo và W&B offline.
+- Ba thí nghiệm cơ chế tổng hợp, mỗi thí nghiệm ba seed, có số đo và W&B public.
 - Đối chiếu mã gốc: cùng dữ liệu/projection và một batch mỗi pha cho sai số
   đầu ra cỡ1e-12; minibatch nhỏ dẫn đến khác residual targets.
+- Bộ mới 40 slide tiếng Việt có notes, citations, 8 chart và 18 bảng native:
+  [PPTX](../reports/milestone2_final/03.pptx),
+  [PDF](../reports/milestone2_final/DSAL_Milestone2_Lab1_Final.pdf).
+  Đã kiểm tra trực quan từng trang và số liệu seed 0; bản 30 slide cũ là legacy.
+- Repo được xác nhận public khi công bố; người dùng cho phép push cả slide.
+  [Mapping](../reports/milestone2_final/EXPERIMENT_TRACEABILITY.md) và
+  [snapshot log/config](../experiments/evidence/README.md) truy vết từng run.
 - Notes đọc hiểu, phản biện, kế hoạch đo và hướng dẫn chạy.
 
 ## Đang thực hiện / điều kiện còn thiếu
@@ -25,6 +32,9 @@ Trạng thái pipeline và epoch hiện tại được đọc trực tiếp bằ
 - W&B: đã xác minh đăng nhập và quyền ghi/đọc công khai trên Forge. Các run
   smoke, cơ chế tổng hợp và đối chiếu công thức có liên kết tại [W&B](WANDB.md).
   Seed 1 và 2 chưa chạy; chưa có mean/std cho benchmark nhiều seed.
+- PPTX/PDF mới đã cập nhật benchmark/W&B seed 0. Ablation DAC/PLC chuyển
+  từ ImageNet-Full sang CIFAR-100 cần giảng viên chấp nhận phạm vi; không
+  tự nhận tái hiện nguyên Table 2. Poster vẫn là bản nháp cho mốc sau.
 - Bản bổ sung ImageNet-100/Full chưa nằm trong triển khai hiện tại.
 
 ## Quyết định triển khai
