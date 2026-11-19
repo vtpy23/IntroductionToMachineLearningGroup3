@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-19T06:40:57.579206+00:00",
+  "scope": "W&B synchronization support only; all scientific training/dataset/model/analytic code and experiment configs unchanged",
+  "changed_source_parts": [
+    "scripts/sync_wandb.py"
+  ],
+  "before_sha256": {
+    "scripts/sync_wandb.py": "9a52abcb19371168973c4b7508c34d046fbcf548f1a22071381c42aa34cbb433"
+  },
+  "after_sha256": {
+    "scripts/sync_wandb.py": "5c7404b9635daacc8bac63cab832bed319d2a546529615f301111da3284cb77d"
+  },
+  "original_snapshot": "source_snapshot",
+  "active_snapshot": "source_snapshot_sync_v2",
+  "reason": "W&B SDK cache/server completion state lagged successful CLI upload; interrupted upload recovered only after config, summary and full history match"
+}

@@ -1,0 +1,39 @@
+[
+  {
+    "run_id": "xf83td3u",
+    "history_epoch_min": null,
+    "history_epoch_max": null
+  },
+  {
+    "run_id": "c93jczpr",
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "history_epoch_min": 9,
+    "history_epoch_max": 13
+  },
+  {
+    "run_id": "gi5a93gr",
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "history_epoch_min": 1,
+    "history_epoch_max": 19
+  },
+  {
+    "run_id": "spiu83y3",
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "history_epoch_min": 1,
+    "history_epoch_max": 19
+  },
+  {
+    "run_id": "zuc29egg",
+    "torch": "2.5.1+cpu",
+    "cuda_available": false,
+    "gpu": null,
+    "history_epoch_min": 1,
+    "history_epoch_max": 160
+  }
+]

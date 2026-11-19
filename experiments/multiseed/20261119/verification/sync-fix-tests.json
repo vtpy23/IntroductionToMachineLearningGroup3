@@ -1,0 +1,7 @@
+{
+  "passed": 15,
+  "command": ".venv-cpu/Scripts/python.exe -X utf8 -m pytest -q",
+  "seed1_four_runs_finished_public_history_verified": true,
+  "seed0_protected_files_unchanged": true,
+  "scientific_code_and_experiment_configs_unchanged": true
+}

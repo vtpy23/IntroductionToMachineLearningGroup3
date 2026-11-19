@@ -2,7 +2,7 @@
 
 **Team:** Vũ · Nam · Đạt  
 **Project theme:** Continual Learning / Online Learning / Lifelong Learning  
-**Status:** DS-AL accepted; CIFAR-100 seed 0 completed; verified 40-slide Milestone 2 + Lab 1 deck published. Benchmark seeds 1/2 and acceptance of the adapted ablation scope remain pending.
+**Status:** DS-AL accepted; core CIFAR-100 comparisons completed for seeds 0, 1 and 2 with verified public W&B histories. The current 40-slide deck reports three-seed mean ± sample SD. Instructor acceptance of the adapted ablation scope remains unconfirmed.
 
 > This is the semester-long team repository for reading, independently reimplementing, reproducing, critiquing, and empirically stress-testing one published Machine Learning paper.
 
@@ -93,7 +93,7 @@ Compare the paper's numbers with measured results and report relative deviations
 
 Use **one public W&B project** for both labs; tag reproduction runs `lab1-reproduction`.
 
-Project and verified run URLs: [W&B on Forge](docs/WANDB.md). Smoke/synthetic runs and all eight CIFAR-100 seed-0 variants are public; multi-seed validation remains pending.
+Project and verified run URLs: [W&B on Forge](docs/WANDB.md). [Three-seed results and each run](experiments/multiseed/20261119/RESULTS.md), [completion audit](experiments/multiseed/20261119/COMPLETION_REPORT.md), and [slide statistics](reports/milestone2_final/THREE_SEEDS_RESULTS.md) cover ACIL, DAC without PLC and DS-AL at K=5. Phase-count and buffer sweeps below remain seed 0; synthetic tests are separate evidence.
 
 | Experiment | Script | Published config / history | W&B run | Result / scope |
 | --- | --- | --- | --- | --- |
@@ -156,8 +156,8 @@ Design controlled experiments showing whether theoretically identified weaknesse
 
 ## 11. Automated workflow
 
-Current Vietnamese deck: [submission 03.pptx](reports/milestone2_final/03.pptx), [full-name PPTX](reports/milestone2_final/DSAL_Milestone2_Lab1_Final.pptx), [PDF preview](reports/milestone2_final/DSAL_Milestone2_Lab1_Final.pdf), and [editable PptxGenJS source](reports/milestone2_final/build_slides.mjs).
-The deck contains 40 slides with speaker notes, IEEE citations, native charts/tables and real W&B hyperlinks. Results are the completed seed-0 measurements, with paper results and synthetic tests labeled separately. The earlier 30-slide deck and A2 poster remain available under `reports/output/` as **legacy / draft**, not the current Milestone 2 submission.
+Current Vietnamese deck: [submission 03.pptx](reports/milestone2_final/submission_3seeds/03.pptx), [full-name PPTX](reports/milestone2_final/DSAL_Milestone2_Lab1_3Seeds_Final.pptx), [PDF preview](reports/milestone2_final/DSAL_Milestone2_Lab1_3Seeds_Final.pdf), and [PptxGenJS source](reports/milestone2_final/build_three_seeds.mjs).
+The deck contains 40 slides, speaker notes, IEEE citations, nine native charts, twenty native tables and per-seed W&B hyperlinks. Main comparisons use three-seed mean ± sample SD (ddof=1); K/buffer sweeps retain seed 0. [Validation and rebuild guide](reports/milestone2_final/FINAL_VALIDATION_REPORT.md) records the limits, including seed0's CUDA-to-CPU resume. The earlier seed0 decks and `reports/output/` remain **legacy / draft**, not the current submission.
 
 Trace every reported number through the [experiment mapping](reports/milestone2_final/EXPERIMENT_TRACEABILITY.md), [byte-identical config/summary/history snapshots](experiments/evidence/README.md), [source hashes and verified W&B snapshot](reports/milestone2_final/assets/verified_evidence.json), and [academic content / notes](reports/milestone2_final/SLIDE_CONTENT.md). See the [review report](reports/milestone2_final/SLIDE_REVIEW_REPORT.md) and [update guide](reports/milestone2_final/HOW_TO_UPDATE_SLIDES.md).
 
@@ -171,7 +171,7 @@ Trace every reported number through the [experiment mapping](reports/milestone2_
 
 The unattended pipeline runs mathematical checks, a reduced-data smoke suite, controlled mechanism tests, full CIFAR-100 base training and the configured core suite, then generates result tables. It checkpoints each training epoch and skips completed matching analytic runs. Create `.stop-project` to request a pause after the current epoch/run; remove it before restarting.
 
-For independent seeds: `python -m scripts.multiseed --seeds 0 1 2 --tracking offline`.
+For the completed paired core three-seed study and safe resume: [study guide](experiments/multiseed/20261119/README.md). The generic `scripts.multiseed` command expands the entire K/buffer suite; it was not used for the restricted seed1/2 study.
 For cloud execution: [Colab/Kaggle notebook](notebooks/Colab_Kaggle.ipynb).
 After W&B login: `python -m scripts.sync_wandb --entity YOUR_ENTITY`, followed by `python -m scripts.summarize`.
 

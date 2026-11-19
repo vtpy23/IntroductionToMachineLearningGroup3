@@ -1,0 +1,31 @@
+{
+  "scope": "resource calibration on generated inputs; not a research experiment",
+  "before_import": {
+    "total_phys": 16869351424,
+    "avail_phys": 3686363136,
+    "total_page": 25643544576,
+    "avail_page": 7597027328
+  },
+  "torch": "2.5.1+cu121",
+  "torchvision": "0.20.1+cu121",
+  "cuda": "12.1",
+  "cuda_available": true,
+  "after_import": {
+    "total_phys": 16869351424,
+    "avail_phys": 2958684160,
+    "total_page": 25643544576,
+    "avail_page": 6371823616
+  },
+  "after_training_batch": {
+    "total_phys": 16869351424,
+    "avail_phys": 191565824,
+    "total_page": 26725879808,
+    "avail_page": 259096576
+  },
+  "gpu_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "gpu_total_bytes": 6438780928,
+  "gpu_peak_allocated_bytes": 338676736,
+  "gpu_peak_reserved_bytes": 364904448,
+  "process_peak_rss_bytes": 5704900608,
+  "elapsed_seconds": 22.648494700000015
+}

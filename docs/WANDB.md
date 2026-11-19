@@ -1,3 +1,5 @@
+Cập nhật 19/11/2026: benchmark ACIL, DAC không PLC và DS-AL đã đủ seed 0/1/2. Chín run phương pháp và ba run backbone đã được đối chiếu log/config/history với Forge, tất cả finished và public. Xem [kết quả ba seed](../experiments/multiseed/20261119/RESULTS.md), [báo cáo hoàn tất](../experiments/multiseed/20261119/COMPLETION_REPORT.md) và [snapshot dùng cho slide](../reports/milestone2_final/assets/three_seeds_verified.json). Mean ± SD mẫu dùng ddof=1; K/buffer giữ seed 0. Những bảng smoke và ghi nhận ngày 17/11 dưới đây là lịch sử, không thay cho benchmark hiện hành.
+
 W&B của nhóm 03 dùng API Forge `https://api.forge.coreweave.com` và project [intro-ml-group3-dsal](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal).
 
 Routing entity/project/server được lưu trong `.env` cục bộ, đã được Git ignore. Credentials do `wandb login` quản lý ở máy người dùng. Không đặt API key trong source, config thí nghiệm hoặc lệnh có tham số key.
@@ -17,7 +19,7 @@ Các run dưới đây xuất phát từ log offline đã có, được giữ ng
 | Cơ chế: chi phí theo buffer | [scaling](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/p343muf2) | Tổng hợp, 3 seed |
 | Đối chiếu công thức với mã tác giả | [reference-comparison](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/nv8x5tld) | Đầu vào tổng hợp nhỏ |
 
-Các run trong bảng trên là smoke/synthetic/đối chiếu công thức. CIFAR-100 seed 0 hiện đã hoàn tất 160 epoch và đủ 8 biến thể; cả backbone và các biến thể đã đồng bộ công khai. Xem [bảng kết quả benchmark](../experiments/reproduction/RESULTS.md). Benchmark hiện mới có một seed, chưa có mean/std nhiều seed.
+Các run trong bảng trên là smoke/synthetic/đối chiếu công thức. CIFAR-100 seed 0 hiện đã hoàn tất 160 epoch và đủ 8 biến thể; cả backbone và các biến thể đã đồng bộ công khai. Xem [bảng kết quả seed 0](../experiments/reproduction/RESULTS.md). Benchmark chính nay đã có ba seed; các khảo sát K/buffer vẫn chỉ seed 0.
 
 Logging hiện có lưu config, provenance, seed, loss/accuracy/lr từng epoch, accuracy lớp gốc/lớp mới/tổng và thời gian fit từng pha, cùng summary trung bình/pha cuối. Trục biểu đồ run mới sử dụng `base/epoch` và `cil/phase`. Các thí nghiệm cơ chế giữ phép đo thật của từng seed trong history.
 

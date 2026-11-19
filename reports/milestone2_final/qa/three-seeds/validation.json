@@ -1,0 +1,236 @@
+{
+  "passed": true,
+  "slides": 40,
+  "pdf_pages": 40,
+  "native_charts": 9,
+  "native_tables": 20,
+  "workbook_numeric_references_checked": 28,
+  "custom_sample_SD_errorbar_charts": [
+    4,
+    5,
+    6
+  ],
+  "inherited_illustration_blank_zero_cells_verified": 7,
+  "verified_live_runs": 12,
+  "methods_three_seed_pairs": 9,
+  "std_ddof": 1,
+  "notes_words_by_slide": {
+    "1": 199,
+    "2": 158,
+    "3": 176,
+    "4": 206,
+    "5": 157,
+    "6": 186,
+    "7": 227,
+    "8": 153,
+    "9": 223,
+    "10": 161,
+    "11": 154,
+    "12": 150,
+    "13": 181,
+    "14": 139,
+    "15": 188,
+    "16": 172,
+    "17": 183,
+    "18": 191,
+    "19": 146,
+    "20": 239,
+    "21": 207,
+    "22": 224,
+    "23": 248,
+    "24": 245,
+    "25": 282,
+    "26": 158,
+    "27": 231,
+    "28": 230,
+    "29": 282,
+    "30": 267,
+    "31": 188,
+    "32": 152,
+    "33": 217,
+    "34": 325,
+    "35": 251,
+    "36": 156,
+    "37": 278,
+    "38": 158,
+    "39": 218,
+    "40": 295
+  },
+  "max_notes_words": 325,
+  "pdf_hyperlink_annotations": 322,
+  "pdf_wandb_hyperlink_annotations": 208,
+  "native_text_cells_checked": 842,
+  "native_overflow_candidates": 0,
+  "native_table_footer_gaps": [
+    {
+      "Slide": 4,
+      "Table": "Table 0",
+      "BottomInches": 5.2,
+      "FooterInches": 6.66,
+      "GapInches": 1.46
+    },
+    {
+      "Slide": 7,
+      "Table": "Table 0",
+      "BottomInches": 4.57,
+      "FooterInches": 6.24,
+      "GapInches": 1.67
+    },
+    {
+      "Slide": 8,
+      "Table": "Table 0",
+      "BottomInches": 6.11,
+      "FooterInches": 6.66,
+      "GapInches": 0.55
+    },
+    {
+      "Slide": 12,
+      "Table": "Table 0",
+      "BottomInches": 4.6,
+      "FooterInches": 6.66,
+      "GapInches": 2.06
+    },
+    {
+      "Slide": 12,
+      "Table": "Table 1",
+      "BottomInches": 4.6,
+      "FooterInches": 6.66,
+      "GapInches": 2.06
+    },
+    {
+      "Slide": 18,
+      "Table": "Table 0",
+      "BottomInches": 4.36,
+      "FooterInches": 6.66,
+      "GapInches": 2.3
+    },
+    {
+      "Slide": 18,
+      "Table": "Table 1",
+      "BottomInches": 6.08,
+      "FooterInches": 6.66,
+      "GapInches": 0.58
+    },
+    {
+      "Slide": 20,
+      "Table": "Table 0",
+      "BottomInches": 5.32,
+      "FooterInches": 6.66,
+      "GapInches": 1.34
+    },
+    {
+      "Slide": 23,
+      "Table": "Table 0",
+      "BottomInches": 5.61,
+      "FooterInches": 6.24,
+      "GapInches": 0.63
+    },
+    {
+      "Slide": 25,
+      "Table": "Table 0",
+      "BottomInches": 5.94,
+      "FooterInches": 6.32,
+      "GapInches": 0.38
+    },
+    {
+      "Slide": 26,
+      "Table": "Table 0",
+      "BottomInches": 4.9,
+      "FooterInches": 6.66,
+      "GapInches": 1.76
+    },
+    {
+      "Slide": 28,
+      "Table": "Table 0",
+      "BottomInches": 4.77,
+      "FooterInches": 6.24,
+      "GapInches": 1.47
+    },
+    {
+      "Slide": 29,
+      "Table": "Table 0",
+      "BottomInches": 4.97,
+      "FooterInches": 6.24,
+      "GapInches": 1.27
+    },
+    {
+      "Slide": 30,
+      "Table": "Table 0",
+      "BottomInches": 4.82,
+      "FooterInches": 6.24,
+      "GapInches": 1.42
+    },
+    {
+      "Slide": 31,
+      "Table": "Table 0",
+      "BottomInches": 4.9,
+      "FooterInches": 6.24,
+      "GapInches": 1.34
+    },
+    {
+      "Slide": 32,
+      "Table": "Table 0",
+      "BottomInches": 5.45,
+      "FooterInches": 6.24,
+      "GapInches": 0.79
+    },
+    {
+      "Slide": 33,
+      "Table": "Table 0",
+      "BottomInches": 6,
+      "FooterInches": 6.32,
+      "GapInches": 0.32
+    },
+    {
+      "Slide": 36,
+      "Table": "Table 0",
+      "BottomInches": 6.25,
+      "FooterInches": 6.66,
+      "GapInches": 0.41
+    },
+    {
+      "Slide": 37,
+      "Table": "Table 0",
+      "BottomInches": 4.6,
+      "FooterInches": 6.24,
+      "GapInches": 1.64
+    },
+    {
+      "Slide": 39,
+      "Table": "Table 0",
+      "BottomInches": 5.48,
+      "FooterInches": 6.24,
+      "GapInches": 0.76
+    }
+  ],
+  "baseline_slide_xml_preserved": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    26,
+    32,
+    33,
+    36,
+    37,
+    38
+  ],
+  "seed0_sweep_slides_32_33_and_charts_7_8_unchanged": true,
+  "raw_logs_configs_summaries_checkpoints_feature_caches_unchanged": true,
+  "baseline_sha256": "db84af408e6660019264a056317001d26c8a0a8f6a590526859c79ece33b45b5",
+  "candidate_sha256": "626e03992289d39a639e256ab09027f6b330bcbbdc575d125b20d016ddaa073e",
+  "pdf_sha256": "98f40f3676060d4e5e7eccb78b6e8d0920f6959bead1e6d4cd43079d65adbb37"
+}

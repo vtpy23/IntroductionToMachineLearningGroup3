@@ -1,13 +1,13 @@
 # Xuất và cập nhật báo cáo
 
-## Bản hiện tại: Milestone 2 + Lab 1, 40 slide
+## Bản hiện tại: Milestone 2 + Lab 1, ba seed, 40 slide
 
-- [PPTX nộp theo ID 03](milestone2_final/03.pptx) và [bản tên đầy đủ](milestone2_final/DSAL_Milestone2_Lab1_Final.pptx).
-- [PDF xem trước](milestone2_final/DSAL_Milestone2_Lab1_Final.pdf).
-- [Nguồn PptxGenJS](milestone2_final/build_slides.mjs), [nội dung/notes](milestone2_final/SLIDE_CONTENT.md), [hướng dẫn cập nhật](milestone2_final/HOW_TO_UPDATE_SLIDES.md).
-- [Báo cáo rà soát](milestone2_final/SLIDE_REVIEW_REPORT.md), [mapping thí nghiệm](milestone2_final/EXPERIMENT_TRACEABILITY.md), [snapshot log/config công bố](../experiments/evidence/README.md).
+- [PPTX nộp theo ID 03](milestone2_final/submission_3seeds/03.pptx) và [bản tên đầy đủ](milestone2_final/DSAL_Milestone2_Lab1_3Seeds_Final.pptx).
+- [PDF xem trước](milestone2_final/DSAL_Milestone2_Lab1_3Seeds_Final.pdf).
+- [Nguồn PptxGenJS](milestone2_final/build_three_seeds.mjs), [nội dung/notes](milestone2_final/slide_content_three_seeds.json), [kiểm tra và tái tạo](milestone2_final/FINAL_VALIDATION_REPORT.md).
+- [Thống kê ba seed](milestone2_final/THREE_SEEDS_RESULTS.md), [bằng chứng từng seed](../experiments/multiseed/20261119/README.md).
 
-Đây là bản mới cập nhật seed 0 đã hoàn tất, không có số benchmark giả. Repo được xác nhận public khi công bố. Benchmark nhiều seed và việc giảng viên chấp nhận ablation chuyển dataset còn mở. Nguồn Python/JS, JSON và assets được giữ để cập nhật; file tạm `.build` và `node_modules` không đưa lên Git.
+Đây là bản dùng số đo thật seed 0/1/2, mean ± SD mẫu cho ba phương pháp chính. K và buffer giữ seed 0. Các bản Final/v2/v3 và alias 03.pptx cũ được giữ để truy vết. Việc giảng viên chấp nhận riêng phạm vi E2 chuyển dataset chưa được xác nhận. Nguồn Python/JS, JSON và assets được giữ để cập nhật; file tạm `.build` và `node_modules` không đưa lên Git.
 
 ## Bản cũ và poster nháp
 

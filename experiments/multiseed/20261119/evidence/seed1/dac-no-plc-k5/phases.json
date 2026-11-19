@@ -1,0 +1,50 @@
+[
+  {
+    "phase": 0,
+    "classes": 50,
+    "fit_seconds": 39.83940750000147,
+    "accuracy": 75.38,
+    "base_accuracy": 75.38,
+    "novel_accuracy": null
+  },
+  {
+    "phase": 1,
+    "classes": 60,
+    "fit_seconds": 9.947908500000267,
+    "accuracy": 69.28333333333333,
+    "base_accuracy": 71.7,
+    "novel_accuracy": 57.199999999999996
+  },
+  {
+    "phase": 2,
+    "classes": 70,
+    "fit_seconds": 9.693465499998638,
+    "accuracy": 65.38571428571429,
+    "base_accuracy": 68.5,
+    "novel_accuracy": 57.599999999999994
+  },
+  {
+    "phase": 3,
+    "classes": 80,
+    "fit_seconds": 9.759302500000558,
+    "accuracy": 61.824999999999996,
+    "base_accuracy": 66.64,
+    "novel_accuracy": 53.800000000000004
+  },
+  {
+    "phase": 4,
+    "classes": 90,
+    "fit_seconds": 9.855112600000211,
+    "accuracy": 59.111111111111114,
+    "base_accuracy": 64.02,
+    "novel_accuracy": 52.97500000000001
+  },
+  {
+    "phase": 5,
+    "classes": 100,
+    "fit_seconds": 9.742412199999308,
+    "accuracy": 56.47,
+    "base_accuracy": 63.13999999999999,
+    "novel_accuracy": 49.8
+  }
+]

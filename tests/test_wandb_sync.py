@@ -76,3 +76,27 @@ def test_measurement_comparison_accepts_rounding_but_preserves_small_residuals()
     assert sync_wandb.same_measurement(11.240806878306879, 11.24080687830688)
     assert not sync_wandb.same_measurement(11.2408, 11.2409)
     assert not sync_wandb.same_measurement(1e-15, 0.0)
+
+
+def test_finished_run_wait_refreshes_stale_sdk_state(monkeypatch):
+    running = SimpleNamespace(id='valid123', state='running', summary={'completed': True})
+    finished = SimpleNamespace(id='valid123', state='finished', summary={'completed': True})
+    responses = iter([running, finished])
+    flushes = []
+    api = SimpleNamespace(flush=lambda: flushes.append(True), run=lambda _: next(responses))
+    monkeypatch.setattr(sync_wandb.time, 'sleep', lambda _: None)
+    assert sync_wandb.wait_for_finished(api, 'entity/project/valid123') is finished
+    assert len(flushes) == 2
+
+
+def test_existing_upload_requires_matching_measured_history(tmp_path):
+    directory, summary = make_result(tmp_path)
+    row = {'step': 0, 'cil/phase': 0, 'cil/accuracy': 12.5}
+    (directory/'metrics.jsonl').write_text(json.dumps(row)+'\n')
+    item = sync_wandb.completed_run_plan(tmp_path)[0]
+    remote = SimpleNamespace(id='valid123', config={}, summary=dict(summary),
+                             scan_history=lambda: iter([{'cil/phase': 0, 'cil/accuracy': 12.5}]))
+    sync_wandb.verify_existing_upload(item, remote)
+    remote.scan_history=lambda: iter([{'cil/phase': 0, 'cil/accuracy': 12.6}])
+    with pytest.raises(ValueError, match='history differs'):
+        sync_wandb.verify_existing_upload(item, remote)

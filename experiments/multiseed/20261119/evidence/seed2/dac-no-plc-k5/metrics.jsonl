@@ -1,0 +1,6 @@
+{"step": 0, "cil/phase": 0, "cil/classes": 50, "cil/fit_seconds": 38.09200079999937, "cil/accuracy": 75.53999999999999, "cil/base_accuracy": 75.53999999999999}
+{"step": 1, "cil/phase": 1, "cil/classes": 60, "cil/fit_seconds": 9.6985480000003, "cil/accuracy": 70.48333333333333, "cil/base_accuracy": 71.7, "cil/novel_accuracy": 64.4}
+{"step": 2, "cil/phase": 2, "cil/classes": 70, "cil/fit_seconds": 9.80447699999786, "cil/accuracy": 65.67142857142856, "cil/base_accuracy": 68.82000000000001, "cil/novel_accuracy": 57.8}
+{"step": 3, "cil/phase": 3, "cil/classes": 80, "cil/fit_seconds": 9.512165600001026, "cil/accuracy": 61.9875, "cil/base_accuracy": 66.22, "cil/novel_accuracy": 54.93333333333334}
+{"step": 4, "cil/phase": 4, "cil/classes": 90, "cil/fit_seconds": 9.218602299999475, "cil/accuracy": 58.82222222222222, "cil/base_accuracy": 64.58, "cil/novel_accuracy": 51.625}
+{"step": 5, "cil/phase": 5, "cil/classes": 100, "cil/fit_seconds": 9.577886200000648, "cil/accuracy": 56.2, "cil/base_accuracy": 63.339999999999996, "cil/novel_accuracy": 49.059999999999995}

@@ -1,0 +1,10 @@
+{
+  "completed": true,
+  "epochs": 160,
+  "checkpoint_sha256": "ffe3da59e95e4db655a95a869363fe43157a8c200ee8326e2c3dbcc4edeb574e",
+  "wandb_url": null,
+  "wandb_run_id": "osfjx35v",
+  "tracking_mode": "offline",
+  "submission_ready": false,
+  "public_visibility_verified": false
+}

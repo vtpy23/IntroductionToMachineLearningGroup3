@@ -10,6 +10,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 import uuid
 
 from src.utils.reproducibility import write_json
@@ -57,7 +58,46 @@ def completed_run_plan(root):
     return plan
 
 
-def sync_completed_runs(plan, api, entity, project, base_url, manifest_path):
+def wait_for_finished(api, path, timeout=120, interval=2):
+    """Refetch after upload; SDK cache/server indexing can lag CLI completion."""
+    deadline = time.monotonic() + timeout
+    while True:
+        if hasattr(api, 'flush'):
+            api.flush()
+        run = api.run(path)
+        if run.state == 'finished' and run.summary.get('completed'):
+            return run
+        if time.monotonic() >= deadline:
+            raise ValueError(f'Remote run not completed after {timeout}s: {run.id}')
+        time.sleep(interval)
+
+
+def verify_existing_upload(item, run):
+    """Recover an unmarked upload only after config, summary and history match."""
+    config = json.loads((Path(item['source_summary']).parent / 'config.json').read_text(encoding='utf-8'))
+    for key, expected in config.items():
+        if run.config.get(key) != expected:
+            raise ValueError(f'Existing remote config differs: {run.id}: {key}')
+    metadata = {'wandb_url', 'wandb_run_id', 'tracking_mode', 'submission_ready', 'public_visibility_verified'}
+    for key, expected in item['summary'].items():
+        if key not in metadata and not same_measurement(run.summary.get(key), expected):
+            raise ValueError(f'Existing remote summary differs: {run.id}: {key}')
+    history_path = Path(item['source_summary']).parent / 'metrics.jsonl'
+    local = [json.loads(line) for line in history_path.read_text(encoding='utf-8').splitlines()]
+    if not local:
+        raise ValueError(f'No local measured history to verify: {run.id}')
+    axis = 'base/epoch' if 'base/epoch' in local[0] else 'cil/phase'
+    expected_rows = {int(row[axis]): row for row in local}
+    actual_rows = {int(row[axis]): row for row in run.scan_history() if row.get(axis) is not None}
+    if set(expected_rows) != set(actual_rows):
+        raise ValueError(f'Existing remote history steps differ: {run.id}')
+    for step, expected in expected_rows.items():
+        for key, value in expected.items():
+            if key != 'step' and not same_measurement(actual_rows[step].get(key), value):
+                raise ValueError(f'Existing remote history differs: {run.id}: {step}: {key}')
+
+
+def sync_completed_runs(plan, api, entity, project, base_url, manifest_path, recover_verified_existing=False):
     """Upload copies and write new verification metadata, refusing remote collisions."""
     manifest_path = Path(manifest_path)
     if manifest_path.exists():
@@ -79,7 +119,10 @@ def sync_completed_runs(plan, api, entity, project, base_url, manifest_path):
         if item["run_id"] in existing:
             run = existing[item["run_id"]]
             if run.summary.get("offline_file_sha256") != item["source_wandb_sha256"]:
-                raise ValueError(f"Existing remote run ID collision; refusing overwrite: {run.id}")
+                if run.summary.get('offline_file_sha256') is not None or not recover_verified_existing:
+                    raise ValueError(f"Existing remote run ID collision; refusing overwrite: {run.id}")
+                run = wait_for_finished(api, f'{entity}/{project}/{item["run_id"]}')
+                verify_existing_upload(item, run)
         else:
             staging = Path("artifacts/wandb-sync")
             staging.mkdir(parents=True, exist_ok=True)
@@ -89,9 +132,7 @@ def sync_completed_runs(plan, api, entity, project, base_url, manifest_path):
             subprocess.run([sys.executable, "-X", "utf8", "-m", "wandb", "sync", "--entity", entity,
                             "--project", project, str(destination)], env=env, check=True,
                            cwd=destination.parent)
-            run = api.run(f"{entity}/{project}/{item['run_id']}")
-        if run.state != "finished" or not run.summary.get("completed"):
-            raise ValueError(f"Remote run not completed: {run.id}")
+        run = wait_for_finished(api, f"{entity}/{project}/{item['run_id']}")
         # Compare original scientific summary values; update tracking metadata only.
         metadata = {"wandb_url", "wandb_run_id", "tracking_mode", "submission_ready",
                     "public_visibility_verified"}
@@ -143,6 +184,8 @@ def main():
     parser.add_argument("--root", default="outputs")
     parser.add_argument("--manifest", default=None)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument('--recover-verified-existing', action='store_true',
+                        help='Accept an unmarked prior upload only after exact config and measured-history verification')
     args = parser.parse_args()
     if not args.entity:
         raise SystemExit("Set WANDB_ENTITY in .env or pass --entity. Never pass API keys as CLI arguments.")
@@ -158,7 +201,8 @@ def main():
         raise SystemExit("Create the W&B project first and rerun")
     filename = "wandb-sync-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid.uuid4().hex[:6] + ".json"
     manifest_path = Path(args.manifest) if args.manifest else Path(args.root) / filename
-    sync_completed_runs(plan, api, args.entity, args.project, args.base_url, manifest_path)
+    sync_completed_runs(plan, api, args.entity, args.project, args.base_url, manifest_path,
+                        recover_verified_existing=args.recover_verified_existing)
     print(f"Sync manifest (original results preserved): {manifest_path}")
 
 

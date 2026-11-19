@@ -1,0 +1,99 @@
+{
+  "created_utc": "2026-11-19T02:23:55.591996+00:00",
+  "git_commit": "d8d485f6cbf10e266adf59b82a49a0265267e93c",
+  "git_dirty": true,
+  "source_sha256": {
+    "src/__init__.py": "bc936895c590b2f12bcf6e4b0ce2c0973e8abe5709474b0eb9f13f506fe824b5",
+    "src/datasets/cifar100.py": "e2b065807b2f77df9cb968a12066359abc149839ab47ed1a7fa9bfe004f041fe",
+    "src/datasets/__init__.py": "6af4ee626a8148258c33fc172c3089787981b8d46d22e61e297d6b0ca5950c70",
+    "src/methods/analytic.py": "523ede0cc19844528b69e6d5d45a13caf695be600e8dbeca1a207deec4f7f4b3",
+    "src/methods/__init__.py": "ff434eac1324c27264932a3d8585ec12eaca061fd8a52ce31f9d4b1f86be73f6",
+    "src/models/resnet.py": "6b71ebdc855fcda2eeab4f2e575572e0bd84331edf10db921e76c567d6858407",
+    "src/models/__init__.py": "26aaa147e0cdeb2d47d8d0e191b3565a0233440e165c18c37ccf01f3ebd4bcac",
+    "src/utils/reproducibility.py": "c03b8c1a03bd10c2f1f9df72a539e64cd0a65baf13e6a46366ab7eacdaa472e8",
+    "src/utils/tracking.py": "0e464c1a221c21a071f9de7bf5b04994d840e7fcff84b0383dcd9d4f81ee618f",
+    "src/utils/__init__.py": "484b26e19e4b885d7ebfd2d4d5b6fe44bdc16f457f62d6b707f3a417f0ee6bc2",
+    "scripts/bootstrap.ps1": "6fceda3b59e02a44d3f2d289e732070a8413328aa1361fd5168640dbc5e5aed2",
+    "scripts/compare_reference.py": "cb8afb76c74db957a93762a64a5817ad514b8cb504e205419c5ab79153bfd1e1",
+    "scripts/core_multiseed.py": "c6a06f68c6a83d8683c706416a6a14e465bf2e4fb645fe1e87edf92106bfbd16",
+    "scripts/core_multiseed_report.py": "eefafcdca79bab2f33eec24be44450469a152d4571a65039f4a4523558be6061",
+    "scripts/create_notebook.py": "1ceac94feb42392b363929689a6f7036b20f1605d1def0e1e09e47bd2d65f644",
+    "scripts/doctor.py": "7647d11522b58d65dd2fb0ee1cd55d2bc0c789cdf3ac911c0dfc20dc737d7145",
+    "scripts/empirics.py": "2447be780c8afefc0411937db45822e49561fd1d7783bcb52df1399c7fdf195b",
+    "scripts/fetch_wandb.py": "841c13ec588fd222e21fe6cd56c557ba182ff0a693564e9b76720e74542eb62f",
+    "scripts/multiseed.py": "b8552b1415976279bbccdb75b94c70f8129500d299b40f013d3084dc415a1327",
+    "scripts/package_source.py": "460d0b319306e9ead7b42eabfd55ec78d9647a8ffa1f02942e40cbc22de60b28",
+    "scripts/pipeline.py": "94f9f1859551dce710f93f956def6577101cedef5188bb2d022835e7310becb9",
+    "scripts/prepare_reports.py": "416bdc1d42b97f7fff2c791e482151d6de48b86387fc1e44d3b0542483947b58",
+    "scripts/probe_multiseed_resources.py": "a2a0dddee1dabfa48e2497e1b95f5831bec57336f5d481bc1f7bc42580165906",
+    "scripts/refresh_reports.py": "248dd47ad6740841f746f8ad948b7b419e5d8b66d0707e2788bc3039cc48d7d1",
+    "scripts/render_reports.ps1": "50042ea914d8221fc903eb7e9cb4963ef6e3c75465d751d18ea5406a36c9148e",
+    "scripts/run.py": "a3fed2400c6a53352c5ef416a653d000af1e091b06ae08c68942e426e3a42754",
+    "scripts/start_pipeline.ps1": "2020e23b4dec04488905d7960b9ec731b278df36e153755641846c47e2b940f7",
+    "scripts/status.py": "11b44e799634aeff9acf72e811552c9fe8fa3eaa3f07e665c6da14d947b3524f",
+    "scripts/suite.py": "bbed150443a576d6797fc564f456d20a61ab3b31c19e300451852cf47f32a410",
+    "scripts/summarize.py": "80f03a9ec25440918bb32f3638e5fd9d0424a7bf21d78fe61ed9f26ff46a0e75",
+    "scripts/sync_wandb.py": "5c7404b9635daacc8bac63cab832bed319d2a546529615f301111da3284cb77d",
+    "scripts/validate_reports.py": "185bb14efc41f4ccbc5c7bfb3c3290ad2463a2bc08a7e7df69bcdb9c58ad007b",
+    "scripts/__init__.py": "328be08082da3387229ff3d196f8391afd3f7a081384b70321565dceeb50f1c0",
+    "configs/cifar100_core.json": "9cf9f723e03faa198932e301c94f7609e72eaac8fb07377a94bc616b3259f4a4",
+    "configs/cifar100_smoke.json": "d6afb102d754a36567334c569f1fa1ba05c712c936139bd16b78da503a38597c"
+  },
+  "configs": [
+    {
+      "seed": 1,
+      "path": "experiments/multiseed/20261119/configs/seed1.json",
+      "sha256": "a8d155b0936b0e00e6b7b7190933fb195107fad82b23a495bfcd729df7c405d4"
+    },
+    {
+      "seed": 2,
+      "path": "experiments/multiseed/20261119/configs/seed2.json",
+      "sha256": "200a6c775a9eb155b939f0ed0707a286129691126b357fdb32748b189b84ef63"
+    }
+  ],
+  "dataset_metadata": {
+    "id": "uoft-cs/cifar100",
+    "revision": "aadb3af77e9048adbea6b47c21a81e47dd092ae5",
+    "label": "fine_label",
+    "train_samples": 50000,
+    "test_samples": 10000,
+    "url": "https://huggingface.co/datasets/uoft-cs/cifar100",
+    "license_note": "HF card declares unknown; see original CIFAR terms and docs/DATA.md"
+  },
+  "dataset_metadata_sha256": "578f1975c8e41daf35fef231e2d937ee788cdf81683716694d9dd60a24b7a42c",
+  "seed0_training_seconds": 14791.432313499994,
+  "execution_backend": "CPU torch 2.5.1+cpu; existing seed0 environment; 8 threads; sequential",
+  "seed_protocol": "independent class order, backbone initialization, shuffle/augmentation, projection; paired methods within seed",
+  "methods": [
+    "acil-k5",
+    "dac-no-plc-k5",
+    "dsal-k5"
+  ],
+  "seeds_to_run": [
+    1,
+    2
+  ],
+  "wandb": {
+    "entity": "vu-lam-vnuhcm-university-of-science",
+    "project": "intro-ml-group3-dsal",
+    "base_url": "https://api.forge.coreweave.com"
+  },
+  "source_revisions": [
+    {
+      "utc": "2026-11-19T06:40:57.579206+00:00",
+      "scope": "W&B synchronization support only; all scientific training/dataset/model/analytic code and experiment configs unchanged",
+      "changed_source_parts": [
+        "scripts/sync_wandb.py"
+      ],
+      "before_sha256": {
+        "scripts/sync_wandb.py": "9a52abcb19371168973c4b7508c34d046fbcf548f1a22071381c42aa34cbb433"
+      },
+      "after_sha256": {
+        "scripts/sync_wandb.py": "5c7404b9635daacc8bac63cab832bed319d2a546529615f301111da3284cb77d"
+      },
+      "original_snapshot": "source_snapshot",
+      "active_snapshot": "source_snapshot_sync_v2",
+      "reason": "W&B SDK cache/server completion state lagged successful CLI upload; interrupted upload recovered only after config, summary and full history match"
+    }
+  ]
+}

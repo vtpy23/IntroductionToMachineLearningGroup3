@@ -1,0 +1,55 @@
+{
+  "source": "DSAL_Milestone2_Lab1_Final_v2.pptx",
+  "source_sha256": {
+    "DSAL_Milestone2_Lab1_Final_v2.pptx": "22fbb173e61cd08e18a7fe02bd9b7db16888e2a082d3f7979ee13b454cbca45d",
+    "DSAL_Milestone2_Lab1_Final_v2.pdf": "64ab9b938e0b3de2b579b188eb608a992ea37971f71295ac832243840e6ac1a1",
+    "verified_evidence.json": "ec4fde8d88a4637a7ab0501f467c2d9e6f157c1def6043a1c91ffe07896cec28"
+  },
+  "output": "D:\\HCMUS\\HK1-N4\\Nhập môn học máy\\IntroductionToMachineLearningGroup3\\reports\\milestone2_final\\.build\\v3\\candidate.pptx",
+  "changed_parts": [
+    "ppt/slides/slide25.xml",
+    "ppt/slides/slide30.xml",
+    "ppt/slides/slide32.xml",
+    "ppt/slides/slide33.xml",
+    "ppt/slides/slide36.xml",
+    "ppt/charts/chart1.xml"
+  ],
+  "layout": [
+    {
+      "slide": 25,
+      "table_y_in": 4.22,
+      "row_height_in": 0.43,
+      "table_bottom_in": 5.94,
+      "vertical_cell_margin_in": 0.035
+    },
+    {
+      "slide": 30,
+      "table_y_in": 3.22,
+      "row_height_in": 0.4,
+      "table_bottom_in": 4.82,
+      "vertical_cell_margin_in": 0.035
+    },
+    {
+      "slide": 32,
+      "table_y_in": 3.75,
+      "row_height_in": 0.425,
+      "table_bottom_in": 5.45,
+      "vertical_cell_margin_in": 0.035
+    },
+    {
+      "slide": 33,
+      "table_y_in": 4.8,
+      "row_height_in": 0.4,
+      "table_bottom_in": 6.0,
+      "vertical_cell_margin_in": 0.035
+    },
+    {
+      "slide": 36,
+      "table_y_in": 3.65,
+      "row_height_in": 0.52,
+      "table_bottom_in": 6.25,
+      "vertical_cell_margin_in": 0.035
+    }
+  ],
+  "policy": "Only table y/height, row heights, vertical cell padding, selected link-lane y coordinates and chart axis text wrapping changed."
+}

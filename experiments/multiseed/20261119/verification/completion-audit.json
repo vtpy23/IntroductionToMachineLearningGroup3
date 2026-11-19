@@ -1,0 +1,347 @@
+{
+  "completed_utc": "2026-11-19T09:54:01.569340+00:00",
+  "passed": true,
+  "seeds": [
+    {
+      "seed": 0,
+      "checkpoint": "checkpoints/core-seed0-resnet32.pt",
+      "checkpoint_sha256": "13c9e40f006b431683556d3fd1ca5bc4533aaa6fcd2903c0f2b5abfe041c701a",
+      "model_weights_sha256": "43b05f719d71746884712982160c7aab287b262019ed9887f5d83b7f63b5ac7d",
+      "feature_cache": {
+        "path": "data/cache/features-a5c9dfb4e37d61f538ae.pt",
+        "sha256": "b75a780b853cdf73d628a926cfeaa95d9e8843a364e52b0153314d0bc5c336f7"
+      },
+      "projection_sha256": "60d38a71bcf0e3181479844201edfd850c5dae3e20327a66e01c9ee6b0e13e89",
+      "train_shape": [
+        50000,
+        64
+      ],
+      "test_shape": [
+        10000,
+        64
+      ],
+      "paired_methods": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ]
+    },
+    {
+      "seed": 1,
+      "checkpoint": "checkpoints/multiseed-20261119/seed1-resnet32.pt",
+      "checkpoint_sha256": "ffe3da59e95e4db655a95a869363fe43157a8c200ee8326e2c3dbcc4edeb574e",
+      "model_weights_sha256": "89c3d611eed4803682befbf68a18420ed5c75b95a2331700a96de87aa77686ea",
+      "feature_cache": {
+        "path": "data/cache/features-4bd79e8f535b5796f8c2.pt",
+        "sha256": "740ac25dada0895253830270fdee276fa08f2425db6d10466dadf50225ca2ed3"
+      },
+      "projection_sha256": "55e5de5ff4a5363add238f6b8c7c7264a9fa0b879b5dbacf9fcaaf1c85c3e06b",
+      "train_shape": [
+        50000,
+        64
+      ],
+      "test_shape": [
+        10000,
+        64
+      ],
+      "paired_methods": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ]
+    },
+    {
+      "seed": 2,
+      "checkpoint": "checkpoints/multiseed-20261119/seed2-resnet32.pt",
+      "checkpoint_sha256": "dac8239655c02d4057874342f50c46480de437e98a6dcfcd9e25152ea0e41e04",
+      "model_weights_sha256": "cf4728b2e5998674c39df0d91bf85615218a2ebcc7feac7a97e9e3000d14583f",
+      "feature_cache": {
+        "path": "data/cache/features-262a308df1b884e5907f.pt",
+        "sha256": "25248205e043760fc94eef1ef7e321d555d89a71e847b925902dde8904747dae"
+      },
+      "projection_sha256": "c60a37494b8ba866a0dfa79569c30f2494e537ae19846a9489776abac39bf964",
+      "train_shape": [
+        50000,
+        64
+      ],
+      "test_shape": [
+        10000,
+        64
+      ],
+      "paired_methods": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ]
+    }
+  ],
+  "verified_scientific_runs": 9,
+  "verified_backbone_runs": 3,
+  "independent_final_backbone_weights": true,
+  "within_seed_projections_identical": true,
+  "across_seed_projections_distinct": true,
+  "seed0_and_seed1_protected_files_unchanged": true,
+  "slides_v3_pptx_pdf_unchanged": true,
+  "mean_sample_std_ddof1_recalculated": true,
+  "paper_comparisons": [
+    {
+      "method": "acil-k5",
+      "paper_Abar": 66.3,
+      "paper_AK": 57.78,
+      "Abar_gap_pp": -1.1680930335096917,
+      "AK_gap_pp": -1.4099999999999966,
+      "Abar_relative_deviation_pct": -1.76182961313679,
+      "AK_relative_deviation_pct": -2.4402907580477615
+    },
+    {
+      "method": "dsal-k5",
+      "paper_Abar": 66.39,
+      "paper_AK": 58.26,
+      "Abar_gap_pp": -1.1323919753086358,
+      "AK_gap_pp": -1.4866666666666646,
+      "Abar_relative_deviation_pct": -1.7056664788501819,
+      "AK_relative_deviation_pct": -2.5517793797917347
+    }
+  ],
+  "science_wall_seconds_sum": 22420.2811667,
+  "peak_sampled_rss_bytes": 1691992064,
+  "peak_sampled_private_bytes": 2319441920,
+  "resource_sampling_interval_seconds": 10,
+  "source_support_revisions": [
+    {
+      "utc": "2026-11-19T06:40:57.579206+00:00",
+      "scope": "W&B synchronization support only; all scientific training/dataset/model/analytic code and experiment configs unchanged",
+      "changed_source_parts": [
+        "scripts/sync_wandb.py"
+      ],
+      "before_sha256": {
+        "scripts/sync_wandb.py": "9a52abcb19371168973c4b7508c34d046fbcf548f1a22071381c42aa34cbb433"
+      },
+      "after_sha256": {
+        "scripts/sync_wandb.py": "5c7404b9635daacc8bac63cab832bed319d2a546529615f301111da3284cb77d"
+      },
+      "original_snapshot": "source_snapshot",
+      "active_snapshot": "source_snapshot_sync_v2",
+      "reason": "W&B SDK cache/server completion state lagged successful CLI upload; interrupted upload recovered only after config, summary and full history match"
+    }
+  ],
+  "evidence_files": [
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/base-training/config.json",
+      "sha256": "d2eb8a56d7490f7e69487f918f51c80a1e9354c72eb8d0a54af05d746bb4ca02"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/base-training/summary.json",
+      "sha256": "c0d0bcd52f18055b0837e28bf29e2756758ff8c3638e0e537d1cb9a1746e47e7"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/base-training/metrics.jsonl",
+      "sha256": "ae9a6fe42abdeddfaa3cfc071f47730d31428cc248552bca4260eca92f6d4ad5"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/acil-k5/config.json",
+      "sha256": "2ac2fb2159ed1aace7e51823293521aedde1cd984de641657dd93d6fc4a89490"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/acil-k5/summary.json",
+      "sha256": "da1c7129d48caf0745aa10c6e144645ca6222e14645fc3b36c8a03dd7b8a13f6"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/acil-k5/metrics.jsonl",
+      "sha256": "edecb9a6100a79abc10b3f805409cdb4cc874937f4e451eab88e7b9ba0f8e0b5"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/acil-k5/phases.json",
+      "sha256": "ad6d361a46b31e346bed01c086be02c3d6c24f5eef24cc9704ffa655bf45cd5b"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/acil-k5/ratio_sweep.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/dac-no-plc-k5/config.json",
+      "sha256": "64a6806af726369723a4277c367928c5b4cbddb66d43510b4ec47239a0c5f19c"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/dac-no-plc-k5/summary.json",
+      "sha256": "156bbdb0d34cf03411edd688646d65e46cffadb3aa0688d6769b3efc3bce2e19"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/dac-no-plc-k5/metrics.jsonl",
+      "sha256": "066f1817798a391c9087a74ade9e94be2830de7183e9cf632512d8081e199368"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/dac-no-plc-k5/phases.json",
+      "sha256": "18851975efeff793779b39928bd1c0e87870cb40f2cf07594078998e2bd9ab5f"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/dac-no-plc-k5/ratio_sweep.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/dsal-k5/config.json",
+      "sha256": "11c596456a6a73cfab6990b13414f451643e38924e260e7470fcf03adadb53d6"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/dsal-k5/summary.json",
+      "sha256": "539eefaed5733778eee69e7fe46a426f6e1c93d1e6e4bbf0c377c9c3a0459364"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/dsal-k5/metrics.jsonl",
+      "sha256": "0cd3768224ecdb47c1f719696a5da797d85d186ca6faf741931627fe7e54373a"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/dsal-k5/phases.json",
+      "sha256": "ccb5edd5de5b1dd9578d6f0ba25cee516fc0feb3cd01bfcdc271de97f3c23261"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed0/dsal-k5/ratio_sweep.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/base-training/config.json",
+      "sha256": "d3575564735589991ac227aff9ecb25ac86b5e0c97982eda2e8046e1d538954b"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/base-training/summary.json",
+      "sha256": "21d446b1527e879ed00677cdeed2dd90dcea929a88e4f62115b4d554c86fa20c"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/base-training/metrics.jsonl",
+      "sha256": "202d6277a007d130833319d6784feae33ff207babe82e52005076b3ae58805af"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/acil-k5/config.json",
+      "sha256": "bd58b0224c025c0e6712803e7b723d9bf52bade722c84aaad3ac623e3555ad6e"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/acil-k5/summary.json",
+      "sha256": "aef07b1d61d4975bdf6e0fa973492d0e59a4e831ca3d26a98faca6125253a38e"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/acil-k5/metrics.jsonl",
+      "sha256": "15361afe0b2a894673c8748faf333b75eb42abd6f40f5baeea97afeec475a62e"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/acil-k5/phases.json",
+      "sha256": "e4303906238b9684a2d8df24bc39dea1cce74c4ac25031e9c2246141bcc69430"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/acil-k5/ratio_sweep.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/dac-no-plc-k5/config.json",
+      "sha256": "1a8674e6601d40ae4b28f911d0e66353f512a8771002ba0d763a51781a69f5de"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/dac-no-plc-k5/summary.json",
+      "sha256": "6c9362a06a20d0d960e2ee2d09db4eead87df9aec9ffc790a019b736871c06e5"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/dac-no-plc-k5/metrics.jsonl",
+      "sha256": "fe7aa6e752050cc909ef5ff98db776d6a60f923f7b46dc93c6cc5358589149b3"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/dac-no-plc-k5/phases.json",
+      "sha256": "fba80fc057ffd361fc8d9c5aba736cfd320a351f0b9ea3f38a11265a4396d025"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/dac-no-plc-k5/ratio_sweep.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/dsal-k5/config.json",
+      "sha256": "4f6115bf89f284dd4938949d2fda3889cd5a7ef487225e3a5f1fc699cb2d76af"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/dsal-k5/summary.json",
+      "sha256": "4ef805067ba54f5e3fdb01392b01634cb556dc45bdd8a6bbdcb86518dfb84150"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/dsal-k5/metrics.jsonl",
+      "sha256": "fcd6172aea17060068727ecd215eab002d6e55c6b5b9600ed23309acbb63424f"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/dsal-k5/phases.json",
+      "sha256": "a003834da5f100324a401b2199754a655b08b1d87f256b0a4370f8d0d115082b"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed1/dsal-k5/ratio_sweep.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/base-training/config.json",
+      "sha256": "df2fc476d0630c7dc623a3ceabbf11a956e2f2bf6341579a7180a670e600e36e"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/base-training/summary.json",
+      "sha256": "d9e0e62ed28c7ba34958b18f2e6baeffd82b24d05e33c5f9a3108aa5b47d7406"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/base-training/metrics.jsonl",
+      "sha256": "8947557bb2dfb5d04231b9568e3d57304fd67942f894a1c034d1efdc8373a681"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/acil-k5/config.json",
+      "sha256": "451dfed22e2d15eb9411f3154a76e51813328885cbe065090cf5126eee8f526d"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/acil-k5/summary.json",
+      "sha256": "82bdfbe8ff4f3746ec2df01c6fdbc53abf06f3de90524556f346b3aefe4df083"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/acil-k5/metrics.jsonl",
+      "sha256": "0bdb04f42f0a4e5f607a8170aa44d9460d85f2fdb078cad929e8772bbbdfe96a"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/acil-k5/phases.json",
+      "sha256": "3a910369dde9015c76187f82ea8d3d7f99f520402a00a8fda391e24056e11963"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/acil-k5/ratio_sweep.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/dac-no-plc-k5/config.json",
+      "sha256": "5cf2d0ce4d5bf90216a824d089eb601e6cd45c8e304eb908aa1f6729e0b62119"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/dac-no-plc-k5/summary.json",
+      "sha256": "17436eab17e871065e752d40757c775bc30232a350b45196015eacebef38d565"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/dac-no-plc-k5/metrics.jsonl",
+      "sha256": "09835084e4b447945d61c4f02997259c4eb984dfc907a1a1e83b4b4942689683"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/dac-no-plc-k5/phases.json",
+      "sha256": "7c070e234a6d7d77790b36cfdd429cb15bc16e17e1b38a41bbbdcb66f41ee5e5"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/dac-no-plc-k5/ratio_sweep.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/dsal-k5/config.json",
+      "sha256": "2e0e3f94e94ab110dd0f0697c4dfe07141f605b684d80dbaaca22e1e91fe2930"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/dsal-k5/summary.json",
+      "sha256": "8d7a546fe95888b21731f9ab2d934b528253d380c9dbae519e67055f5cc55f05"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/dsal-k5/metrics.jsonl",
+      "sha256": "a644be1ae33c0b6e50f49540f9eb693cd5006630caf08f626f3b85f0539930e5"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/dsal-k5/phases.json",
+      "sha256": "4545edd5e2322c2127f9a4259194f3ac75557f41ed6afc124b98392e5a1cfa17"
+    },
+    {
+      "path": "experiments/multiseed/20261119/evidence/seed2/dsal-k5/ratio_sweep.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ],
+  "audit_script_sha256": "4b7c65912a1214cdc1574ad632afd415fa4c04b80fdaf2f53ed7dc5ee41b064e"
+}

@@ -1,0 +1,71 @@
+{
+  "method": "Unauthenticated GraphQL read-only query; no W&B SDK init/log/sync or config mutation.",
+  "runs": [
+    {
+      "name": "base-training",
+      "run_id": "zuc29egg",
+      "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/zuc29egg",
+      "public_readable": true
+    },
+    {
+      "name": "acil-k5",
+      "run_id": "h2sljkd5",
+      "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/h2sljkd5",
+      "public_readable": true
+    },
+    {
+      "name": "dac-no-plc-k5",
+      "run_id": "gpx1ehdu",
+      "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/gpx1ehdu",
+      "public_readable": true
+    },
+    {
+      "name": "dsal-k5",
+      "run_id": "i0kiycme",
+      "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/i0kiycme",
+      "public_readable": true
+    },
+    {
+      "name": "dsal-k25",
+      "run_id": "c0niqv2k",
+      "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/c0niqv2k",
+      "public_readable": true
+    },
+    {
+      "name": "dsal-k50",
+      "run_id": "mb9xncbl",
+      "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/mb9xncbl",
+      "public_readable": true
+    },
+    {
+      "name": "buffer-512",
+      "run_id": "k64nfaxk",
+      "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/k64nfaxk",
+      "public_readable": true
+    },
+    {
+      "name": "buffer-1024",
+      "run_id": "ec7ki95r",
+      "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/ec7ki95r",
+      "public_readable": true
+    },
+    {
+      "name": "buffer-2048",
+      "run_id": "rugifzey",
+      "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/rugifzey",
+      "public_readable": true
+    },
+    {
+      "name": "reference-comparison",
+      "run_id": "nv8x5tld",
+      "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/nv8x5tld",
+      "public_readable": true
+    },
+    {
+      "name": "phase-dependence",
+      "run_id": "hh31425p",
+      "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/hh31425p",
+      "public_readable": true
+    }
+  ]
+}

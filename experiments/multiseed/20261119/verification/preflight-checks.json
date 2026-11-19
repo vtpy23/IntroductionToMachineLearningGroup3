@@ -1,0 +1,17 @@
+{
+  "checked_utc": "2026-11-19T02:31:06.501555+00:00",
+  "tests": {
+    "passed": 13,
+    "command": ".venv-cpu/Scripts/python.exe -X utf8 -m pytest -q"
+  },
+  "frozen_source_verified": true,
+  "protected_seed0_files_hash_checked": 55,
+  "v3_pptx_and_pdf_unchanged": true,
+  "wandb_endpoint": "https://api.forge.coreweave.com",
+  "wandb_authentication_verified": true,
+  "seed0_four_remote_runs_finished_and_histories_verified": true,
+  "independence_diagnostic_passed": true,
+  "gpu_training_rejected_due_commit_headroom": true,
+  "execution_backend": "existing .venv-cpu",
+  "academic_algorithm_files_modified_in_this_task": false
+}

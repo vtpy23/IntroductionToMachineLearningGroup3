@@ -1,0 +1,660 @@
+{
+  "title": "DS-AL: Milestone 2 + Lab 1 — Three Seeds",
+  "authors": [
+    "Lâm Hoàng Vũ – 23122056",
+    "Nguyễn Bá Nam – 23122043",
+    "Chung Tín Đạt – 23122024"
+  ],
+  "date": "2026-11-19",
+  "references": {
+    "1": {
+      "short": "[1] H. Zhuang et al., “DS-AL,” Proc. AAAI, vol. 38, no. 15, pp. 17237–17244, 2024.",
+      "full": "[1] H. Zhuang, R. He, K. Tong, Z. Zeng, C. Chen, and Z. Lin, “DS-AL: A Dual-Stream Analytic Learning for Exemplar-Free Class-Incremental Learning,” Proceedings of the AAAI Conference on Artificial Intelligence, vol. 38, no. 15, pp. 17237–17244, 2024, doi:10.1609/aaai.v38i15.29670.",
+      "url": "https://doi.org/10.1609/aaai.v38i15.29670"
+    },
+    "2": {
+      "short": "[2] H. Zhuang et al., “Supplementary Material for DS-AL,” Sec. A–C, 2024.",
+      "full": "[2] H. Zhuang et al., “Supplementary Material for DS-AL: A Dual-Stream Analytic Learning for Exemplar-Free Class-Incremental Learning,” Sec. A: proof, Sec. B: algorithms, Sec. C: training details, 2024. Local source: docs/references/DS-AL-supplementary.pdf.",
+      "url": "https://github.com/ZHUANGHP/Analytic-continual-learning"
+    },
+    "3": {
+      "short": "[3] H. Zhuang et al., “ACIL,” Adv. Neural Inf. Process. Syst., vol. 35, pp. 11602–11614, 2022.",
+      "full": "[3] H. Zhuang et al., “ACIL: Analytic Class-Incremental Learning with Absolute Memorization and Privacy Protection,” Advances in Neural Information Processing Systems, vol. 35, pp. 11602–11614, 2022.",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/4b74a42fc81fc7ee252f6bcb6e26c8be-Abstract.html"
+    },
+    "4": {
+      "short": "[4] Z. Li and D. Hoiem, “Learning without Forgetting,” IEEE TPAMI, vol. 40, pp. 2935–2947, 2018.",
+      "full": "[4] Z. Li and D. Hoiem, “Learning without Forgetting,” IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 40, no. 12, pp. 2935–2947, 2018, doi:10.1109/TPAMI.2017.2773081.",
+      "url": "https://doi.org/10.1109/TPAMI.2017.2773081"
+    },
+    "5": {
+      "short": "[5] S.-A. Rebuffi et al., “iCaRL,” Proc. CVPR, pp. 2001–2010, 2017.",
+      "full": "[5] S.-A. Rebuffi, A. Kolesnikov, G. Sperl, and C. H. Lampert, “iCaRL: Incremental Classifier and Representation Learning,” CVPR, pp. 2001–2010, 2017.",
+      "url": "https://openaccess.thecvf.com/content_cvpr_2017/html/Rebuffi_iCaRL_Incremental_Classifier_CVPR_2017_paper.html"
+    },
+    "6": {
+      "short": "[6] K. He et al., “Deep Residual Learning for Image Recognition,” Proc. CVPR, pp. 770–778, 2016.",
+      "full": "[6] K. He, X. Zhang, S. Ren, and J. Sun, “Deep Residual Learning for Image Recognition,” CVPR, pp. 770–778, 2016.",
+      "url": "https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "title": "DS-AL",
+      "kind": "cover",
+      "message": "Đọc hiểu, tự triển khai và tái hiện trên CIFAR-100",
+      "notes": "Nhóm gồm Lâm Hoàng Vũ – 23122056, Nguyễn Bá Nam – 23122043, Chung Tín Đạt – 23122024. Bộ slide đọc hiểu DS-AL của Zhuang và cộng sự tại AAAI 2024, tái dựng độc lập main ridge, DAC và PLC, rồi đánh giá trên CIFAR-100 B50. E1 và E2 dùng ba seed 0, 1, 2; các khảo sát K và buffer vẫn là seed 0. Mỗi seed có backbone huấn luyện độc lập và projection riêng; trong cùng seed, ba phương pháp dùng chung dữ liệu, checkpoint, class order và feature cache. Số liệu được đọc từ logs, config, checkpoint và các run W&B finished công khai; không sử dụng run thất bại hoặc số liệu tổng hợp giả. Chọn Core scope, không nhận tái hiện toàn bộ ImageNet. Seed 0 từng resume từ CUDA sang CPU tại epoch 19; seed 1 và 2 dùng CPU xuyên suốt. Hạn chế backend này được giữ trong diễn giải thống kê.",
+      "section": "MILESTONE 2 + LAB 1",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 2,
+      "title": "Học thêm lớp, vẫn nhận ra lớp cũ",
+      "kind": "timeline",
+      "message": "Bộ phân loại phải xử lý tất cả các lớp đã gặp",
+      "notes": "Ví dụ minh họa do nhóm xây dựng: hệ thống nhận diện động vật học chó và mèo, sau đó học chim và cá. Ở pha sau, đầu vào vẫn có thể là ảnh mèo. Không có task ID cho biết ảnh đến từ giai đoạn nào. Vì thế bài toán là phân loại trên hợp các lớp đã gặp, không phải chọn một head riêng khi đã biết nhiệm vụ. Lịch sử này mô tả vấn đề chứ không phải một kết quả thực nghiệm. Các thí nghiệm thật dùng CIFAR-100 với 50 lớp base. Điều quan trọng ở đây là thay đổi không gian nhãn và sự cạnh tranh giữa lớp cũ với lớp mới. ",
+      "section": "BÀI TOÁN",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 3,
+      "title": "Exemplar-free và replay",
+      "kind": "replay",
+      "message": "DS-AL giữ trạng thái đại số thay cho ảnh replay",
+      "notes": "Replay lưu một phần dữ liệu cũ rồi trộn với dữ liệu mới. Điều đó hỗ trợ cập nhật biểu diễn, nhưng cần ngân sách exemplar và quyền lưu dữ liệu. DS-AL giữ backbone cố định, phép chiếu, head và ma trận thống kê, không cần replay ảnh cũ trong bước học tăng dần. Tuy nhiên, lưu thống kê không phải một chứng minh differential privacy và không có nghĩa mọi thông tin về dữ liệu bị xóa. Trong triển khai phục vụ kiểm chứng, dataset và feature cache vẫn có trên đĩa để đánh giá; lời khẳng định exemplar-free chỉ áp dụng việc fit mỗi pha không lấy mẫu cũ trở lại. ",
+      "section": "BÀI TOÁN",
+      "refs": [
+        "1",
+        "5"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 4,
+      "title": "Từ distillation đến analytic learning",
+      "kind": "related",
+      "message": "Mỗi hướng giải quyết một phần của bài toán",
+      "notes": "LwF dùng distillation trên dữ liệu mới để giữ hành vi cũ. Khi dữ liệu pha mới không đại diện cho dữ liệu cũ, ràng buộc này có thể không giữ đủ khả năng phân biệt, nên cần cân bằng hai mục tiêu. iCaRL sử dụng exemplar để hỗ trợ phân loại và học biểu diễn, nhưng yêu cầu lưu dữ liệu cũ. ACIL giữ đặc trưng cố định và nghiệm ridge qua thống kê, nên tránh cập nhật gây lệch nghiệm head; hạn chế là năng lực biểu diễn của một ánh xạ tuyến tính trong embedding mở rộng. Đây là hạn chế mà DS-AL nhắm đến bằng nhánh bù. Các mô tả là phân tích cơ chế, không phải thứ hạng từ một benchmark mà nhóm chưa chạy.",
+      "section": "BỐI CẢNH",
+      "refs": [
+        "3",
+        "4",
+        "5"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 5,
+      "title": "Khoảng trống và đóng góp",
+      "kind": "contributions",
+      "message": "Thêm khả năng khớp mà vẫn giữ cấu trúc cập nhật đại số",
+      "notes": "Bài báo nêu ba loại đóng góp. Về lý thuyết, C-RLS cho nhánh chính trùng nghiệm ridge học gộp khi thỏa điều kiện. Về kỹ thuật, DAC học phần dư với activation bổ sung, còn PLC áp cấu trúc lớp mới vào mục tiêu bù. Về thực nghiệm, tác giả đánh giá trên CIFAR-100 và ImageNet với các số pha khác nhau. Ba đóng góp có mức độ bảo đảm khác nhau: định lý của head chính là đẳng thức toán học, còn tăng accuracy nhờ nhánh bù là kết quả thực nghiệm. Không suy ra nhánh bù luôn giúp mọi dữ liệu. Triển khai và ablation của nhóm sẽ kiểm tra cụ thể điều đó.",
+      "section": "BỐI CẢNH",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 6,
+      "title": "Kiến trúc tổng thể DS-AL",
+      "kind": "architecture",
+      "message": "Đóng băng biểu diễn, cập nhật hai head rồi cộng điểm",
+      "notes": "Ảnh đi qua CNN đã huấn luyện trên lớp base. Đầu ra 64 chiều của ResNet-32 được mở rộng bằng phép chiếu cố định B. Cùng một Z tạo hai embedding: ReLU cho main stream và tanh cho compensation stream. Main stream học nhãn one-hot, sau đó tạo residual cho nhánh bù. Pha mới dùng PLC trước khi cập nhật compensation head. Khi dự đoán, cộng score của nhánh chính với C lần score nhánh bù rồi lấy argmax. Luồng tạo nhãn bù chỉ tồn tại khi huấn luyện và được vẽ riêng với luồng suy luận. Hình do nhóm dựng lại từ mô tả và Algorithm 1–2, không dùng hình tác giả.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 7,
+      "title": "Protocol CIFAR-100 B50",
+      "kind": "protocol",
+      "message": "K=5: sáu lần đánh giá trên 50, 60, 70, 80, 90, 100 lớp",
+      "notes": "CIFAR-100 có 50.000 ảnh train và 10.000 ảnh test. B50 nghĩa là huấn luyện backbone trên 50 lớp base; 50 lớp còn lại chia thành K pha mới. K=5 cho thêm 10 lớp mỗi pha; pha 0 là base, vì vậy có sáu điểm accuracy. Trong mỗi pha, chỉ dữ liệu lớp mới dùng để cập nhật các head analytic; đánh giá trên mọi lớp đã gặp. Ba seed 0, 1, 2 thay class order, khởi tạo backbone, minibatch/augmentation và projection. Trong từng seed, ACIL, DAC không PLC và DS-AL dùng cùng feature cache và cùng phép chiếu. Khảo sát K=25/50 giữ seed 0, không gộp các cấu hình K vào mean ba seed. Mỗi lần đánh giá dựa trên tập test cố định tương ứng các lớp đã gặp.",
+      "section": "PROTOCOL",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false,
+      "seedMethods": [
+        "dsal-k5"
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Ký hiệu và kích thước",
+      "kind": "notation",
+      "message": "X là embedding theo hàng mẫu, W mở rộng theo số lớp",
+      "notes": "Tại pha k, n_k là số mẫu hiện tại, c_k là tổng số lớp đã gặp, d là chiều feature backbone và m là chiều buffer. X_M,k và X_C,k đều có n_k hàng, m cột. Y_k là one-hot đã đặt vào hệ chỉ số nhãn toàn cục, có c_k cột. W_M,k và W_C,k có m hàng, c_k cột. R là nghịch đảo tương quan kích thước m×m. K là số pha tăng dần sau pha base, nên có K+1 lần đánh giá. Gamma điều chuẩn ridge, C là hệ số hợp nhất score. Dùng chỉ số này xuyên suốt để tránh nhầm số lớp của riêng pha với số lớp tích lũy.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 9,
+      "title": "Mỗi seed có một backbone độc lập",
+      "kind": "training",
+      "message": "Ba ResNet-32, mỗi backbone học 160 epoch trên 50 lớp base",
+      "notes": "Mỗi seed huấn luyện ResNet-32 từ khởi tạo riêng, SGD với lr=0,1, momentum=0,9, weight decay=0,0005, batch 128; giảm lr tại epoch 80 và 120. Augmentation gồm crop và flip như seed 0. Sử dụng checkpoint epoch 160, không chọn bằng accuracy test. Biểu đồ là accuracy test trên các lớp base của từng seed, không phải accuracy incremental cuối cùng. Accuracy base cuối seed 0/1/2 lần lượt 76,92%, 75,54%, 75,42%. Các seed có class order khác nhau nên tập lớp base khác nhau. Sau huấn luyện, mỗi backbone bị đóng băng và chỉ trích một feature cache dùng chung cho ba biến thể trong cùng seed. Seed 0 resume từ CUDA sang CPU sau epoch 19; seed 1/2 dùng CPU xuyên suốt. Không coi ba lượt là cùng backend từng bit. Checkpoint lưu optimizer, scheduler, RNG và DataLoader để resume đúng trạng thái hợp lệ.",
+      "section": "TRIỂN KHAI",
+      "refs": [
+        "2",
+        "6"
+      ],
+      "runs": [],
+      "dark": false,
+      "seedMethods": [
+        "base-training"
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Một phép chiếu, hai embedding",
+      "kind": "embeddings",
+      "message": "ReLU và tanh tạo hai không gian đặc trưng bổ sung",
+      "notes": "Buffer ở đây là phép mở rộng feature ngẫu nhiên, không phải replay buffer. Triển khai lấy B từ phân phối chuẩn với độ lệch chuẩn 1, không bias, seed cố định. Z=f(x)B đi vào cả hai activation. Nhánh chính dùng ReLU, nhánh bù dùng tanh theo cấu hình CIFAR-100 trong paper. Đồ thị ReLU/tanh chỉ minh họa định nghĩa toán học, không phải đo trên dataset. Hai activation khác nhau làm tăng lớp hàm score có thể biểu diễn. Việc tăng lớp hàm chưa bảo đảm tăng accuracy kiểm tra. Khác biệt phân phối projection chưa được PDF mô tả đầy đủ là một giả thuyết cần kiểm chứng khi phân tích gap.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 11,
+      "title": "Ridge regression của nhánh chính",
+      "kind": "ridge",
+      "message": "Cân bằng độ khớp nhãn và độ lớn trọng số",
+      "notes": "Mục tiêu là tối thiểu hóa tổng bình phương sai số giữa Y và XW cộng gamma lần bình phương Frobenius của W. Gamma dương làm ma trận XᵀX+gamma I xác định dương, cho nghiệm duy nhất ngay cả khi feature thiếu hạng. Nhánh chính tuyến tính trong embedding, nhưng pipeline từ pixel đã phi tuyến nhờ CNN và ReLU. Công thức nghịch đảo diễn đạt nghiệm; mã dùng Cholesky solve để tránh tính nghịch đảo tường minh trong chế độ stats. Gamma được cộng đúng một lần cho mục tiêu tích lũy. Đây là nền tảng để xem học tăng dần như cập nhật thống kê của cùng một bài toán ridge.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 12,
+      "title": "Padding khi xuất hiện lớp mới",
+      "kind": "padding",
+      "message": "Giữ các cột cũ và thêm cột 0 đúng hệ chỉ số nhãn",
+      "notes": "Minh họa dùng hai lớp cũ và hai lớp mới, không phải giá trị thực nghiệm. Khi tổng lớp tăng từ hai lên bốn, head cũ được thêm hai cột 0. Nhãn của dữ liệu mới có bốn cột, với phần cũ bằng 0. Đồng thời cross-correlation của dữ liệu quá khứ được padding 0 cho các lớp chưa xuất hiện lúc đó. Nếu one-hot chỉ chứa các lớp trong minibatch mà không remap về nhãn toàn cục, các cột bị trùng ý nghĩa và định lý không còn áp dụng. Padding chỉ là bước chuẩn bị; cập nhật tiếp theo vẫn có thể thay đổi score lớp cũ.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 13,
+      "title": "C-RLS cập nhật nghiệm ridge",
+      "kind": "crls",
+      "message": "Gain Lₖ truyền sai số pha hiện tại vào head đã padding",
+      "notes": "L_k là gain kích thước m×n_k, không phải learning rate tối ưu gradient. Trước tiên tính gain từ R cũ và embedding pha hiện tại. Sau đó cập nhật R và head đã padding bằng residual với head trước cập nhật. Công thức dùng L_k tương đương Eq. 11 vì Supplement A.11 chứng minh L_k=R_k X_kᵀ. Nghịch đảo ở đây có kích thước minibatch, trong khi chế độ stats giải hệ m×m ở cuối pha. Điều kiện ban đầu có thể viết R trước dữ liệu bằng gamma⁻¹I. Bản minh họa đã thống nhất Y_k là nhãn toàn cục n_k×c_k, tránh nhầm kích thước trong ký hiệu gốc.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 14,
+      "title": "Vì sao C-RLS bằng học gộp?",
+      "kind": "proof",
+      "message": "Thống kê cộng dồn giữ cùng một hệ phương trình chuẩn",
+      "notes": "Đặt G_k=gamma I+ tổng các X_iᵀX_i và Q_k là tổng cross-correlation X_iᵀY_i đã padding. Khi đó W_k=G_k⁻¹Q_k. Thêm pha chỉ cộng vào G và Q; không cần đọc lại mẫu cũ. Dùng Woodbury cho G_k⁻¹ thu được cập nhật R. Sau đó thế Q đã padding và dùng L_k=R_k X_kᵀ sẽ thu được Eq. 11. Phép cộng thống kê không phụ thuộc cách chia nhóm trong số học chính xác. Trên máy tính, thứ tự cộng và giải hệ có sai số làm tròn, vì thế kiểm tra dùng tolerance. Phác thảo này trình bày ý chính của Supplement A, không chép toàn bộ chứng minh.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 15,
+      "title": "Phạm vi của Theorem 1",
+      "kind": "guarantee",
+      "message": "Tương đương nghiệm head chính có điều kiện",
+      "notes": "Bảo đảm cần backbone, phép chiếu và activation chính cố định, gamma cố định, padding đúng và cập nhật đủ dữ liệu. Đó là tương đương với ridge học gộp trên cùng feature, không phải tương đương huấn luyện joint CNN trên tất cả ảnh. Accuracy lớp cũ vẫn có thể giảm vì lớp mới cạnh tranh và vì biểu diễn được học chủ yếu trên base. Residual của DAC được tạo ở từng thời điểm khác nhau, nên không tự suy ra toàn bộ DS-AL bất biến chính xác theo phân hoạch pha. Các test số học xác nhận main head ở tolerance đã nêu; chúng không thay thế chứng minh hoặc benchmark rộng.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 16,
+      "title": "RLS và sufficient statistics",
+      "kind": "solvers",
+      "message": "Cùng objective, khác cách giải và chi phí tính toán",
+      "notes": "Nhóm triển khai cả Woodbury RLS và stats. RLS duy trì R rồi cập nhật qua batch; stats duy trì G=gamma I+XᵀX cùng Q=XᵀY rồi giải Cholesky khi kết thúc pha. Cả ba seed benchmark dùng stats, float64. Vì thế thời gian đo không thể nhận là runtime của công thức RLS trong paper. Test đối chiếu hai solver và nghiệm joint ridge cho thấy chúng giải cùng objective trong sai số cho phép. Với batch b, RLS có các thành phần O(m²b+mb²+b³). Stats tích lũy khoảng O(Nm²) rồi giải O(m³) mỗi lần finalize. Đây là bậc chi phí chính khi số lớp và chiều backbone nhỏ hơn m; còn có tích XᵀY, projection và giải nhiều vế phải. Các công thức là phân tích toán học, không phải profiling RAM/CPU.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 17,
+      "title": "DAC học phần dư sau toàn bộ pha",
+      "kind": "residual",
+      "message": "Hoàn tất main stream trước khi tạo nhãn bù",
+      "notes": "Ở pha k, nhóm cập nhật main head bằng toàn bộ dữ liệu pha hiện tại rồi mới tạo E_k=Y_k-X_M,k W_M,k. Nhánh bù dùng activation khác và học E_k bằng ridge. Không recompute mục tiêu cũ khi sang pha sau; lịch sử residual vì thế là một phần của cơ chế DAC. Nếu tạo residual ngay sau từng minibatch, head chính chưa phải nghiệm cuối của pha và kết quả sẽ phụ thuộc chunk size. Đây là vị trí mà nhóm đối chiếu với mã tác giả trên đầu vào nhỏ. Các vector minh họa trên slide là phép tính giáo dục, không phải một sample test đã được log.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 18,
+      "title": "PLC trước và sau làm sạch nhãn",
+      "kind": "plc",
+      "message": "Đặt phần residual của lớp cũ bằng 0 ở pha mới",
+      "notes": "Ví dụ giả định có hai lớp cũ và hai lớp mới. Nhãn one-hot của mẫu mới bằng 0 trên các cột cũ. Dự đoán của main head thường khác 0 ở các cột đó, nên residual cũ là số âm. PLC thay đúng hai cột cũ bằng 0 và giữ nguyên phần residual mới, kể cả phần tử âm trong những cột mới không phải lớp đúng. Pha base không áp PLC. Đây là điều kiện cấu trúc nhãn, không phải đóng băng trọng số cũ hoặc bảo đảm điểm lớp cũ bất biến. Ví dụ được tính lại từng ô để người đọc thấy tác dụng mà một ma trận toàn 0 sẽ không thể hiện.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 19,
+      "title": "Hợp nhất hai nhánh khi dự đoán",
+      "kind": "fusion",
+      "message": "C điều khiển đóng góp của compensation score",
+      "notes": "Điểm dự đoán bằng X_M W_M cộng C X_C W_C. Chọn lớp bằng argmax trên tất cả cột đã gặp. Score ridge không mặc nhiên là xác suất đã hiệu chỉnh, nên không gọi các giá trị trong sơ đồ là confidence được calibrated. C càng lớn thì đóng góp nhánh bù càng lớn, nhưng tính chính xác có thể tăng hoặc giảm tùy cân bằng lớp cũ và mới. Paper dùng C=0,6 cho CIFAR-100, 0,8 cho ImageNet-100, 1,4 cho ImageNet-Full. Nhóm giữ 0,6 trong suite CIFAR để đối sánh. Chưa chạy grid search của riêng nhóm và không chọn C từ test tốt nhất.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 20,
+      "title": "Bộ nhớ trạng thái và chi phí thực tế",
+      "kind": "memory",
+      "message": "Hai ma trận FP64 tại m=8192 chiếm đúng 1 GiB",
+      "notes": "Số 1 GiB được tính từ 2×8192²×8 byte, chỉ gồm hai ma trận tương quan hoặc nghịch đảo tương quan. Nó không phải tổng RAM đo khi chạy. Với cùng m và FP64, ACIL cần một ma trận này, 512 MiB; DS-AL cần hai. Replay còn cần O(M lần kích thước ảnh) cho M exemplar và có thể huấn luyện lại CNN; không có một runtime chung cho mọi phương pháp replay. Với m và số lớp c cố định, trạng thái không tăng theo số mẫu lịch sử, nhưng head vẫn tăng theo c với O(mc). Phép chiếu có O(dm). Workspace Cholesky, cross-correlation, head, backbone và feature cache làm RAM thực tế lớn hơn. Nhóm không có phép đo peak RAM đủ tin cậy cho suite CPU, nên không tạo đường cong RAM đo. Thời gian fit báo riêng từ log, không gộp thời gian huấn luyện CNN.",
+      "section": "PHƯƠNG PHÁP",
+      "refs": [
+        "1",
+        "3",
+        "5"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 21,
+      "title": "Trung bình qua pha và qua seed",
+      "kind": "metrics",
+      "message": "Ā_s gộp sáu pha của một seed; mean ± SD gộp ba seed độc lập",
+      "notes": "Dùng chỉ số s cho seed và k cho pha để tách hai tầng trung bình. Với K=5, A_s,k là accuracy (%) trên mọi lớp đã gặp ở pha k của seed s. A-bar_s = (A_s,0 + … + A_s,5)/6, bao gồm pha base. A_s,5 là accuracy pha cuối trên 100 lớp. Sau đó tính mean của ba A-bar_s để báo cáo A-bar chung; tính riêng mean của ba A_s,5 để báo cáo A_K chung. SD mẫu dùng sqrt(sum((x_s−mean)^2)/(3−1)), n=3 và ddof=1. Không coi 18 điểm pha là 18 lần lặp độc lập. SD mô tả biến thiên giữa seed, không phải standard error hoặc confidence interval. Ví dụ DS-AL: A-bar = 65,2576 ± 0,4919%, A_K = 56,7733 ± 0,1850%. Ba cột nhỏ biểu diễn A_K của từng seed; công thức tổng hợp không thay đổi cách đánh giá trong từng seed.",
+      "section": "THỰC NGHIỆM",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false,
+      "seedMethods": [
+        "dsal-k5"
+      ]
+    },
+    {
+      "number": 22,
+      "title": "Phạm vi tái hiện: Core scope",
+      "kind": "scope",
+      "message": "E1 và E2: ba seed; E3 và khảo sát K: seed 0",
+      "notes": "E1 đối sánh ACIL với DS-AL trên CIFAR-100 B50, ResNet-32, K=5, tương ứng phần không trong ngoặc của Table 1. E1 đã hoàn thành seed 0, 1, 2. E2 so ACIL, DAC không PLC và DS-AL đầy đủ trên cùng ba seed để tách tác dụng DAC/PLC trong protocol CIFAR. E2 chuyển từ ImageNet-Full/C=1,4 của Table 2 sang CIFAR-100/C=0,6; vì dataset, backbone và C thay đổi, không nhận tái hiện nguyên Table 2 hoặc khái quát kết quả sang ImageNet. Không có bằng chứng giảng viên đã chấp nhận riêng phạm vi chuyển này; đây là giới hạn học thuật cần nói rõ, không phải điều kiện đã hoàn tất. E3 là phân tích buffer nhóm thiết kế, chỉ seed 0. Khảo sát K=25/50 cũng chỉ seed 0. Ba seed dữ liệu tổng hợp ở phụ lục là bằng chứng cơ chế riêng, không được dùng thay các seed CIFAR thật.",
+      "section": "THỰC NGHIỆM",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 23,
+      "title": "Thiết lập và khả năng tái lập",
+      "kind": "setup",
+      "message": "Ghép cặp trong từng seed; độc lập giữa seed 0, 1 và 2",
+      "notes": "Dataset uoft-cs/cifar100 được pin tại revision aadb3af77e9048adbea6b47c21a81e47dd092ae5, đầy đủ 50.000/10.000 ảnh. Class order dùng NumPy RandomState(s). Mỗi seed có checkpoint ResNet-32 epoch 160 và feature cache riêng, được xác minh SHA-256. Trong một seed, ba phương pháp chia sẻ cùng checkpoint, class order, dữ liệu, augmentation protocol, feature cache và projection seed. Thay đổi giữa seed gồm khởi tạo backbone, thứ tự dữ liệu, augmentation và projection; không chỉ đổi tên run. Giữ m=8192, gamma=0,1, C=0,6, tanh, projection N(0,1) không bias, stats/float64, analytic batch 512. Seed 1/2 dùng torch 2.5.1+cpu; seed 0 có đoạn CUDA rồi CPU. W&B worker dùng SDK 0.23.1 offline, đọc/sync dùng 0.31.0. Bản sửa công cụ sync chỉ đợi/làm mới trạng thái server, không thay mã học thuật hay hyperparameters. Tất cả 12 run thuộc ba seed đã được đối chiếu trực tiếp lại với W&B, config và history.",
+      "section": "THỰC NGHIỆM",
+      "refs": [
+        "2"
+      ],
+      "runs": [],
+      "dark": false,
+      "seedMethods": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ]
+    },
+    {
+      "number": 24,
+      "title": "Nhóm tự triển khai và kiểm tra gì?",
+      "kind": "tests",
+      "message": "15 kiểm thử đạt; checkpoint và dữ liệu của ba seed được đối chiếu",
+      "notes": "Nhóm tự triển khai các thành phần học thuật trong src/methods/analytic.py, không sao chép phần đóng góp nghiên cứu từ mã tác giả. Bộ pytest có 15 kiểm thử đạt: ridge tăng lớp bằng nghiệm joint; residual sau nghiệm main cuối pha và PLC đúng cột; chunk size không đổi ngữ nghĩa của triển khai nhóm; disjoint classes; protocol; resume giữ quỹ đạo tối ưu trên cùng backend trong kiểm thử; sync từ bản sao, chặn run ID sai và từ chối history khác; làm mới trạng thái W&B khi server cập nhật chậm; không tính SD nếu chưa đủ ba seed khác nhau. Kiểm tra artifact bổ sung đọc lại checkpoint epoch 160, feature cache và chín classifier: trọng số backbone khác giữa seed; projection giống giữa phương pháp trong một seed và khác giữa seed. Kiểm thử số không chứng minh tái hiện trọn paper hoặc nguyên nhân gap. Mã tác giả chỉ được chạy riêng để đối chiếu ở phụ lục, không dùng tạo số liệu benchmark của nhóm.",
+      "section": "THỰC NGHIỆM",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 25,
+      "title": "Điều kiện đối sánh giữa các biến thể",
+      "kind": "trace",
+      "message": "E1/E2 ghép cặp ba seed; K và buffer giữ nguyên seed 0",
+      "notes": "Trong mỗi seed, ACIL, DAC không PLC và DS-AL dùng chung backbone ResNet-32, feature cache, class order và random projection. ACIL tắt compensation; DAC không PLC bật nhánh bù nhưng không làm sạch cột lớp cũ; DS-AL đầy đủ bật DAC và PLC. Mỗi seed mới huấn luyện backbone độc lập đủ 160 epoch. Vì vậy chênh lệch giữa phương pháp được tính theo cặp trong cùng seed rồi trung bình ba cặp. E1/E2 không trộn checkpoint, dữ liệu hoặc cấu hình khác nhau. Khảo sát K=5/25/50 và buffer m=512/1024/2048/8192 giữ kết quả seed 0, không thay hàng K5 hoặc m8192 bằng mean ba seed. Khi thay m, projection cùng seed nhưng không lồng nhau, nên khảo sát buffer vẫn chỉ một realization. E2 là ablation chuyển từ ImageNet-Full sang CIFAR-100, không tái hiện nguyên Table 2.",
+      "section": "THỰC NGHIỆM",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false,
+      "seedMethods": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ]
+    },
+    {
+      "number": 26,
+      "title": "Kết quả gốc trên CIFAR-100",
+      "kind": "paper_table",
+      "message": "DS-AL: ResNet-32, mean ± std từ 3 lần chạy",
+      "notes": "Bảng này là kết quả của tác giả, không phải của nhóm. Đã đối chiếu trực quan Table 1, chỉ lấy hàng CIFAR-100 ResNet-32, không lấy các giá trị trong ngoặc của ResNet-18. Với DS-AL, paper nêu mean và standard deviation của ba lần chạy; các con số 58,26/58,32/58,37 là A_K cho K=5/25/50. A-bar tương ứng là 66,39/66,20/66,33. ACIL là baseline trong cùng bảng. Đây là nguồn đối sánh E1; ablation Table 2 của paper dùng ImageNet-Full nên không trộn vào bảng CIFAR của nhóm.",
+      "section": "KẾT QUẢ TÁC GIẢ",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": true
+    },
+    {
+      "number": 27,
+      "title": "Paper và nhóm trên ba seed",
+      "kind": "paper_compare",
+      "message": "CIFAR-100 B50, K=5; nhóm báo mean ± SD mẫu, n=3",
+      "notes": "Đối sánh theo Table 1 phần CIFAR-100 ResNet-32, không dùng kết quả ResNet-18 trong ngoặc. Paper: ACIL A-bar 66,30%, A_K 57,78%; DS-AL A-bar 66,39%, A_K 58,26%. Nhóm ba seed: ACIL A-bar 65,1319 ± 0,5683%, A_K 56,3700 ± 0,3205%; DS-AL A-bar 65,2576 ± 0,4919%, A_K 56,7733 ± 0,1850%. Thanh paper chỉ thể hiện mean; không gán SD của nhóm cho paper. Thanh nhóm và error bar thể hiện mean và SD mẫu ddof=1 từ ba kết quả, không phải CI. Trục cột bắt đầu từ 0 để không phóng đại gap. Hai phương pháp dùng cùng dữ liệu/biểu diễn trong từng seed; giữa seed, class order và backbone độc lập. Protocol tương ứng phần CIFAR nhưng implementation độc lập, stats solver và backend resume của seed 0 là những giới hạn cần giữ. Mỗi hyperlink seed dẫn đến đúng run tạo số liệu.",
+      "section": "KẾT QUẢ NHÓM",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false,
+      "seedMethods": [
+        "acil-k5",
+        "dsal-k5"
+      ]
+    },
+    {
+      "number": 28,
+      "title": "Định lượng sai lệch với paper",
+      "kind": "gap",
+      "message": "So mean ba seed với mean paper; tách điểm phần trăm và phần trăm tương đối",
+      "notes": "Chênh lệch tuyệt đối được tính bằng mean nhóm trừ mean paper, đơn vị điểm phần trăm (pp). Chênh lệch tương đối = 100 × (mean nhóm − mean paper)/mean paper. ACIL có gap A-bar −1,1681 pp (−1,7618% tương đối) và A_K −1,4100 pp (−2,4403%). DS-AL có gap A-bar −1,1324 pp (−1,7057%) và A_K −1,4867 pp (−2,5518%). Đây là khoảng cách giữa các mean, không phải chênh của riêng seed 0. SD của nhóm mô tả độ biến thiên ba seed, chưa giải thích nguyên nhân reproduction gap. Không gọi −1,4867 pp là −1,4867% tương đối. Chưa có kiểm định phù hợp, nên không khẳng định gap hoặc cải thiện có ý nghĩa thống kê. Các khả năng như class order, initialization, projection, chi tiết training, cách giải và backend cần thí nghiệm kiểm soát riêng để kết luận nhân quả.",
+      "section": "PHÂN TÍCH KẾT QUẢ",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": true,
+      "seedMethods": [
+        "acil-k5",
+        "dsal-k5"
+      ]
+    },
+    {
+      "number": 29,
+      "title": "Ablation DAC và PLC",
+      "kind": "ablation",
+      "message": "E2 chuyển sang CIFAR-100, ba seed; không tái hiện nguyên Table 2",
+      "notes": "Bảng báo mean ± SD mẫu ddof=1 của A-bar và A_K trên seed 0, 1, 2. ACIL là baseline không compensation; DAC không PLC bật compensation nhưng không làm sạch residual lớp cũ; DS-AL đầy đủ có DAC và PLC. Mean A_K lần lượt 56,3700 ± 0,3205%, 56,3033 ± 0,1457%, 56,7733 ± 0,1850%. Chênh ghép cặp DS-AL−ACIL ở A_K là +0,31/+0,34/+0,56 pp; mean +0,4033 pp, SD của ba chênh +0,1365 pp. PLC so DAC không PLC: +0,63/+0,42/+0,36 pp; mean +0,4700 pp, SD +0,1418 pp. Hai cải thiện đều dương ở 3/3 seed. DAC đơn lẻ so ACIL có A_K −0,32/−0,08/+0,20 pp, mean −0,0667 pp, nên dấu không nhất quán. A-bar tăng trung bình +0,1257 pp cho DS-AL−ACIL và +0,3100 pp cho PLC. SD của chênh ghép cặp được tính từ ba chênh, không cộng SD hai phương pháp. Không kết luận ý nghĩa thống kê từ n=3. E2 chuyển ImageNet-Full/C=1,4 sang CIFAR/C=0,6; không suy luận hiệu quả ImageNet hoặc tự nhận phạm vi đã được giảng viên chấp nhận.",
+      "section": "PHÂN TÍCH KẾT QUẢ",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false,
+      "seedMethods": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ]
+    },
+    {
+      "number": 30,
+      "title": "Accuracy theo từng pha tăng dần",
+      "kind": "phase_curves",
+      "message": "Mỗi đường là mean ba seed; error bar là SD mẫu tại từng pha",
+      "notes": "Với mỗi phương pháp và mỗi pha k, lấy accuracy từ phases.json của seed 0, 1, 2, tính mean và SD mẫu ddof=1. Biểu đồ không gộp các pha thành lần lặp độc lập, không dùng run thất bại. Các đường khác màu, kiểu nét và marker; error bar là ±1 SD giữa seed, không phải CI. Trục accuracy phóng 50–80% và được ghi rõ; vị trí X là số lớp đã gặp 50/60/70/80/90/100. Bảng phải là mean±SD của A_K, không phải số seed 0. Đường trung bình gần nhau và error bar chồng lấn không phải một kiểm định. So DS-AL với ACIL ở pha cuối, mean novel accuracy tăng 2,9400 pp, mean base accuracy giảm -2,1333 pp; cùng hai nhóm test 5.000 ảnh nên lợi ích tổng bằng một nửa tổng hai chênh. Đây là mô tả đánh đổi trong CIFAR, không khẳng định cơ chế nhân quả đã được tách riêng.",
+      "section": "PHÂN TÍCH KẾT QUẢ",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": false,
+      "seedMethods": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ]
+    },
+    {
+      "number": 31,
+      "title": "Khảo sát số pha K",
+      "kind": "phase_sweep",
+      "message": "Chỉ seed 0: A_K dao động 0,04 pp khi K=5, 25, 50",
+      "notes": "Dùng cùng backbone và cùng phép chiếu ở seed 0, K=5/25/50 cho A_K lần lượt 56,87/56,83/56,87%. A-bar tương ứng 65,8219/65,5433/65,5361%. Đường cong cuối gần nhau hỗ trợ quan sát ổn định ở cấu hình này. Tuy nhiên, khác biệt 0,04 pp không chứng minh head bù hoặc score bất biến chính xác theo pha. Thay K còn làm thay đổi các điểm đánh giá trung gian nên A-bar cần diễn giải thận trọng. Paper khảo sát tới K=500 trên ImageNet-Full, còn đây là mở rộng vừa sức trên CIFAR-100. Không ghi đã tái hiện thí nghiệm 500 pha. Hàng K=5 trên slide này vẫn là seed 0, không thay bằng mean ba seed. Chưa chạy K=25/50 cho seed 1/2, nên không có SD nhiều seed cho khảo sát này.",
+      "section": "PHÂN TÍCH KẾT QUẢ",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "dsal-k5",
+        "dsal-k25",
+        "dsal-k50"
+      ],
+      "dark": false
+    },
+    {
+      "number": 32,
+      "title": "Phân tích tự thiết kế: chiều buffer",
+      "kind": "research_design",
+      "message": "Đánh đổi accuracy với thời gian fit khi thay m",
+      "notes": "Câu hỏi là giảm chiều buffer tiết kiệm bao nhiêu thời gian và phải đánh đổi accuracy thế nào trên cùng feature CIFAR-100. Đây là khảo sát nhóm khai báo trong suite, không phải sao chép một bảng m tương ứng của DS-AL. Giả thuyết làm việc là m lớn tăng năng lực biểu diễn nhưng tăng chi phí tính toán; đây là giả thuyết trước diễn giải kết quả, không phải định lý về accuracy. Giữ dữ liệu, backbone, thứ tự lớp, seed, gamma, C, activation và solver; thay m trong 512/1024/2048/8192. Các ma trận projection cùng seed nhưng khác shape không lồng nhau, nên hiệu ứng còn có thể chứa khác biệt hiện thực hóa ngẫu nhiên. Cần nhiều seed để tách yếu tố đó.",
+      "section": "PHÂN TÍCH TỰ THIẾT KẾ",
+      "refs": [],
+      "runs": [
+        "buffer-512",
+        "buffer-1024",
+        "buffer-2048",
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 33,
+      "title": "Accuracy và thời gian theo buffer",
+      "kind": "buffer_results",
+      "message": "Seed 0, 512 → 8192: +5,41 pp accuracy, thời gian fit ×96,0",
+      "notes": "Bảng kết hợp các giá trị thực đo: m=512/1024/2048/8192 có A_K 51,46/53,36/54,97/56,87%. Thời gian fit lần lượt khoảng 0,901/1,672/5,177/86,513 giây, cộng trên sáu pha và không gồm base training, trích feature hay logging. Không thay bằng elapsed_seconds vì chỉ số đó bao gồm chi phí khác. Xu hướng accuracy tăng trong bốn cấu hình này phù hợp giả thuyết về capacity, nhưng chưa bảo đảm tính đơn điệu cho seed hoặc dataset khác. Runtime còn phụ thuộc máy CPU và tải hệ thống; không so với thời gian GPU của paper. Không có số đo peak RAM, vì vậy chỉ báo accuracy/time thực đo trên slide này. Hai biểu đồ dùng cùng thứ tự chiều buffer và hai đơn vị riêng: accuracy (%) và thời gian fit (s). Hai trục cột đều bắt đầu từ 0. Bảng giữ giá trị fit đến ba chữ số thập phân và accuracy đến hai chữ số. Tỷ số thời gian và chênh lệch pp được tính từ số đo chưa làm tròn; đây là thống kê mô tả một seed trên CPU này, không phải khẳng định độ phức tạp thực nghiệm trên mọi máy.",
+      "section": "PHÂN TÍCH TỰ THIẾT KẾ",
+      "refs": [],
+      "runs": [
+        "buffer-512",
+        "buffer-1024",
+        "buffer-2048",
+        "dsal-k5"
+      ],
+      "dark": false
+    },
+    {
+      "number": 34,
+      "title": "Độ nhất quán và giới hạn của ba seed",
+      "kind": "evidence_gap",
+      "message": "Cải thiện cùng dấu là bằng chứng mô tả, chưa phải kiểm định thống kê",
+      "notes": "Dữ liệu ba seed hỗ trợ ba nhận định: DS-AL có A_K và A-bar cao hơn ACIL trong từng seed; PLC cải thiện cả hai chỉ số so DAC không PLC trong từng seed; DAC đơn lẻ chưa cải thiện ổn định A_K so ACIL. SD của A_K cho ACIL/DAC/DS-AL lần lượt 0,3205, 0,1457, 0,1850 pp, phản ánh mức biến động quan sát giữa các seed. Chưa có kiểm định phù hợp, và n=3 nhỏ, nên không dùng tính nhất quán dấu hoặc SD nhỏ để khẳng định ý nghĩa thống kê hoặc tổng quát. Seed 0 resume CUDA→CPU tại epoch 19 còn seed 1/2 CPU xuyên suốt; không coi biến thiên hoàn toàn do random seed. Class order, initialization, projection và chi tiết training của paper chưa được đối soát đầy đủ. Các yếu tố này có thể liên quan gap, nhưng chưa được can thiệp riêng. K/buffer chỉ seed 0. Synthetic comparison với mã tác giả chứng minh phạm vi tương đương/khác biệt cụ thể, không xác lập nguyên nhân gap CIFAR.",
+      "section": "THẢO LUẬN",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [
+        "reference-comparison"
+      ],
+      "dark": false,
+      "seedMethods": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ]
+    },
+    {
+      "number": 35,
+      "title": "Kết luận trên ba seed CIFAR-100",
+      "kind": "conclusion",
+      "message": "Đã đo lợi ích ghép cặp và giữ rõ phạm vi của bằng chứng",
+      "notes": "Nhóm tái dựng độc lập main ridge, DAC và PLC; đối chiếu toán học và mã tham chiếu riêng; hoàn thành ACIL, DAC không PLC, DS-AL trên ba seed CIFAR thật. DS-AL đạt mean A_K 56,7733 ± 0,1850%, mean A-bar 65,2576 ± 0,4919%. DS-AL−ACIL tăng mean A_K +0,4033 pp và A-bar +0,1257 pp; PLC−DAC không PLC tăng +0,4700 pp và +0,3100 pp tương ứng. Hai dấu cải thiện nhất quán 3/3 seed, nhưng chưa có kết luận ý nghĩa thống kê. DS-AL còn thấp hơn mean paper 1,4867 pp ở A_K và 1,1324 pp ở A-bar. Khảo sát K/buffer vẫn chỉ seed 0. Chưa tái hiện ImageNet; ablation được chuyển dataset và cần diễn giải trong CIFAR. SD ba seed là thống kê mô tả, có hạn chế backend của seed 0, không phải bảo đảm tổng quát.",
+      "section": "KẾT LUẬN",
+      "refs": [
+        "1"
+      ],
+      "runs": [],
+      "dark": true,
+      "seedMethods": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ]
+    },
+    {
+      "number": 36,
+      "title": "Phụ lục: gain và kích thước ma trận",
+      "kind": "gain_detail",
+      "message": "Lₖ = RₖXₖᵀ là mắt xích trong chứng minh",
+      "notes": "Từ Woodbury, R_k=R_prev−R_prev Xᵀ(I+X R_prev Xᵀ)⁻¹X R_prev. Nhân hai vế với Xᵀ và dùng I−(I+A)⁻¹A=(I+A)⁻¹, thu R_k Xᵀ=R_prev Xᵀ(I+X R_prev Xᵀ)⁻¹=L_k. Đặt W_prev đã padding có kích thước m×c_k thì Y_k−X_k W_prev có n_k×c_k. Nhân L_k tạo cập nhật m×c_k đúng kích thước. Điều này nối hình thức gain phổ biến trong RLS với Eq. 11 của paper. Ma trận I trong gain là n_k×n_k, còn I trong regularization là m×m. Tách hai kích thước là điểm cần chú ý khi giải thích.",
+      "section": "PHỤ LỤC",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [],
+      "dark": false
+    },
+    {
+      "number": 37,
+      "title": "Đối chiếu mã tác giả trên đầu vào tổng hợp",
+      "kind": "reference",
+      "message": "Cùng dữ liệu, nhãn và projection; thay batch của mã tham chiếu từ 20 xuống 4",
+      "notes": "Nhóm dùng checkout 0afd6bf để kiểm chứng trên đầu vào tổng hợp nhỏ, cùng projection và nhãn. Khi mỗi pha là một batch 20 mẫu, sai số score tối đa khoảng 7,88e-13 và head bù khoảng 2,32e-12, phù hợp sai số số học. Khi mã tác giả chia batch 4, head chính vẫn gần nhau nhưng head bù lệch tối đa 0,2257 và score lệch 0,0815. Đây là bằng chứng hai cách xác định thời điểm tạo residual khác nhau. Không từ đó kết luận toàn bộ mã tác giả sai hay rằng đã tìm được nguyên nhân gap CIFAR. Benchmark nhóm giữ residual sau main head cuối pha theo Algorithm 1 của supplementary. Các sai khác trên slide là max absolute difference so với triển khai của nhóm, không phải accuracy. Chỉ thay batch size trong đường chạy mã tác giả; triển khai nhóm giữ residual sau nghiệm main cuối pha. Phạm vi là đầu vào tổng hợp nhỏ tại official checkout 0afd6bf87622e808ce7f730f8556e78229b9e758. Kết quả cho thấy hai đường chạy không tương đương với minibatch nhỏ trong thiết lập này, không chứng minh mã tác giả sai nói chung và không định lượng nguyên nhân gap trên CIFAR.",
+      "section": "PHỤ LỤC",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [
+        "reference-comparison"
+      ],
+      "dark": false
+    },
+    {
+      "number": 38,
+      "title": "Phụ lục: phạm vi của bất biến pha",
+      "kind": "mechanism",
+      "message": "Head chính gần bất biến, head bù có thể đổi",
+      "notes": "Đây là thí nghiệm cơ chế tổng hợp hỗ trợ đọc hiểu và là bằng chứng Lab 2, không dùng thay benchmark CIFAR của Lab 1. Giữ dữ liệu, projection và gamma, thay số pha 1/2/5 trên ba seed. W_M cuối khác nhau khoảng cỡ 1e-14, còn W_C và score thay đổi rõ. Điều đó cho thấy không thể dùng riêng Theorem 1 để kết luận toàn DS-AL bất biến chính xác theo cách chia pha. Nó không phủ nhận quan sát accuracy gần ổn định trên dataset ảnh. Kết luận cần phân biệt nghiệm của main head, trọng số compensation, score và accuracy; chúng là bốn phát biểu khác nhau.",
+      "section": "PHỤ LỤC",
+      "refs": [
+        "1"
+      ],
+      "runs": [
+        "phase-dependence"
+      ],
+      "dark": false
+    },
+    {
+      "number": 39,
+      "title": "Phụ lục: từng seed và provenance",
+      "kind": "provenance_detail",
+      "message": "Mỗi ô ghi Ā và A_K (%), giữ riêng dữ liệu của từng seed",
+      "notes": "Mỗi ô bảng ghi A-bar và A_K (%) của một seed, không phải accuracy từng pha. Các số được tính từ đúng sáu pha và đối chiếu summary/history W&B. Full dataset revision: aadb3af77e9048adbea6b47c21a81e47dd092ae5. Ba checkpoint SHA-256: seed 0: 13c9e40f006b431683556d3fd1ca5bc4533aaa6fcd2903c0f2b5abfe041c701a; seed 1: ffe3da59e95e4db655a95a869363fe43157a8c200ee8326e2c3dbcc4edeb574e; seed 2: dac8239655c02d4057874342f50c46480de437e98a6dcfcd9e25152ea0e41e04. Class order dùng RandomState(seed); 12 lớp đầu theo từng seed: s0: 26,86,2,55,75,93,16,73,54,95,53,92; s1: 80,84,33,81,93,17,36,82,69,65,92,39; s2: 83,30,56,24,16,23,2,27,28,13,99,92. Python 3.11.8, torch 2.5.1+cpu cho các lượt CPU, stats/float64, analytic batch 512; W&B 0.23.1 offline và 0.31.0 sync. Source, config và feature caches có hash, trọng số backbone độc lập giữa seed và projection ghép cặp đã được kiểm tra. Hai seed bổ sung dùng 6,2279 giờ cho backbone/features và analytic, không gồm downtime/sync/diagnostics. Peak RSS lấy mẫu 1,576 GiB, private memory 2,160 GiB, lấy mẫu mỗi 10 giây nên có thể bỏ lỡ đỉnh ngắn. Chi tiết đầy đủ ở assets/three_seeds_verified.json và experiments/multiseed/20261119/.",
+      "section": "PHỤ LỤC",
+      "refs": [],
+      "runs": [],
+      "dark": false,
+      "seedMethods": [
+        "acil-k5",
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ]
+    },
+    {
+      "number": 40,
+      "title": "Phạm vi của các kết luận",
+      "kind": "readiness",
+      "message": "Tách bảo đảm đại số, khảo sát seed 0 và cải thiện ghép cặp ba seed",
+      "notes": "Main head bằng nghiệm joint ridge là bảo đảm đại số khi feature, projection, activation, gamma cố định, padding đúng và cập nhật đủ dữ liệu. Không suy ra CNN không quên hoặc toàn compensation bất biến. Accuracy gần nhau khi thay K chỉ được quan sát trên seed 0; không là đẳng thức trọng số hoặc kết quả nhiều seed. Trong CIFAR K=5, PLC tăng A_K mean +0,4700 pp so DAC không PLC và DS-AL tăng +0,4033 pp so ACIL; các chênh dương ở 3/3 seed. Đây là bằng chứng thực nghiệm mô tả, không khẳng định ý nghĩa thống kê. Seed 0 có đoạn resume đổi backend; K/buffer chỉ có một seed. Các seed của synthetic mechanism là bộ dữ liệu tổng hợp riêng và không tính vào ba seed CIFAR. E2 chuyển dataset từ ImageNet-Full, không suy rộng nguyên Table 2. Giữ các phạm vi này giúp tránh biến một quan sát accuracy thành bảo đảm không được dữ liệu hoặc định lý hỗ trợ.",
+      "section": "PHỤ LỤC",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "runs": [
+        "phase-dependence"
+      ],
+      "dark": true,
+      "seedMethods": [
+        "dac-no-plc-k5",
+        "dsal-k5"
+      ]
+    }
+  ],
+  "evidence_file": "assets/verified_evidence.json",
+  "version": "v2",
+  "evidence": "assets/three_seeds_verified.json"
+}

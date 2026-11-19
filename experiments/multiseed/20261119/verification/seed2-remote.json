@@ -1,0 +1,42 @@
+[
+  {
+    "seed": 2,
+    "method": "base-training",
+    "run_id": "dj8cl86v",
+    "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/dj8cl86v",
+    "state": "finished",
+    "public": true,
+    "history_verified": true,
+    "verified_utc": "2026-11-19T09:53:42.158408+00:00"
+  },
+  {
+    "seed": 2,
+    "method": "acil-k5",
+    "run_id": "7dg5j40m",
+    "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/7dg5j40m",
+    "state": "finished",
+    "public": true,
+    "history_verified": true,
+    "verified_utc": "2026-11-19T09:53:44.653543+00:00"
+  },
+  {
+    "seed": 2,
+    "method": "dac-no-plc-k5",
+    "run_id": "5hnhr4tm",
+    "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/5hnhr4tm",
+    "state": "finished",
+    "public": true,
+    "history_verified": true,
+    "verified_utc": "2026-11-19T09:53:47.015183+00:00"
+  },
+  {
+    "seed": 2,
+    "method": "dsal-k5",
+    "run_id": "9pij1vti",
+    "url": "https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/9pij1vti",
+    "state": "finished",
+    "public": true,
+    "history_verified": true,
+    "verified_utc": "2026-11-19T09:53:49.275014+00:00"
+  }
+]
