@@ -1,6 +1,8 @@
 # Trạng thái dự án
 
-Cập nhật 19/11/2026: benchmark ba seed đã hoàn thành. Trạng thái của đợt chạy này:
+Cập nhật 20/11/2026: nhóm xác nhận đã nộp Milestone 2 + Lab 1. [Bàn giao cho thành viên](../TEAM_HANDOFF.md) ghi bản slide mới nhất, mapping và việc tiếp theo. Việc nộp được ghi nhận theo xác nhận của nhóm, chưa đối chiếu biên nhận Moodle.
+
+Benchmark ba seed đã hoàn thành. Trạng thái của đợt chạy này:
 
 ```powershell
 Get-Content outputs/multiseed-20261119/status.json
@@ -15,14 +17,14 @@ Get-Content outputs/multiseed-20261119/status.json
 - Ba thí nghiệm cơ chế tổng hợp, mỗi thí nghiệm ba seed, có số đo và W&B public.
 - Đối chiếu mã gốc: cùng dữ liệu/projection và một batch mỗi pha cho sai số
   đầu ra cỡ1e-12; minibatch nhỏ dẫn đến khác residual targets.
-- Bộ mới 40 slide tiếng Việt có notes, IEEE citations, 9 chart và 20 bảng native:
-  [PPTX theo ID03](../reports/milestone2_final/submission_3seeds/03.pptx),
-  [PDF](../reports/milestone2_final/DSAL_Milestone2_Lab1_3Seeds_Final.pdf).
-  Đã render và kiểm tra trực quan từng trang, dữ liệu ba seed và custom error bars.
+- Bộ StrictReview 40 slide tiếng Việt có notes, IEEE citations, 10 chart và 22 bảng native:
+  [PPTX theo ID03](../reports/milestone2_final/submission_strict_review/03.pptx),
+  [PDF](../reports/milestone2_final/DSAL_Milestone2_Lab1_3Seeds_StrictReview_Final.pdf).
+  Đã render và kiểm tra trực quan từng trang; notes tối đa 382 từ. 21 test đạt.
   Các bộ seed0 trước đây được giữ làm lịch sử, không phải bản nộp hiện tại.
 - Repo được xác nhận public khi công bố; người dùng cho phép push cả slide.
-  [Mapping](../reports/milestone2_final/EXPERIMENT_TRACEABILITY.md) và
-  [snapshot log/config](../experiments/evidence/README.md) truy vết từng run.
+  [Mapping hiện hành](../reports/strict_review/EXPERIMENT_MAPPING.md),
+  [snapshot seed0](../experiments/evidence/README.md) và [sensitivity mới](../experiments/strict-review/20261119/README.md) truy vết từng run.
 - Notes đọc hiểu, phản biện, kế hoạch đo và hướng dẫn chạy.
 
 ## Thực nghiệm và điều kiện còn thiếu
@@ -37,9 +39,9 @@ Get-Content outputs/multiseed-20261119/status.json
 - W&B: đã xác minh đăng nhập và quyền ghi/đọc công khai trên Forge. Các run
   smoke, cơ chế tổng hợp và đối chiếu công thức có liên kết tại [W&B](WANDB.md).
   Các seed mới có log/config và bản sửa sync được ghi nhận riêng, không thay số đo.
-- PPTX/PDF mới đã cập nhật benchmark/W&B ba seed. Ablation DAC/PLC chuyển
-  từ ImageNet-Full sang CIFAR-100 cần giảng viên chấp nhận phạm vi; không
-  tự nhận tái hiện nguyên Table 2. Poster vẫn là bản nháp cho mốc sau.
+- Đã bổ sung C-sensitivity từ final classifier trên ba seed, có ba run W&B riêng và số đếm prediction flips. Không fit lại head hay backbone. Tổng 24 run được audit config/summary/history công khai khi rà soát.
+- Ablation DAC/PLC chuyển từ ImageNet-Full sang CIFAR-100, không nhận tái hiện nguyên Table 2. Nhóm phải biện minh độ đủ của Core; tài liệu không đặt một thủ tục phê duyệt riêng cho phạm vi chuyển dataset. Poster vẫn là bản nháp cho mốc sau.
+- Projection/activation controls mới có script/config plan-only, chưa chạy `--execute`. Clean environment chưa được tái lập từ đầu; không thay các venv thực nghiệm.
 - Bản bổ sung ImageNet-100/Full chưa nằm trong triển khai hiện tại.
 
 ## Quyết định triển khai

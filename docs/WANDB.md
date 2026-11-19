@@ -1,4 +1,12 @@
-Cập nhật 19/11/2026: benchmark ACIL, DAC không PLC và DS-AL đã đủ seed 0/1/2. Chín run phương pháp và ba run backbone đã được đối chiếu log/config/history với Forge, tất cả finished và public. Xem [kết quả ba seed](../experiments/multiseed/20261119/RESULTS.md), [báo cáo hoàn tất](../experiments/multiseed/20261119/COMPLETION_REPORT.md) và [snapshot dùng cho slide](../reports/milestone2_final/assets/three_seeds_verified.json). Mean ± SD mẫu dùng ddof=1; K/buffer giữ seed 0. Những bảng smoke và ghi nhận ngày 17/11 dưới đây là lịch sử, không thay cho benchmark hiện hành.
+Cập nhật bàn giao 20/11/2026: xem [trạng thái nhóm](../TEAM_HANDOFF.md) và [mapping đầy đủ 24 run](../reports/strict_review/EXPERIMENT_MAPPING.md). Ba run sensitivity C mới dùng final classifier đã lưu, không huấn luyện/refit lại:
+
+| Seed | Run C-sensitivity | Bằng chứng |
+|---:|---|---|
+|0 |[i2c96w3y](https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/i2c96w3y) |[config/history/analysis](../experiments/strict-review/20261119/saved-C-sensitivity-seed0/) |
+|1 |[cu5nowzq](https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/cu5nowzq) |[config/history/analysis](../experiments/strict-review/20261119/saved-C-sensitivity-seed1/) |
+|2 |[xq49tulq](https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/xq49tulq) |[config/history/analysis](../experiments/strict-review/20261119/saved-C-sensitivity-seed2/) |
+
+Benchmark ACIL, DAC không PLC và DS-AL đã đủ seed 0/1/2. Chín run phương pháp và ba run backbone đã được đối chiếu log/config/history với Forge, tất cả finished và public. Xem [kết quả ba seed](../experiments/multiseed/20261119/RESULTS.md), [báo cáo hoàn tất](../experiments/multiseed/20261119/COMPLETION_REPORT.md) và [snapshot dùng cho slide](../reports/milestone2_final/assets/three_seeds_verified.json). Mean ± SD mẫu dùng ddof=1; K/buffer giữ seed 0. Những bảng smoke và ghi nhận ngày 17/11 dưới đây là lịch sử, không thay cho benchmark hiện hành.
 
 W&B của nhóm 03 dùng API Forge `https://api.forge.coreweave.com` và project [intro-ml-group3-dsal](https://forge.coreweave.com/wandb/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal).
 

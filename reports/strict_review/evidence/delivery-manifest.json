@@ -1,0 +1,57 @@
+{
+  "created_utc": "2026-11-19T15:43:01.472051+00:00",
+  "local_only": true,
+  "published_main_unchanged": "84b9564e33156073c30e9d3ccab1b9006ae25931",
+  "files_sha256": {
+    "reports/strict_review/audit_strict.py": "a65e7afbfa2f7077e84a139a4db16788c850d4ef410c5e729d4ea6145f51edcf",
+    "reports/strict_review/BLOCKED_AND_FOLLOWUP.md": "abe2d6f512bc19c00d0f21f248a1307fb9541ed4f1935474c65a26d4a948b32f",
+    "reports/strict_review/CHANGES.md": "20a457ac96d0eb827f11131ffdb0977de947bcd9c187ab40465e17890a709495",
+    "reports/strict_review/CORE_SCOPE_REVIEW.md": "cb4dc4b6b3d7e08093c719af0aa6634f9a261168de31781cec7641dd9af1f174",
+    "reports/strict_review/EXPERIMENT_MAPPING.md": "947a7ae3f3edbb1801c7cd333681a126029be8cdcdfc6fb9ac6b9ed8b9368e61",
+    "reports/strict_review/FINAL_STRICT_REVIEW.md": "616e35c03a0526e0aa21ae7028ffeaab5986d6d57f93c08321afb506a23c49c4",
+    "reports/strict_review/GAP_PROTOCOL_AUDIT.md": "f1d57ca97fa4db7507fb77868f300ae0c18789258a9f65d2fc8f988d96cbe913",
+    "reports/strict_review/generate_reports.py": "0bc23d6a1e50e72e15f56095567a6390d89b87123fceb94a69f2519254a2d92c",
+    "reports/strict_review/layout_overrides.mjs": "96fa1506ded1e4f740b1cc711244f2fb1a3603743f6cf59bf961c5bcde069fc6",
+    "reports/strict_review/merge_strict.py": "58bd6f392affbaa5876764ea386da7d1aa0eed079a6e71eb7ef2d1d07608e908",
+    "reports/strict_review/NUMERICAL_VERIFICATION.md": "dd347ca7b1f4465f9f6382a337d98ea555d357ea31904a2cdd6b5f833eabefa4",
+    "reports/strict_review/prepare_strict_content.py": "bddd00feeb3d5484ab2b7879a1a1d01a3f8f8cbf2b059465243762e496bac555",
+    "reports/strict_review/README.md": "4d4fd53f973e6aad572a9d58b781d8f031f1d09b3dd14a3e7ce6ea39f14588ce",
+    "reports/strict_review/REQUIREMENTS_TO_SLIDES.md": "08396fa6ac948e9e9a666f5d88a0bd371697cc20294a90b67a469145b681e958",
+    "reports/strict_review/RUNBOOK.md": "2a00ff6b1e35265304f9956c67edea91e72d8495dd11bbae065c828a7c620109",
+    "reports/strict_review/validate_and_finalize.py": "713f6a6356f228efd71ee0ccba9b0a91dec51f725d1a534cffaeb1dcb3353610",
+    "reports/strict_review/evidence/environment-check.json": "eea2bdf967f1e3d97ea299edcaf2bcb3786a853c0880abf2d0e26b7edde66fa4",
+    "reports/strict_review/evidence/final-validation.json": "4d8d1348217a4abda944d428660cd59926f440ac71c43cad96da1d460912a9a5",
+    "reports/strict_review/evidence/merge-receipt.json": "bd72726c54cefa16249b96f8075439305b94c3fba15b2c3e2b150a35a827f751",
+    "reports/strict_review/evidence/native-table-gaps.json": "a43250a83c1db8f9ebac2b1dc3f4a7f1354d5636366856d64e93d54fe2c19141",
+    "reports/strict_review/evidence/package-integrity.json": "32e5fcd3efb21445684899da9738d00f91b3d8389df09700c1dad891a1dacb59",
+    "reports/strict_review/evidence/strict-audit.json": "1323195b6d44e562efe11039a7dc41725294403d2566569076398786bc8d5dee",
+    "reports/strict_review/evidence/tests.json": "e28604b156725d9dd3ee99f17049294c22880386729cb3866d3de6d7776fe401",
+    "reports/strict_review/evidence/visual-review.json": "17469693c8c9399c42c669ae07877edcb3f5b61d9a5b04e27993d08d789081d4",
+    "experiments/strict-review/20261119/README.md": "5656cfc776e72350ec052ef6389e7368b59ba3f58e881a6c2f9b361460154f3f",
+    "experiments/strict-review/20261119/results.json": "5d5b4859ff72ef136dbaaac9286ab2257a98ff3840e4d2b18e430ba26a7405ac",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed0/analysis.json": "609364f257e7d8d23b0cd49db32523c332cb6bca2ab6b0aa79226d6bbeeec71c",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed0/config.json": "17b3a22280370595d73e98c959fa3d3a73bc08b5895efd2871ed69926fd3bb59",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed0/metrics.jsonl": "174f9a88fb7fef0fa7e39588f8f096ee3fe1e017566fab87e98229e51888707c",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed0/summary.json": "ab7c9df79e1b46e1d9b1af8042266475328207d69d771c88579f35b5b1804e89",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed1/analysis.json": "3b3692f090ffe1d2e6e2102cc7a6b5bdd7c0a308db576dc9331771fa2fa0a335",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed1/config.json": "4d28df5168c1ddeaa811ce58fd43a17d490d05a6df7052a038b11f2b04b242d3",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed1/metrics.jsonl": "0ff23eb5217633f3a9708d3ef260e9a567549c2d86abcc06b393c0f3e75f4b09",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed1/summary.json": "0eee2de752d10e4b8879af503bcfb4f7206a573ff0301b654290bdf01752c37e",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed2/analysis.json": "5ebd88da75a4f80683d53258ba1367fb15d3b1030b78ea9a2860d227a8ff2e84",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed2/config.json": "076511f1bdbefbbac57602d57812a490618724ba701131f9d96f5b182c1dd689",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed2/metrics.jsonl": "70b76bc2495a55defb15ae9b0ae48bfdcdb2234b7c36681918d240f3a1186d54",
+    "experiments/strict-review/20261119/saved-C-sensitivity-seed2/summary.json": "973dab716cbbcd540caa7085ecfd90353a24466a7636ec8c5f5b7e7aa17e316b",
+    "experiments/strict-review/20261119/source_snapshot/configs/saved_classifier_sensitivity.json": "f2daa9721e9ded986828c8581e4176c84c82d9da2f195e92b890a0bc4525f9c5",
+    "experiments/strict-review/20261119/source_snapshot/scripts/analyze_saved_classifiers.py": "80a46f99cfa4c18d3a65e7b71529e5842771d8c9860a0e6e19f083909d0f6293"
+  },
+  "deliverables": {
+    "DSAL_Milestone2_Lab1_3Seeds_StrictReview_Final.pptx": {
+      "bytes": 303733,
+      "sha256": "4ea0e45d180bfb7456ca9076423c19bc0891b2a4ed273bcd2c7339986c943876"
+    },
+    "DSAL_Milestone2_Lab1_3Seeds_StrictReview_Final.pdf": {
+      "bytes": 657707,
+      "sha256": "4ff95c2e0daf3e0a132dd54baf8b13df64b859c87409fbcf54e8e0452f768072"
+    }
+  }
+}

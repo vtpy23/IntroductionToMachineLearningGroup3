@@ -1,5 +1,7 @@
 # Cập nhật bộ slide DS-AL
 
+Bản mới nhất là `DSAL_Milestone2_Lab1_3Seeds_StrictReview_Final.pptx`. Xem [bàn giao nhóm ngày 20/11](../../TEAM_HANDOFF.md), [RUNBOOK StrictReview](../strict_review/RUNBOOK.md) và [báo cáo kiểm định máy](../strict_review/evidence/final-validation.json). Nguồn PptxGenJS: `build_strict_review.mjs`, copy học thuật và layout tại `../strict_review/`. Các mục dưới là hướng dẫn lịch sử.
+
 Bản hiện hành là **DSAL_Milestone2_Lab1_3Seeds_Final.pptx**, dùng kết quả seed 0/1/2 đã xác minh. Xem [báo cáo kiểm định](FINAL_VALIDATION_REPORT.md) cho các lệnh tái tạo, [kết quả ba seed](THREE_SEEDS_RESULTS.md) cho bảng số liệu và [nguồn PptxGenJS](build_three_seeds.mjs). File nộp theo ID nhóm là `submission_3seeds/03.pptx`. Pipeline mới dùng gói v3 làm nền và giữ nguyên các bản lịch sử.
 
 Phần hướng dẫn dưới đây mô tả pipeline seed 0 trước đây; dùng báo cáo kiểm định ở trên để tạo bản ba seed.

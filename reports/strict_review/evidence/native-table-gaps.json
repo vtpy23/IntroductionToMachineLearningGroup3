@@ -1,0 +1,156 @@
+﻿[
+    {
+        "Slide":  4,
+        "Table":  "Table 0",
+        "BottomInches":  5.43,
+        "FooterInches":  6.66,
+        "GapInches":  1.23
+    },
+    {
+        "Slide":  7,
+        "Table":  "Table 0",
+        "BottomInches":  4.57,
+        "FooterInches":  6.24,
+        "GapInches":  1.67
+    },
+    {
+        "Slide":  8,
+        "Table":  "Table 0",
+        "BottomInches":  5.53,
+        "FooterInches":  6.66,
+        "GapInches":  1.13
+    },
+    {
+        "Slide":  12,
+        "Table":  "Table 0",
+        "BottomInches":  4.6,
+        "FooterInches":  6.66,
+        "GapInches":  2.06
+    },
+    {
+        "Slide":  12,
+        "Table":  "Table 1",
+        "BottomInches":  4.6,
+        "FooterInches":  6.66,
+        "GapInches":  2.06
+    },
+    {
+        "Slide":  18,
+        "Table":  "Table 0",
+        "BottomInches":  4.36,
+        "FooterInches":  6.66,
+        "GapInches":  2.3
+    },
+    {
+        "Slide":  18,
+        "Table":  "Table 1",
+        "BottomInches":  6.08,
+        "FooterInches":  6.66,
+        "GapInches":  0.58
+    },
+    {
+        "Slide":  20,
+        "Table":  "Table 0",
+        "BottomInches":  5.4,
+        "FooterInches":  6.66,
+        "GapInches":  1.26
+    },
+    {
+        "Slide":  23,
+        "Table":  "Table 0",
+        "BottomInches":  5.61,
+        "FooterInches":  6.24,
+        "GapInches":  0.63
+    },
+    {
+        "Slide":  25,
+        "Table":  "Table 0",
+        "BottomInches":  5.58,
+        "FooterInches":  6.32,
+        "GapInches":  0.74
+    },
+    {
+        "Slide":  26,
+        "Table":  "Table 0",
+        "BottomInches":  4.9,
+        "FooterInches":  6.66,
+        "GapInches":  1.76
+    },
+    {
+        "Slide":  28,
+        "Table":  "Table 0",
+        "BottomInches":  4.67,
+        "FooterInches":  6.24,
+        "GapInches":  1.57
+    },
+    {
+        "Slide":  29,
+        "Table":  "Table 0",
+        "BottomInches":  4.97,
+        "FooterInches":  6.24,
+        "GapInches":  1.27
+    },
+    {
+        "Slide":  30,
+        "Table":  "Table 0",
+        "BottomInches":  4.82,
+        "FooterInches":  6.24,
+        "GapInches":  1.42
+    },
+    {
+        "Slide":  31,
+        "Table":  "Table 0",
+        "BottomInches":  5.18,
+        "FooterInches":  6.24,
+        "GapInches":  1.06
+    },
+    {
+        "Slide":  32,
+        "Table":  "Table 0",
+        "BottomInches":  5.45,
+        "FooterInches":  6.24,
+        "GapInches":  0.79
+    },
+    {
+        "Slide":  33,
+        "Table":  "Table 0",
+        "BottomInches":  6,
+        "FooterInches":  6.32,
+        "GapInches":  0.32
+    },
+    {
+        "Slide":  34,
+        "Table":  "Table 0",
+        "BottomInches":  6.14,
+        "FooterInches":  6.24,
+        "GapInches":  0.1
+    },
+    {
+        "Slide":  36,
+        "Table":  "Table 0",
+        "BottomInches":  4.6,
+        "FooterInches":  6.25,
+        "GapInches":  1.65
+    },
+    {
+        "Slide":  37,
+        "Table":  "Table 0",
+        "BottomInches":  4.6,
+        "FooterInches":  6.24,
+        "GapInches":  1.64
+    },
+    {
+        "Slide":  39,
+        "Table":  "Table 0",
+        "BottomInches":  5.48,
+        "FooterInches":  6.24,
+        "GapInches":  0.76
+    },
+    {
+        "Slide":  40,
+        "Table":  "Table 0",
+        "BottomInches":  4.78,
+        "FooterInches":  6.24,
+        "GapInches":  1.46
+    }
+]

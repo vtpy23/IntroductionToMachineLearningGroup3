@@ -1,0 +1,10 @@
+{
+  "output": "outputs/strict-review-20261119/ratio-sensitivity",
+  "seeds": [0, 1, 2],
+  "ratios": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+  "batch_size": 256,
+  "cpu_threads": 4,
+  "reference_ratio": 0.6,
+  "tracking": {"entity": "vu-lam-vnuhcm-university-of-science", "project": "intro-ml-group3-dsal", "base_url": "https://api.forge.coreweave.com"},
+  "scope": "Retrospective Figure 4 Tanh/C sensitivity at the final K5 phase, using frozen saved classifiers. No training, refit, checkpoint selection or test-set hyperparameter tuning. C=0.6 remains the reported benchmark."
+}

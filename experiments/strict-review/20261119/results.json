@@ -1,0 +1,1188 @@
+{
+  "rows": [
+    {
+      "seed": 0,
+      "ratios": [
+        {
+          "ratio": 0.0,
+          "all_accuracy": 56.56,
+          "all_count": 10000,
+          "base_accuracy": 69.56,
+          "base_count": 5000,
+          "novel_accuracy": 43.56,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.1,
+          "all_accuracy": 56.54,
+          "all_count": 10000,
+          "base_accuracy": 69.16,
+          "base_count": 5000,
+          "novel_accuracy": 43.92,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.2,
+          "all_accuracy": 56.51,
+          "all_count": 10000,
+          "base_accuracy": 68.84,
+          "base_count": 5000,
+          "novel_accuracy": 44.18,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.3,
+          "all_accuracy": 56.55,
+          "all_count": 10000,
+          "base_accuracy": 68.46,
+          "base_count": 5000,
+          "novel_accuracy": 44.64,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.4,
+          "all_accuracy": 56.72,
+          "all_count": 10000,
+          "base_accuracy": 68.1,
+          "base_count": 5000,
+          "novel_accuracy": 45.34,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.5,
+          "all_accuracy": 56.78,
+          "all_count": 10000,
+          "base_accuracy": 67.84,
+          "base_count": 5000,
+          "novel_accuracy": 45.72,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.6,
+          "all_accuracy": 56.87,
+          "all_count": 10000,
+          "base_accuracy": 67.58,
+          "base_count": 5000,
+          "novel_accuracy": 46.16,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.7,
+          "all_accuracy": 56.82,
+          "all_count": 10000,
+          "base_accuracy": 67.14,
+          "base_count": 5000,
+          "novel_accuracy": 46.5,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.8,
+          "all_accuracy": 56.75,
+          "all_count": 10000,
+          "base_accuracy": 66.68,
+          "base_count": 5000,
+          "novel_accuracy": 46.82,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.9,
+          "all_accuracy": 56.64,
+          "all_count": 10000,
+          "base_accuracy": 66.3,
+          "base_count": 5000,
+          "novel_accuracy": 46.98,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 1.0,
+          "all_accuracy": 56.48,
+          "all_count": 10000,
+          "base_accuracy": 65.82,
+          "base_count": 5000,
+          "novel_accuracy": 47.14,
+          "novel_count": 5000
+        }
+      ],
+      "paired_prediction_changes": {
+        "dac_minus_acil": {
+          "all": {
+            "corrected": 310,
+            "harmed": 342,
+            "net_pp": -0.32,
+            "count": 10000
+          },
+          "base": {
+            "corrected": 7,
+            "harmed": 229,
+            "net_pp": -4.44,
+            "count": 5000
+          },
+          "novel": {
+            "corrected": 303,
+            "harmed": 113,
+            "net_pp": 3.8,
+            "count": 5000
+          }
+        },
+        "dsal_minus_acil": {
+          "all": {
+            "corrected": 195,
+            "harmed": 164,
+            "net_pp": 0.31,
+            "count": 10000
+          },
+          "base": {
+            "corrected": 3,
+            "harmed": 102,
+            "net_pp": -1.98,
+            "count": 5000
+          },
+          "novel": {
+            "corrected": 192,
+            "harmed": 62,
+            "net_pp": 2.6,
+            "count": 5000
+          }
+        },
+        "plc_minus_dac": {
+          "all": {
+            "corrected": 202,
+            "harmed": 139,
+            "net_pp": 0.63,
+            "count": 10000
+          },
+          "base": {
+            "corrected": 129,
+            "harmed": 6,
+            "net_pp": 2.46,
+            "count": 5000
+          },
+          "novel": {
+            "corrected": 73,
+            "harmed": 133,
+            "net_pp": -1.2,
+            "count": 5000
+          }
+        }
+      },
+      "elapsed_seconds": 0.5541082999989158,
+      "feature_identity": {
+        "checkpoint_sha256": "13c9e40f006b431683556d3fd1ca5bc4533aaa6fcd2903c0f2b5abfe041c701a",
+        "dataset": {
+          "id": "uoft-cs/cifar100",
+          "revision": "aadb3af77e9048adbea6b47c21a81e47dd092ae5",
+          "label": "fine_label",
+          "train_samples": 50000,
+          "test_samples": 10000,
+          "url": "https://huggingface.co/datasets/uoft-cs/cifar100",
+          "license_note": "HF card declares unknown; see original CIFAR terms and docs/DATA.md"
+        },
+        "class_order": [
+          26,
+          86,
+          2,
+          55,
+          75,
+          93,
+          16,
+          73,
+          54,
+          95,
+          53,
+          92,
+          78,
+          13,
+          7,
+          30,
+          22,
+          24,
+          33,
+          8,
+          43,
+          62,
+          3,
+          71,
+          45,
+          48,
+          6,
+          99,
+          82,
+          76,
+          60,
+          80,
+          90,
+          68,
+          51,
+          27,
+          18,
+          56,
+          63,
+          74,
+          1,
+          61,
+          42,
+          41,
+          4,
+          15,
+          17,
+          40,
+          38,
+          5,
+          91,
+          59,
+          0,
+          34,
+          28,
+          50,
+          11,
+          35,
+          23,
+          52,
+          10,
+          31,
+          66,
+          57,
+          79,
+          85,
+          32,
+          84,
+          14,
+          89,
+          19,
+          29,
+          49,
+          97,
+          98,
+          69,
+          20,
+          94,
+          72,
+          77,
+          25,
+          37,
+          81,
+          46,
+          39,
+          65,
+          58,
+          12,
+          88,
+          70,
+          87,
+          36,
+          21,
+          83,
+          9,
+          96,
+          67,
+          64,
+          47,
+          44
+        ],
+        "limits": {
+          "cache": "data/cache",
+          "revision": "main"
+        },
+        "transform": "cifar100-normalize-v1",
+        "architecture": "option-a-resnet32"
+      },
+      "protected_sha256": {
+        "data/cache/features-a5c9dfb4e37d61f538ae.pt": "b75a780b853cdf73d628a926cfeaa95d9e8843a364e52b0153314d0bc5c336f7",
+        "outputs/core-seed0/acil-k5/classifier.pt": "c19d1e4a1c589ce342f3bdf437fb56192fef940b68b7e1eb381c4c540682e772",
+        "outputs/core-seed0/acil-k5/config.json": "2ac2fb2159ed1aace7e51823293521aedde1cd984de641657dd93d6fc4a89490",
+        "outputs/core-seed0/acil-k5/summary.json": "da1c7129d48caf0745aa10c6e144645ca6222e14645fc3b36c8a03dd7b8a13f6",
+        "outputs/core-seed0/acil-k5/phases.json": "ad6d361a46b31e346bed01c086be02c3d6c24f5eef24cc9704ffa655bf45cd5b",
+        "outputs/core-seed0/acil-k5/metrics.jsonl": "edecb9a6100a79abc10b3f805409cdb4cc874937f4e451eab88e7b9ba0f8e0b5",
+        "outputs/core-seed0/dac-no-plc-k5/classifier.pt": "f45da765003e62fa71a44f59f91011976fa606e89c2d8e31a847e4c3cfa6df80",
+        "outputs/core-seed0/dac-no-plc-k5/config.json": "64a6806af726369723a4277c367928c5b4cbddb66d43510b4ec47239a0c5f19c",
+        "outputs/core-seed0/dac-no-plc-k5/summary.json": "156bbdb0d34cf03411edd688646d65e46cffadb3aa0688d6769b3efc3bce2e19",
+        "outputs/core-seed0/dac-no-plc-k5/phases.json": "18851975efeff793779b39928bd1c0e87870cb40f2cf07594078998e2bd9ab5f",
+        "outputs/core-seed0/dac-no-plc-k5/metrics.jsonl": "066f1817798a391c9087a74ade9e94be2830de7183e9cf632512d8081e199368",
+        "outputs/core-seed0/dsal-k5/classifier.pt": "9cd7c0aaf13cf6963a44a40edaca87e58c4d0c6bc20e62423098b4dcd4505b45",
+        "outputs/core-seed0/dsal-k5/config.json": "11c596456a6a73cfab6990b13414f451643e38924e260e7470fcf03adadb53d6",
+        "outputs/core-seed0/dsal-k5/summary.json": "539eefaed5733778eee69e7fe46a426f6e1c93d1e6e4bbf0c377c9c3a0459364",
+        "outputs/core-seed0/dsal-k5/phases.json": "ccb5edd5de5b1dd9578d6f0ba25cee516fc0feb3cd01bfcdc271de97f3c23261",
+        "outputs/core-seed0/dsal-k5/metrics.jsonl": "0cd3768224ecdb47c1f719696a5da797d85d186ca6faf741931627fe7e54373a",
+        "checkpoints/core-seed0-resnet32.pt": "13c9e40f006b431683556d3fd1ca5bc4533aaa6fcd2903c0f2b5abfe041c701a"
+      },
+      "parent_runs": {
+        "acil-k5": "h2sljkd5",
+        "dac-no-plc-k5": "gpx1ehdu",
+        "dsal-k5": "i0kiycme"
+      },
+      "source_summaries_reproduced": true,
+      "tracking": {
+        "completed": true,
+        "seed": 0,
+        "analysis_only": true,
+        "points": 11,
+        "elapsed_seconds": 0.5541082999989158,
+        "source_summaries_reproduced": true,
+        "reference_ratio": 0.6,
+        "scope": "Retrospective Figure 4 Tanh/C sensitivity at the final K5 phase, using frozen saved classifiers. No training, refit, checkpoint selection or test-set hyperparameter tuning. C=0.6 remains the reported benchmark.",
+        "wandb_url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/i2c96w3y",
+        "wandb_run_id": "i2c96w3y",
+        "tracking_mode": "online",
+        "submission_ready": true,
+        "public_visibility_verified": true
+      }
+    },
+    {
+      "seed": 1,
+      "ratios": [
+        {
+          "ratio": 0.0,
+          "all_accuracy": 56.55,
+          "all_count": 10000,
+          "base_accuracy": 67.6,
+          "base_count": 5000,
+          "novel_accuracy": 45.5,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.1,
+          "all_accuracy": 56.56,
+          "all_count": 10000,
+          "base_accuracy": 67.3,
+          "base_count": 5000,
+          "novel_accuracy": 45.82,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.2,
+          "all_accuracy": 56.62,
+          "all_count": 10000,
+          "base_accuracy": 67.02,
+          "base_count": 5000,
+          "novel_accuracy": 46.22,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.3,
+          "all_accuracy": 56.7,
+          "all_count": 10000,
+          "base_accuracy": 66.62,
+          "base_count": 5000,
+          "novel_accuracy": 46.78,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.4,
+          "all_accuracy": 56.73,
+          "all_count": 10000,
+          "base_accuracy": 66.14,
+          "base_count": 5000,
+          "novel_accuracy": 47.32,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.5,
+          "all_accuracy": 56.87,
+          "all_count": 10000,
+          "base_accuracy": 65.68,
+          "base_count": 5000,
+          "novel_accuracy": 48.06,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.6,
+          "all_accuracy": 56.89,
+          "all_count": 10000,
+          "base_accuracy": 65.36,
+          "base_count": 5000,
+          "novel_accuracy": 48.42,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.7,
+          "all_accuracy": 57.0,
+          "all_count": 10000,
+          "base_accuracy": 65.06,
+          "base_count": 5000,
+          "novel_accuracy": 48.94,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.8,
+          "all_accuracy": 56.95,
+          "all_count": 10000,
+          "base_accuracy": 64.7,
+          "base_count": 5000,
+          "novel_accuracy": 49.2,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.9,
+          "all_accuracy": 56.93,
+          "all_count": 10000,
+          "base_accuracy": 64.3,
+          "base_count": 5000,
+          "novel_accuracy": 49.56,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 1.0,
+          "all_accuracy": 56.79,
+          "all_count": 10000,
+          "base_accuracy": 63.78,
+          "base_count": 5000,
+          "novel_accuracy": 49.8,
+          "novel_count": 5000
+        }
+      ],
+      "paired_prediction_changes": {
+        "dac_minus_acil": {
+          "all": {
+            "corrected": 330,
+            "harmed": 338,
+            "net_pp": -0.08,
+            "count": 10000
+          },
+          "base": {
+            "corrected": 7,
+            "harmed": 230,
+            "net_pp": -4.46,
+            "count": 5000
+          },
+          "novel": {
+            "corrected": 323,
+            "harmed": 108,
+            "net_pp": 4.3,
+            "count": 5000
+          }
+        },
+        "dsal_minus_acil": {
+          "all": {
+            "corrected": 204,
+            "harmed": 170,
+            "net_pp": 0.34,
+            "count": 10000
+          },
+          "base": {
+            "corrected": 6,
+            "harmed": 118,
+            "net_pp": -2.24,
+            "count": 5000
+          },
+          "novel": {
+            "corrected": 198,
+            "harmed": 52,
+            "net_pp": 2.92,
+            "count": 5000
+          }
+        },
+        "plc_minus_dac": {
+          "all": {
+            "corrected": 192,
+            "harmed": 150,
+            "net_pp": 0.42,
+            "count": 10000
+          },
+          "base": {
+            "corrected": 117,
+            "harmed": 6,
+            "net_pp": 2.22,
+            "count": 5000
+          },
+          "novel": {
+            "corrected": 75,
+            "harmed": 144,
+            "net_pp": -1.38,
+            "count": 5000
+          }
+        }
+      },
+      "elapsed_seconds": 0.45966789999511093,
+      "feature_identity": {
+        "checkpoint_sha256": "ffe3da59e95e4db655a95a869363fe43157a8c200ee8326e2c3dbcc4edeb574e",
+        "dataset": {
+          "id": "uoft-cs/cifar100",
+          "revision": "aadb3af77e9048adbea6b47c21a81e47dd092ae5",
+          "label": "fine_label",
+          "train_samples": 50000,
+          "test_samples": 10000,
+          "url": "https://huggingface.co/datasets/uoft-cs/cifar100",
+          "license_note": "HF card declares unknown; see original CIFAR terms and docs/DATA.md"
+        },
+        "class_order": [
+          80,
+          84,
+          33,
+          81,
+          93,
+          17,
+          36,
+          82,
+          69,
+          65,
+          92,
+          39,
+          56,
+          52,
+          51,
+          32,
+          31,
+          44,
+          78,
+          10,
+          2,
+          73,
+          97,
+          62,
+          19,
+          35,
+          94,
+          27,
+          46,
+          38,
+          67,
+          99,
+          54,
+          95,
+          88,
+          40,
+          48,
+          59,
+          23,
+          34,
+          86,
+          53,
+          77,
+          15,
+          83,
+          41,
+          45,
+          91,
+          26,
+          98,
+          43,
+          55,
+          24,
+          4,
+          58,
+          49,
+          21,
+          87,
+          3,
+          74,
+          30,
+          66,
+          70,
+          42,
+          47,
+          89,
+          8,
+          60,
+          0,
+          90,
+          57,
+          22,
+          61,
+          63,
+          7,
+          96,
+          13,
+          68,
+          85,
+          14,
+          29,
+          28,
+          11,
+          18,
+          20,
+          50,
+          25,
+          6,
+          71,
+          76,
+          1,
+          16,
+          64,
+          79,
+          5,
+          75,
+          9,
+          72,
+          12,
+          37
+        ],
+        "limits": {
+          "cache": "data/cache",
+          "revision": "main"
+        },
+        "transform": "cifar100-normalize-v1",
+        "architecture": "option-a-resnet32"
+      },
+      "protected_sha256": {
+        "data/cache/features-4bd79e8f535b5796f8c2.pt": "740ac25dada0895253830270fdee276fa08f2425db6d10466dadf50225ca2ed3",
+        "outputs/multiseed-20261119/core-seed1/acil-k5/classifier.pt": "10ca5fe3b6d6ccc13c0a7dfaee3dea5edf3f578bae53ad8aa4bb8ec28b58115a",
+        "outputs/multiseed-20261119/core-seed1/acil-k5/config.json": "bd58b0224c025c0e6712803e7b723d9bf52bade722c84aaad3ac623e3555ad6e",
+        "outputs/multiseed-20261119/core-seed1/acil-k5/summary.json": "aef07b1d61d4975bdf6e0fa973492d0e59a4e831ca3d26a98faca6125253a38e",
+        "outputs/multiseed-20261119/core-seed1/acil-k5/phases.json": "e4303906238b9684a2d8df24bc39dea1cce74c4ac25031e9c2246141bcc69430",
+        "outputs/multiseed-20261119/core-seed1/acil-k5/metrics.jsonl": "15361afe0b2a894673c8748faf333b75eb42abd6f40f5baeea97afeec475a62e",
+        "outputs/multiseed-20261119/core-seed1/dac-no-plc-k5/classifier.pt": "98dbb9c95fc7b192a25fb1f543412bad3a2997055e6c7b266345511aee5a3212",
+        "outputs/multiseed-20261119/core-seed1/dac-no-plc-k5/config.json": "1a8674e6601d40ae4b28f911d0e66353f512a8771002ba0d763a51781a69f5de",
+        "outputs/multiseed-20261119/core-seed1/dac-no-plc-k5/summary.json": "6c9362a06a20d0d960e2ee2d09db4eead87df9aec9ffc790a019b736871c06e5",
+        "outputs/multiseed-20261119/core-seed1/dac-no-plc-k5/phases.json": "fba80fc057ffd361fc8d9c5aba736cfd320a351f0b9ea3f38a11265a4396d025",
+        "outputs/multiseed-20261119/core-seed1/dac-no-plc-k5/metrics.jsonl": "fe7aa6e752050cc909ef5ff98db776d6a60f923f7b46dc93c6cc5358589149b3",
+        "outputs/multiseed-20261119/core-seed1/dsal-k5/classifier.pt": "00cad8dc33b1fb5f4bf56dde9be8a0d4f5bcd65075b204a378d3685c120abe4b",
+        "outputs/multiseed-20261119/core-seed1/dsal-k5/config.json": "4f6115bf89f284dd4938949d2fda3889cd5a7ef487225e3a5f1fc699cb2d76af",
+        "outputs/multiseed-20261119/core-seed1/dsal-k5/summary.json": "4ef805067ba54f5e3fdb01392b01634cb556dc45bdd8a6bbdcb86518dfb84150",
+        "outputs/multiseed-20261119/core-seed1/dsal-k5/phases.json": "a003834da5f100324a401b2199754a655b08b1d87f256b0a4370f8d0d115082b",
+        "outputs/multiseed-20261119/core-seed1/dsal-k5/metrics.jsonl": "fcd6172aea17060068727ecd215eab002d6e55c6b5b9600ed23309acbb63424f",
+        "checkpoints/multiseed-20261119/seed1-resnet32.pt": "ffe3da59e95e4db655a95a869363fe43157a8c200ee8326e2c3dbcc4edeb574e"
+      },
+      "parent_runs": {
+        "acil-k5": "i0jt6hm8",
+        "dac-no-plc-k5": "jzgqywsg",
+        "dsal-k5": "8tlegrwo"
+      },
+      "source_summaries_reproduced": true,
+      "tracking": {
+        "completed": true,
+        "seed": 1,
+        "analysis_only": true,
+        "points": 11,
+        "elapsed_seconds": 0.45966789999511093,
+        "source_summaries_reproduced": true,
+        "reference_ratio": 0.6,
+        "scope": "Retrospective Figure 4 Tanh/C sensitivity at the final K5 phase, using frozen saved classifiers. No training, refit, checkpoint selection or test-set hyperparameter tuning. C=0.6 remains the reported benchmark.",
+        "wandb_url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/cu5nowzq",
+        "wandb_run_id": "cu5nowzq",
+        "tracking_mode": "online",
+        "submission_ready": true,
+        "public_visibility_verified": true
+      }
+    },
+    {
+      "seed": 2,
+      "ratios": [
+        {
+          "ratio": 0.0,
+          "all_accuracy": 56.0,
+          "all_count": 10000,
+          "base_accuracy": 67.72,
+          "base_count": 5000,
+          "novel_accuracy": 44.28,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.1,
+          "all_accuracy": 56.08,
+          "all_count": 10000,
+          "base_accuracy": 67.34,
+          "base_count": 5000,
+          "novel_accuracy": 44.82,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.2,
+          "all_accuracy": 56.18,
+          "all_count": 10000,
+          "base_accuracy": 66.98,
+          "base_count": 5000,
+          "novel_accuracy": 45.38,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.3,
+          "all_accuracy": 56.35,
+          "all_count": 10000,
+          "base_accuracy": 66.68,
+          "base_count": 5000,
+          "novel_accuracy": 46.02,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.4,
+          "all_accuracy": 56.4,
+          "all_count": 10000,
+          "base_accuracy": 66.2,
+          "base_count": 5000,
+          "novel_accuracy": 46.6,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.5,
+          "all_accuracy": 56.49,
+          "all_count": 10000,
+          "base_accuracy": 65.92,
+          "base_count": 5000,
+          "novel_accuracy": 47.06,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.6,
+          "all_accuracy": 56.56,
+          "all_count": 10000,
+          "base_accuracy": 65.54,
+          "base_count": 5000,
+          "novel_accuracy": 47.58,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.7,
+          "all_accuracy": 56.67,
+          "all_count": 10000,
+          "base_accuracy": 65.32,
+          "base_count": 5000,
+          "novel_accuracy": 48.02,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.8,
+          "all_accuracy": 56.79,
+          "all_count": 10000,
+          "base_accuracy": 64.98,
+          "base_count": 5000,
+          "novel_accuracy": 48.6,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 0.9,
+          "all_accuracy": 56.64,
+          "all_count": 10000,
+          "base_accuracy": 64.5,
+          "base_count": 5000,
+          "novel_accuracy": 48.78,
+          "novel_count": 5000
+        },
+        {
+          "ratio": 1.0,
+          "all_accuracy": 56.54,
+          "all_count": 10000,
+          "base_accuracy": 64.12,
+          "base_count": 5000,
+          "novel_accuracy": 48.96,
+          "novel_count": 5000
+        }
+      ],
+      "paired_prediction_changes": {
+        "dac_minus_acil": {
+          "all": {
+            "corrected": 342,
+            "harmed": 322,
+            "net_pp": 0.2,
+            "count": 10000
+          },
+          "base": {
+            "corrected": 4,
+            "harmed": 223,
+            "net_pp": -4.38,
+            "count": 5000
+          },
+          "novel": {
+            "corrected": 338,
+            "harmed": 99,
+            "net_pp": 4.78,
+            "count": 5000
+          }
+        },
+        "dsal_minus_acil": {
+          "all": {
+            "corrected": 219,
+            "harmed": 163,
+            "net_pp": 0.56,
+            "count": 10000
+          },
+          "base": {
+            "corrected": 5,
+            "harmed": 114,
+            "net_pp": -2.18,
+            "count": 5000
+          },
+          "novel": {
+            "corrected": 214,
+            "harmed": 49,
+            "net_pp": 3.3,
+            "count": 5000
+          }
+        },
+        "plc_minus_dac": {
+          "all": {
+            "corrected": 181,
+            "harmed": 145,
+            "net_pp": 0.36,
+            "count": 10000
+          },
+          "base": {
+            "corrected": 114,
+            "harmed": 4,
+            "net_pp": 2.2,
+            "count": 5000
+          },
+          "novel": {
+            "corrected": 67,
+            "harmed": 141,
+            "net_pp": -1.48,
+            "count": 5000
+          }
+        }
+      },
+      "elapsed_seconds": 0.4597420999998576,
+      "feature_identity": {
+        "checkpoint_sha256": "dac8239655c02d4057874342f50c46480de437e98a6dcfcd9e25152ea0e41e04",
+        "dataset": {
+          "id": "uoft-cs/cifar100",
+          "revision": "aadb3af77e9048adbea6b47c21a81e47dd092ae5",
+          "label": "fine_label",
+          "train_samples": 50000,
+          "test_samples": 10000,
+          "url": "https://huggingface.co/datasets/uoft-cs/cifar100",
+          "license_note": "HF card declares unknown; see original CIFAR terms and docs/DATA.md"
+        },
+        "class_order": [
+          83,
+          30,
+          56,
+          24,
+          16,
+          23,
+          2,
+          27,
+          28,
+          13,
+          99,
+          92,
+          76,
+          14,
+          0,
+          21,
+          3,
+          29,
+          61,
+          79,
+          35,
+          11,
+          84,
+          44,
+          73,
+          5,
+          25,
+          77,
+          74,
+          62,
+          65,
+          1,
+          18,
+          48,
+          36,
+          78,
+          6,
+          89,
+          91,
+          10,
+          12,
+          53,
+          87,
+          54,
+          95,
+          32,
+          19,
+          26,
+          60,
+          55,
+          9,
+          96,
+          17,
+          59,
+          57,
+          41,
+          64,
+          45,
+          97,
+          8,
+          71,
+          94,
+          90,
+          98,
+          86,
+          80,
+          50,
+          52,
+          66,
+          88,
+          70,
+          46,
+          68,
+          69,
+          81,
+          58,
+          33,
+          38,
+          51,
+          42,
+          4,
+          67,
+          39,
+          37,
+          20,
+          31,
+          63,
+          47,
+          85,
+          93,
+          49,
+          34,
+          7,
+          75,
+          82,
+          43,
+          22,
+          72,
+          15,
+          40
+        ],
+        "limits": {
+          "cache": "data/cache",
+          "revision": "main"
+        },
+        "transform": "cifar100-normalize-v1",
+        "architecture": "option-a-resnet32"
+      },
+      "protected_sha256": {
+        "data/cache/features-262a308df1b884e5907f.pt": "25248205e043760fc94eef1ef7e321d555d89a71e847b925902dde8904747dae",
+        "outputs/multiseed-20261119/core-seed2/acil-k5/classifier.pt": "47b3a3f60f7dbc13ed86a253e1ce15cb5342dd603754ec8b472f6563dc1c8127",
+        "outputs/multiseed-20261119/core-seed2/acil-k5/config.json": "451dfed22e2d15eb9411f3154a76e51813328885cbe065090cf5126eee8f526d",
+        "outputs/multiseed-20261119/core-seed2/acil-k5/summary.json": "82bdfbe8ff4f3746ec2df01c6fdbc53abf06f3de90524556f346b3aefe4df083",
+        "outputs/multiseed-20261119/core-seed2/acil-k5/phases.json": "3a910369dde9015c76187f82ea8d3d7f99f520402a00a8fda391e24056e11963",
+        "outputs/multiseed-20261119/core-seed2/acil-k5/metrics.jsonl": "0bdb04f42f0a4e5f607a8170aa44d9460d85f2fdb078cad929e8772bbbdfe96a",
+        "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/classifier.pt": "963ab9180a757768be79b416332d8fee4dedcddc05a9c15800c0e6c0695332ec",
+        "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/config.json": "5cf2d0ce4d5bf90216a824d089eb601e6cd45c8e304eb908aa1f6729e0b62119",
+        "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/summary.json": "17436eab17e871065e752d40757c775bc30232a350b45196015eacebef38d565",
+        "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/phases.json": "7c070e234a6d7d77790b36cfdd429cb15bc16e17e1b38a41bbbdcb66f41ee5e5",
+        "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/metrics.jsonl": "09835084e4b447945d61c4f02997259c4eb984dfc907a1a1e83b4b4942689683",
+        "outputs/multiseed-20261119/core-seed2/dsal-k5/classifier.pt": "64a0ad0fee34d139c414273666973f75f0a8afa67d0ad87e6af6127cc04d4af7",
+        "outputs/multiseed-20261119/core-seed2/dsal-k5/config.json": "2e0e3f94e94ab110dd0f0697c4dfe07141f605b684d80dbaaca22e1e91fe2930",
+        "outputs/multiseed-20261119/core-seed2/dsal-k5/summary.json": "8d7a546fe95888b21731f9ab2d934b528253d380c9dbae519e67055f5cc55f05",
+        "outputs/multiseed-20261119/core-seed2/dsal-k5/phases.json": "4545edd5e2322c2127f9a4259194f3ac75557f41ed6afc124b98392e5a1cfa17",
+        "outputs/multiseed-20261119/core-seed2/dsal-k5/metrics.jsonl": "a644be1ae33c0b6e50f49540f9eb693cd5006630caf08f626f3b85f0539930e5",
+        "checkpoints/multiseed-20261119/seed2-resnet32.pt": "dac8239655c02d4057874342f50c46480de437e98a6dcfcd9e25152ea0e41e04"
+      },
+      "parent_runs": {
+        "acil-k5": "7dg5j40m",
+        "dac-no-plc-k5": "5hnhr4tm",
+        "dsal-k5": "9pij1vti"
+      },
+      "source_summaries_reproduced": true,
+      "tracking": {
+        "completed": true,
+        "seed": 2,
+        "analysis_only": true,
+        "points": 11,
+        "elapsed_seconds": 0.4597420999998576,
+        "source_summaries_reproduced": true,
+        "reference_ratio": 0.6,
+        "scope": "Retrospective Figure 4 Tanh/C sensitivity at the final K5 phase, using frozen saved classifiers. No training, refit, checkpoint selection or test-set hyperparameter tuning. C=0.6 remains the reported benchmark.",
+        "wandb_url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/xq49tulq",
+        "wandb_run_id": "xq49tulq",
+        "tracking_mode": "online",
+        "submission_ready": true,
+        "public_visibility_verified": true
+      }
+    }
+  ],
+  "aggregate": [
+    {
+      "ratio": 0.0,
+      "all_accuracy": {
+        "mean": 56.37,
+        "sd": 0.3204684071792412,
+        "ddof": 1
+      },
+      "base_accuracy": {
+        "mean": 68.29333333333334,
+        "sd": 1.0986051762727775,
+        "ddof": 1
+      },
+      "novel_accuracy": {
+        "mean": 44.446666666666665,
+        "sd": 0.98068003616538,
+        "ddof": 1
+      }
+    },
+    {
+      "ratio": 0.1,
+      "all_accuracy": {
+        "mean": 56.39333333333333,
+        "sd": 0.27153882472555213,
+        "ddof": 1
+      },
+      "base_accuracy": {
+        "mean": 67.93333333333334,
+        "sd": 1.0625127450215968,
+        "ddof": 1
+      },
+      "novel_accuracy": {
+        "mean": 44.85333333333333,
+        "sd": 0.9504384952922161,
+        "ddof": 1
+      }
+    },
+    {
+      "ratio": 0.2,
+      "all_accuracy": {
+        "mean": 56.43666666666667,
+        "sd": 0.22898325994127341,
+        "ddof": 1
+      },
+      "base_accuracy": {
+        "mean": 67.61333333333333,
+        "sd": 1.0625127450216008,
+        "ddof": 1
+      },
+      "novel_accuracy": {
+        "mean": 45.26,
+        "sd": 1.0252804494381036,
+        "ddof": 1
+      }
+    },
+    {
+      "ratio": 0.3,
+      "all_accuracy": {
+        "mean": 56.53333333333333,
+        "sd": 0.17559422921421278,
+        "ddof": 1
+      },
+      "base_accuracy": {
+        "mean": 67.25333333333333,
+        "sd": 1.045434518912265,
+        "ddof": 1
+      },
+      "novel_accuracy": {
+        "mean": 45.81333333333333,
+        "sd": 1.0848655830716238,
+        "ddof": 1
+      }
+    },
+    {
+      "ratio": 0.4,
+      "all_accuracy": {
+        "mean": 56.61666666666667,
+        "sd": 0.18770544300401407,
+        "ddof": 1
+      },
+      "base_accuracy": {
+        "mean": 66.81333333333333,
+        "sd": 1.11468979242358,
+        "ddof": 1
+      },
+      "novel_accuracy": {
+        "mean": 46.42,
+        "sd": 1.0021975853094023,
+        "ddof": 1
+      }
+    },
+    {
+      "ratio": 0.5,
+      "all_accuracy": {
+        "mean": 56.71333333333333,
+        "sd": 0.19857828011475112,
+        "ddof": 1
+      },
+      "base_accuracy": {
+        "mean": 66.48,
+        "sd": 1.1838918869558985,
+        "ddof": 1
+      },
+      "novel_accuracy": {
+        "mean": 46.946666666666665,
+        "sd": 1.1741095917048534,
+        "ddof": 1
+      }
+    },
+    {
+      "ratio": 0.6,
+      "all_accuracy": {
+        "mean": 56.77333333333333,
+        "sd": 0.18502252115170376,
+        "ddof": 1
+      },
+      "base_accuracy": {
+        "mean": 66.16,
+        "sd": 1.2330450113438658,
+        "ddof": 1
+      },
+      "novel_accuracy": {
+        "mean": 47.38666666666666,
+        "sd": 1.1423367862996179,
+        "ddof": 1
+      }
+    },
+    {
+      "ratio": 0.7,
+      "all_accuracy": {
+        "mean": 56.83,
+        "sd": 0.16522711641858223,
+        "ddof": 1
+      },
+      "base_accuracy": {
+        "mean": 65.84,
+        "sd": 1.1333137253205763,
+        "ddof": 1
+      },
+      "novel_accuracy": {
+        "mean": 47.82,
+        "sd": 1.2322337440599482,
+        "ddof": 1
+      }
+    },
+    {
+      "ratio": 0.8,
+      "all_accuracy": {
+        "mean": 56.83,
+        "sd": 0.10583005244258539,
+        "ddof": 1
+      },
+      "base_accuracy": {
+        "mean": 65.45333333333333,
+        "sd": 1.0715098381878432,
+        "ddof": 1
+      },
+      "novel_accuracy": {
+        "mean": 48.20666666666667,
+        "sd": 1.2377937361827844,
+        "ddof": 1
+      }
+    },
+    {
+      "ratio": 0.9,
+      "all_accuracy": {
+        "mean": 56.736666666666665,
+        "sd": 0.16743157806499098,
+        "ddof": 1
+      },
+      "base_accuracy": {
+        "mean": 65.03333333333333,
+        "sd": 1.1015141094572196,
+        "ddof": 1
+      },
+      "novel_accuracy": {
+        "mean": 48.44,
+        "sd": 1.32317799256185,
+        "ddof": 1
+      }
+    },
+    {
+      "ratio": 1.0,
+      "all_accuracy": {
+        "mean": 56.60333333333333,
+        "sd": 0.1644181660685145,
+        "ddof": 1
+      },
+      "base_accuracy": {
+        "mean": 64.57333333333334,
+        "sd": 1.092947086245863,
+        "ddof": 1
+      },
+      "novel_accuracy": {
+        "mean": 48.63333333333333,
+        "sd": 1.359754879871122,
+        "ddof": 1
+      }
+    }
+  ],
+  "scope": "Retrospective Figure 4 Tanh/C sensitivity at the final K5 phase, using frozen saved classifiers. No training, refit, checkpoint selection or test-set hyperparameter tuning. C=0.6 remains the reported benchmark.",
+  "n_seeds": 3,
+  "completed": true
+}

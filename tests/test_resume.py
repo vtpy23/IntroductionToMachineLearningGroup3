@@ -44,7 +44,23 @@ def test_resumed_training_matches_uninterrupted(tmp_path, monkeypatch):
     with pytest.raises(RuntimeError, match="simulated"):
         run.train_backbone(config, data, tmp_path / "resumed.pt", "cpu", Interrupt())
     assert torch.load(tmp_path / "resumed.pt", weights_only=False)["epoch"] == 1
-    seed_everything(5)
-    resumed = run.train_backbone(config, data, tmp_path / "resumed.pt", "cpu")
+    class ResumeRecorder:
+        run = None
+        def __init__(self):
+            self.epochs = []
+        def log(self, values, step):
+            self.epochs.append(step)
+
+    # A deterministic restart from seed5 could otherwise falsely pass this test.
+    # Resume must restore the checkpoint despite a different process RNG state,
+    # and execute only the remaining epoch.
+    seed_everything(997)
+    recorder = ResumeRecorder()
+    resumed = run.train_backbone(config, data, tmp_path / "resumed.pt", "cpu", recorder)
+    assert recorder.epochs == [2]
     for key, value in full.state_dict().items():
         torch.testing.assert_close(value, resumed.state_dict()[key], rtol=0, atol=0)
+    incompatible = copy.deepcopy(config)
+    incompatible["training"]["epochs"] = 3
+    with pytest.raises(ValueError, match="Checkpoint configuration mismatch"):
+        run.train_backbone(incompatible, data, tmp_path / "resumed.pt", "cpu")

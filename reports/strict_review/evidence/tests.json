@@ -1,0 +1,7 @@
+{
+  "checked_utc": "2026-11-19T15:41:43.384858+00:00",
+  "command": ".venv-cpu/Scripts/python.exe -X utf8 -m pytest -q",
+  "exit_code": 0,
+  "summary": "21 passed in 2.74s",
+  "resume_test_strengthened": "Different process RNG seed997; only epoch2 executed; incompatible signature rejected"
+}

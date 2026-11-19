@@ -151,7 +151,7 @@ def report():
                     'Ba seed chưa đủ để khẳng định ý nghĩa thống kê. Sai khác có thể gắn với implementation độc lập, class order và chi tiết huấn luyện; không suy ra nguyên nhân chỉ từ bảng điểm.']
     receipts=[read(p) for p in sorted((STUDY/'logs').glob('*-receipt.json'))]
     lines+=['','## Thời gian và tài nguyên','',
-            'Huấn luyện và analytic chạy tuần tự trong `.venv-cpu`: PyTorch 2.5.1+cpu, 8 CPU threads. Seed 0 cũng dùng môi trường CPU này. Giữ nguyên 160 epoch, batch 128, B50, K5, buffer 8192, FP64, analytic batch 512, gamma 0,1, C=0,6.',
+            'Hai seed bổ sung chạy tuần tự trong `.venv-cpu`: PyTorch 2.5.1+cpu, 8 CPU threads. Seed 0 huấn luyện CUDA ở 19 epoch đầu rồi resume CPU; không coi backend ba seed đồng nhất từng bit. Giữ nguyên 160 epoch, batch 128, B50, K5, buffer 8192, FP64, analytic batch 512, gamma 0,1, C=0,6.',
             'Fit/elapsed lấy từ log thật. Peak RAM được lấy mẫu mỗi 10 giây, có thể bỏ lỡ đỉnh ngắn. Đây không phải benchmark thời gian trên phần cứng được kiểm soát.',
             '', '| Công đoạn | Exit | Thời gian (phút) | Peak RSS lấy mẫu (GiB) |','| --- | ---: | ---: | ---: |']
     for r in receipts:

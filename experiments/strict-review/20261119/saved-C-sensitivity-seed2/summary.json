@@ -1,0 +1,15 @@
+{
+  "completed": true,
+  "seed": 2,
+  "analysis_only": true,
+  "points": 11,
+  "elapsed_seconds": 0.4597420999998576,
+  "source_summaries_reproduced": true,
+  "reference_ratio": 0.6,
+  "scope": "Retrospective Figure 4 Tanh/C sensitivity at the final K5 phase, using frozen saved classifiers. No training, refit, checkpoint selection or test-set hyperparameter tuning. C=0.6 remains the reported benchmark.",
+  "wandb_url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/xq49tulq",
+  "wandb_run_id": "xq49tulq",
+  "tracking_mode": "online",
+  "submission_ready": true,
+  "public_visibility_verified": true
+}

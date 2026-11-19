@@ -1,0 +1,312 @@
+{
+  "seed": 2,
+  "ratios": [
+    {
+      "ratio": 0.0,
+      "all_accuracy": 56.0,
+      "all_count": 10000,
+      "base_accuracy": 67.72,
+      "base_count": 5000,
+      "novel_accuracy": 44.28,
+      "novel_count": 5000
+    },
+    {
+      "ratio": 0.1,
+      "all_accuracy": 56.08,
+      "all_count": 10000,
+      "base_accuracy": 67.34,
+      "base_count": 5000,
+      "novel_accuracy": 44.82,
+      "novel_count": 5000
+    },
+    {
+      "ratio": 0.2,
+      "all_accuracy": 56.18,
+      "all_count": 10000,
+      "base_accuracy": 66.98,
+      "base_count": 5000,
+      "novel_accuracy": 45.38,
+      "novel_count": 5000
+    },
+    {
+      "ratio": 0.3,
+      "all_accuracy": 56.35,
+      "all_count": 10000,
+      "base_accuracy": 66.68,
+      "base_count": 5000,
+      "novel_accuracy": 46.02,
+      "novel_count": 5000
+    },
+    {
+      "ratio": 0.4,
+      "all_accuracy": 56.4,
+      "all_count": 10000,
+      "base_accuracy": 66.2,
+      "base_count": 5000,
+      "novel_accuracy": 46.6,
+      "novel_count": 5000
+    },
+    {
+      "ratio": 0.5,
+      "all_accuracy": 56.49,
+      "all_count": 10000,
+      "base_accuracy": 65.92,
+      "base_count": 5000,
+      "novel_accuracy": 47.06,
+      "novel_count": 5000
+    },
+    {
+      "ratio": 0.6,
+      "all_accuracy": 56.56,
+      "all_count": 10000,
+      "base_accuracy": 65.54,
+      "base_count": 5000,
+      "novel_accuracy": 47.58,
+      "novel_count": 5000
+    },
+    {
+      "ratio": 0.7,
+      "all_accuracy": 56.67,
+      "all_count": 10000,
+      "base_accuracy": 65.32,
+      "base_count": 5000,
+      "novel_accuracy": 48.02,
+      "novel_count": 5000
+    },
+    {
+      "ratio": 0.8,
+      "all_accuracy": 56.79,
+      "all_count": 10000,
+      "base_accuracy": 64.98,
+      "base_count": 5000,
+      "novel_accuracy": 48.6,
+      "novel_count": 5000
+    },
+    {
+      "ratio": 0.9,
+      "all_accuracy": 56.64,
+      "all_count": 10000,
+      "base_accuracy": 64.5,
+      "base_count": 5000,
+      "novel_accuracy": 48.78,
+      "novel_count": 5000
+    },
+    {
+      "ratio": 1.0,
+      "all_accuracy": 56.54,
+      "all_count": 10000,
+      "base_accuracy": 64.12,
+      "base_count": 5000,
+      "novel_accuracy": 48.96,
+      "novel_count": 5000
+    }
+  ],
+  "paired_prediction_changes": {
+    "dac_minus_acil": {
+      "all": {
+        "corrected": 342,
+        "harmed": 322,
+        "net_pp": 0.2,
+        "count": 10000
+      },
+      "base": {
+        "corrected": 4,
+        "harmed": 223,
+        "net_pp": -4.38,
+        "count": 5000
+      },
+      "novel": {
+        "corrected": 338,
+        "harmed": 99,
+        "net_pp": 4.78,
+        "count": 5000
+      }
+    },
+    "dsal_minus_acil": {
+      "all": {
+        "corrected": 219,
+        "harmed": 163,
+        "net_pp": 0.56,
+        "count": 10000
+      },
+      "base": {
+        "corrected": 5,
+        "harmed": 114,
+        "net_pp": -2.18,
+        "count": 5000
+      },
+      "novel": {
+        "corrected": 214,
+        "harmed": 49,
+        "net_pp": 3.3,
+        "count": 5000
+      }
+    },
+    "plc_minus_dac": {
+      "all": {
+        "corrected": 181,
+        "harmed": 145,
+        "net_pp": 0.36,
+        "count": 10000
+      },
+      "base": {
+        "corrected": 114,
+        "harmed": 4,
+        "net_pp": 2.2,
+        "count": 5000
+      },
+      "novel": {
+        "corrected": 67,
+        "harmed": 141,
+        "net_pp": -1.48,
+        "count": 5000
+      }
+    }
+  },
+  "elapsed_seconds": 0.4597420999998576,
+  "feature_identity": {
+    "checkpoint_sha256": "dac8239655c02d4057874342f50c46480de437e98a6dcfcd9e25152ea0e41e04",
+    "dataset": {
+      "id": "uoft-cs/cifar100",
+      "revision": "aadb3af77e9048adbea6b47c21a81e47dd092ae5",
+      "label": "fine_label",
+      "train_samples": 50000,
+      "test_samples": 10000,
+      "url": "https://huggingface.co/datasets/uoft-cs/cifar100",
+      "license_note": "HF card declares unknown; see original CIFAR terms and docs/DATA.md"
+    },
+    "class_order": [
+      83,
+      30,
+      56,
+      24,
+      16,
+      23,
+      2,
+      27,
+      28,
+      13,
+      99,
+      92,
+      76,
+      14,
+      0,
+      21,
+      3,
+      29,
+      61,
+      79,
+      35,
+      11,
+      84,
+      44,
+      73,
+      5,
+      25,
+      77,
+      74,
+      62,
+      65,
+      1,
+      18,
+      48,
+      36,
+      78,
+      6,
+      89,
+      91,
+      10,
+      12,
+      53,
+      87,
+      54,
+      95,
+      32,
+      19,
+      26,
+      60,
+      55,
+      9,
+      96,
+      17,
+      59,
+      57,
+      41,
+      64,
+      45,
+      97,
+      8,
+      71,
+      94,
+      90,
+      98,
+      86,
+      80,
+      50,
+      52,
+      66,
+      88,
+      70,
+      46,
+      68,
+      69,
+      81,
+      58,
+      33,
+      38,
+      51,
+      42,
+      4,
+      67,
+      39,
+      37,
+      20,
+      31,
+      63,
+      47,
+      85,
+      93,
+      49,
+      34,
+      7,
+      75,
+      82,
+      43,
+      22,
+      72,
+      15,
+      40
+    ],
+    "limits": {
+      "cache": "data/cache",
+      "revision": "main"
+    },
+    "transform": "cifar100-normalize-v1",
+    "architecture": "option-a-resnet32"
+  },
+  "protected_sha256": {
+    "data/cache/features-262a308df1b884e5907f.pt": "25248205e043760fc94eef1ef7e321d555d89a71e847b925902dde8904747dae",
+    "outputs/multiseed-20261119/core-seed2/acil-k5/classifier.pt": "47b3a3f60f7dbc13ed86a253e1ce15cb5342dd603754ec8b472f6563dc1c8127",
+    "outputs/multiseed-20261119/core-seed2/acil-k5/config.json": "451dfed22e2d15eb9411f3154a76e51813328885cbe065090cf5126eee8f526d",
+    "outputs/multiseed-20261119/core-seed2/acil-k5/summary.json": "82bdfbe8ff4f3746ec2df01c6fdbc53abf06f3de90524556f346b3aefe4df083",
+    "outputs/multiseed-20261119/core-seed2/acil-k5/phases.json": "3a910369dde9015c76187f82ea8d3d7f99f520402a00a8fda391e24056e11963",
+    "outputs/multiseed-20261119/core-seed2/acil-k5/metrics.jsonl": "0bdb04f42f0a4e5f607a8170aa44d9460d85f2fdb078cad929e8772bbbdfe96a",
+    "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/classifier.pt": "963ab9180a757768be79b416332d8fee4dedcddc05a9c15800c0e6c0695332ec",
+    "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/config.json": "5cf2d0ce4d5bf90216a824d089eb601e6cd45c8e304eb908aa1f6729e0b62119",
+    "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/summary.json": "17436eab17e871065e752d40757c775bc30232a350b45196015eacebef38d565",
+    "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/phases.json": "7c070e234a6d7d77790b36cfdd429cb15bc16e17e1b38a41bbbdcb66f41ee5e5",
+    "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/metrics.jsonl": "09835084e4b447945d61c4f02997259c4eb984dfc907a1a1e83b4b4942689683",
+    "outputs/multiseed-20261119/core-seed2/dsal-k5/classifier.pt": "64a0ad0fee34d139c414273666973f75f0a8afa67d0ad87e6af6127cc04d4af7",
+    "outputs/multiseed-20261119/core-seed2/dsal-k5/config.json": "2e0e3f94e94ab110dd0f0697c4dfe07141f605b684d80dbaaca22e1e91fe2930",
+    "outputs/multiseed-20261119/core-seed2/dsal-k5/summary.json": "8d7a546fe95888b21731f9ab2d934b528253d380c9dbae519e67055f5cc55f05",
+    "outputs/multiseed-20261119/core-seed2/dsal-k5/phases.json": "4545edd5e2322c2127f9a4259194f3ac75557f41ed6afc124b98392e5a1cfa17",
+    "outputs/multiseed-20261119/core-seed2/dsal-k5/metrics.jsonl": "a644be1ae33c0b6e50f49540f9eb693cd5006630caf08f626f3b85f0539930e5",
+    "checkpoints/multiseed-20261119/seed2-resnet32.pt": "dac8239655c02d4057874342f50c46480de437e98a6dcfcd9e25152ea0e41e04"
+  },
+  "parent_runs": {
+    "acil-k5": "7dg5j40m",
+    "dac-no-plc-k5": "5hnhr4tm",
+    "dsal-k5": "9pij1vti"
+  },
+  "source_summaries_reproduced": true
+}

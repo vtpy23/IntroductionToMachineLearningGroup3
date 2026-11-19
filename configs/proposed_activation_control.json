@@ -1,0 +1,8 @@
+{
+  "output": "outputs/proposed-activation-control-20261119",
+  "seeds": [0, 1, 2],
+  "activations": ["mish", "hardswish"],
+  "ratios": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+  "tracking": {"base_url": "https://api.forge.coreweave.com", "entity": "vu-lam-vnuhcm-university-of-science", "project": "intro-ml-group3-dsal"},
+  "scope": "Proposed broader Figure 4 subset: refit compensation activations on each original cache, verify main head against ACIL; use completed Tanh sensitivity as reference. Not executed."
+}

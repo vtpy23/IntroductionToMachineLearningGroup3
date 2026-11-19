@@ -1,6 +1,10 @@
 # Xuất và cập nhật báo cáo
 
-## Bản hiện tại: Milestone 2 + Lab 1, ba seed, 40 slide
+## Bản hiện hành: StrictReview
+
+[Bàn giao cho nhóm](../TEAM_HANDOFF.md) ghi trạng thái nộp theo xác nhận ngày 20/11/2026 và liên kết đúng bản đã chuẩn bị. Bộ mới có 40 slide, 10 chart / 22 bảng native; xem [PPTX](milestone2_final/DSAL_Milestone2_Lab1_3Seeds_StrictReview_Final.pptx), [PDF](milestone2_final/DSAL_Milestone2_Lab1_3Seeds_StrictReview_Final.pdf), [03.pptx](milestone2_final/submission_strict_review/03.pptx) và [source/báo cáo](strict_review/README.md). Thí nghiệm gốc giữ nguyên; sensitivity C chỉ suy luận từ classifier đã lưu.
+
+## Bản trước: Milestone 2 + Lab 1, ba seed, 40 slide
 
 - [PPTX nộp theo ID 03](milestone2_final/submission_3seeds/03.pptx) và [bản tên đầy đủ](milestone2_final/DSAL_Milestone2_Lab1_3Seeds_Final.pptx).
 - [PDF xem trước](milestone2_final/DSAL_Milestone2_Lab1_3Seeds_Final.pdf).

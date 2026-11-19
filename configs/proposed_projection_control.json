@@ -1,0 +1,8 @@
+{
+  "output": "outputs/proposed-projection-control-20261119",
+  "seeds": [0, 1, 2],
+  "distribution": "uniform_linear",
+  "methods": ["acil-k5", "dsal-k5"],
+  "tracking": {"base_url": "https://api.forge.coreweave.com", "entity": "vu-lam-vnuhcm-university-of-science", "project": "intro-ml-group3-dsal"},
+  "claim_boundary": "One-factor projection-distribution intervention with each original feature cache; matches author checkout distribution, not author random entries or original paper's undisclosed seeds. Not executed."
+}

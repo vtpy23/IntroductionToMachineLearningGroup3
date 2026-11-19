@@ -1,5 +1,7 @@
 # Chạy dự án
 
+Hướng dẫn hiện hành cho đợt rà soát nghiêm ngặt: [RUNBOOK](../reports/strict_review/RUNBOOK.md), gồm từng stage, config mới pin dataset để chạy vào output/checkpoint mới, W&B Forge và trạng thái clean-environment chưa xác minh. Ba seed lịch sử đã hoàn tất; không chạy lại lệnh suite chung chỉ để cập nhật slide. Các mục bên dưới mô tả pipeline lịch sử.
+
 ## Windows
 
 ```powershell
@@ -46,12 +48,13 @@ tài nguyên. Môi trường được thử trên Python3.11.8 / torch2.5.1+cu12
 
 ## W&B
 
-Đăng ký/đăng nhập https://wandb.ai và tạo project
-`intro-ml-group3-dsal`, visibility Public. Entity nằm trong URL
-`https://wandb.ai/<entity>/intro-ml-group3-dsal`.
+Project đang dùng Forge API `https://api.forge.coreweave.com`, entity
+`vu-lam-vnuhcm-university-of-science`, project `intro-ml-group3-dsal`.
+Đã xác minh public data không đăng nhập; việc host này đáp ứng cách ghi
+wandb.ai trong yêu cầu học phần vẫn cần giảng viên xác nhận.
 
 ```powershell
-.venv/Scripts/python.exe -m wandb login
+.venv/Scripts/python.exe -m wandb login --host https://api.forge.coreweave.com
 Copy-Item .env.example .env
 ```
 

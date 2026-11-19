@@ -1,0 +1,463 @@
+{
+  "checked_utc": "2026-11-19T15:11:33.502170+00:00",
+  "forge_host": "https://api.forge.coreweave.com",
+  "verified_runs": [
+    {
+      "directory": "outputs/core-seed0/acil-k5",
+      "run_id": "h2sljkd5",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/h2sljkd5",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "2ac2fb2159ed1aace7e51823293521aedde1cd984de641657dd93d6fc4a89490",
+        "summary.json": "da1c7129d48caf0745aa10c6e144645ca6222e14645fc3b36c8a03dd7b8a13f6",
+        "metrics.jsonl": "edecb9a6100a79abc10b3f805409cdb4cc874937f4e451eab88e7b9ba0f8e0b5"
+      }
+    },
+    {
+      "directory": "outputs/core-seed0/base-training",
+      "run_id": "zuc29egg",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/zuc29egg",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 160,
+      "files_sha256": {
+        "config.json": "d2eb8a56d7490f7e69487f918f51c80a1e9354c72eb8d0a54af05d746bb4ca02",
+        "summary.json": "c0d0bcd52f18055b0837e28bf29e2756758ff8c3638e0e537d1cb9a1746e47e7",
+        "metrics.jsonl": "ae9a6fe42abdeddfaa3cfc071f47730d31428cc248552bca4260eca92f6d4ad5"
+      }
+    },
+    {
+      "directory": "outputs/core-seed0/buffer-1024",
+      "run_id": "ec7ki95r",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/ec7ki95r",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "cef7a8ab4cd134294d60ddd4550a5ab748d6b9c4fbe6b862eb55f4d01c285c9e",
+        "summary.json": "e3c8c512087917bfa2c921a53768a92d114be6a7bde524705f4f73a4034365bf",
+        "metrics.jsonl": "a5f288ba807bd93c98c827be23a6cc22b0c1ac1dfdc45b2e9a05c014717e4312"
+      }
+    },
+    {
+      "directory": "outputs/core-seed0/buffer-2048",
+      "run_id": "rugifzey",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/rugifzey",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "536d9e2b8c12de302206c0750fab14a2026ac68d3923b31f433d682c506c0533",
+        "summary.json": "6533d999ba6a49764cfa701a7441b33a9247edbc33a74f3aac0f992d709d696f",
+        "metrics.jsonl": "ba4c367a424e039436fc0f207e9cc4d87689eb25bdbe25883fe7828dd82f737c"
+      }
+    },
+    {
+      "directory": "outputs/core-seed0/buffer-512",
+      "run_id": "k64nfaxk",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/k64nfaxk",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "a4410493ba5630169916269485298de33b61877eb7c84c3505663b1e628945c4",
+        "summary.json": "9cbdbd0e822364de517da3dde9ef690143b33d9da5e4da89fd7b794025435755",
+        "metrics.jsonl": "5f82dacdef88824fbcdb8157e70d70664d4b126ea848341ec258b95369771782"
+      }
+    },
+    {
+      "directory": "outputs/core-seed0/dac-no-plc-k5",
+      "run_id": "gpx1ehdu",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/gpx1ehdu",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "64a6806af726369723a4277c367928c5b4cbddb66d43510b4ec47239a0c5f19c",
+        "summary.json": "156bbdb0d34cf03411edd688646d65e46cffadb3aa0688d6769b3efc3bce2e19",
+        "metrics.jsonl": "066f1817798a391c9087a74ade9e94be2830de7183e9cf632512d8081e199368"
+      }
+    },
+    {
+      "directory": "outputs/core-seed0/dsal-k25",
+      "run_id": "c0niqv2k",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/c0niqv2k",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 26,
+      "files_sha256": {
+        "config.json": "0cd8bde4d8cec992fdbed6bbe813e249b97452382deb7e51d4859005af4f936b",
+        "summary.json": "1ab93774ac8449550e1e4de17581a157cd2c0669ac2cb321f7ba8cae66bda8aa",
+        "metrics.jsonl": "49fa5b8802c965bccbe2de98c98a191c9d9e4949847b0e242966ced285b9354a"
+      }
+    },
+    {
+      "directory": "outputs/core-seed0/dsal-k5",
+      "run_id": "i0kiycme",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/i0kiycme",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "11c596456a6a73cfab6990b13414f451643e38924e260e7470fcf03adadb53d6",
+        "summary.json": "539eefaed5733778eee69e7fe46a426f6e1c93d1e6e4bbf0c377c9c3a0459364",
+        "metrics.jsonl": "0cd3768224ecdb47c1f719696a5da797d85d186ca6faf741931627fe7e54373a"
+      }
+    },
+    {
+      "directory": "outputs/core-seed0/dsal-k50",
+      "run_id": "mb9xncbl",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/mb9xncbl",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 51,
+      "files_sha256": {
+        "config.json": "a34385a949f8eb233809f86cef62e65e6c33b8c0350733349cc00fcee8c59fbe",
+        "summary.json": "39cf83426fca9b3d3c206eeae21bf9f7dd34941776c4b018cdf334870a0c706e",
+        "metrics.jsonl": "53bf878c30348e5cad03013e838393774619ef40c94e952aee9dd904131d07e5"
+      }
+    },
+    {
+      "directory": "outputs/empirics-synthetic/phase-dependence",
+      "run_id": "hh31425p",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/hh31425p",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 9,
+      "files_sha256": {
+        "config.json": "fbdd1d1dd3ad628baf1e878b7d1dadb60f8747703998d13740bb60e79d0b0bb2",
+        "summary.json": "da587658882db7e45f947bc5af2d7179ba447e91f462d47d866e3301db3eb392",
+        "metrics.jsonl": "423c170caf88ccbc31501e743c835061e153bb881f178278eef26865c068940f"
+      }
+    },
+    {
+      "directory": "outputs/empirics-synthetic/ridge-residue",
+      "run_id": "is6rnul0",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/is6rnul0",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 18,
+      "files_sha256": {
+        "config.json": "c094cd5382cc9b456a8ad769c6ec45cd1e08375386fc95c2da9cef4d3d875da6",
+        "summary.json": "64a71df55398873b0c3173fcb26eb0007aa50939eb525a0d89218187b54c4eef",
+        "metrics.jsonl": "c3e99e851b6d8069ae6507735c3a1b41dca9cbd44942ff357a9b46766ae64199"
+      }
+    },
+    {
+      "directory": "outputs/empirics-synthetic/scaling",
+      "run_id": "p343muf2",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/p343muf2",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 15,
+      "files_sha256": {
+        "config.json": "d5d99183ff2a481ef49b90fd8931e4f972525a3104740137ea7d646305f869c5",
+        "summary.json": "6963c1f1b06b4d56ca7f35b079602e1dbbe3e520e8b5fd1e9aa8507c21a78831",
+        "metrics.jsonl": "f318f154030e254ace0ae5153f38c3a0610379d5cbff3dead44b803b176277fa"
+      }
+    },
+    {
+      "directory": "outputs/multiseed-20261119/core-seed1/acil-k5",
+      "run_id": "i0jt6hm8",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/i0jt6hm8",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "bd58b0224c025c0e6712803e7b723d9bf52bade722c84aaad3ac623e3555ad6e",
+        "summary.json": "aef07b1d61d4975bdf6e0fa973492d0e59a4e831ca3d26a98faca6125253a38e",
+        "metrics.jsonl": "15361afe0b2a894673c8748faf333b75eb42abd6f40f5baeea97afeec475a62e"
+      }
+    },
+    {
+      "directory": "outputs/multiseed-20261119/core-seed1/base-training",
+      "run_id": "osfjx35v",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/osfjx35v",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 160,
+      "files_sha256": {
+        "config.json": "d3575564735589991ac227aff9ecb25ac86b5e0c97982eda2e8046e1d538954b",
+        "summary.json": "21d446b1527e879ed00677cdeed2dd90dcea929a88e4f62115b4d554c86fa20c",
+        "metrics.jsonl": "202d6277a007d130833319d6784feae33ff207babe82e52005076b3ae58805af"
+      }
+    },
+    {
+      "directory": "outputs/multiseed-20261119/core-seed1/dac-no-plc-k5",
+      "run_id": "jzgqywsg",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/jzgqywsg",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "1a8674e6601d40ae4b28f911d0e66353f512a8771002ba0d763a51781a69f5de",
+        "summary.json": "6c9362a06a20d0d960e2ee2d09db4eead87df9aec9ffc790a019b736871c06e5",
+        "metrics.jsonl": "fe7aa6e752050cc909ef5ff98db776d6a60f923f7b46dc93c6cc5358589149b3"
+      }
+    },
+    {
+      "directory": "outputs/multiseed-20261119/core-seed1/dsal-k5",
+      "run_id": "8tlegrwo",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/8tlegrwo",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "4f6115bf89f284dd4938949d2fda3889cd5a7ef487225e3a5f1fc699cb2d76af",
+        "summary.json": "4ef805067ba54f5e3fdb01392b01634cb556dc45bdd8a6bbdcb86518dfb84150",
+        "metrics.jsonl": "fcd6172aea17060068727ecd215eab002d6e55c6b5b9600ed23309acbb63424f"
+      }
+    },
+    {
+      "directory": "outputs/multiseed-20261119/core-seed2/acil-k5",
+      "run_id": "7dg5j40m",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/7dg5j40m",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "451dfed22e2d15eb9411f3154a76e51813328885cbe065090cf5126eee8f526d",
+        "summary.json": "82bdfbe8ff4f3746ec2df01c6fdbc53abf06f3de90524556f346b3aefe4df083",
+        "metrics.jsonl": "0bdb04f42f0a4e5f607a8170aa44d9460d85f2fdb078cad929e8772bbbdfe96a"
+      }
+    },
+    {
+      "directory": "outputs/multiseed-20261119/core-seed2/base-training",
+      "run_id": "dj8cl86v",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/dj8cl86v",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 160,
+      "files_sha256": {
+        "config.json": "df2fc476d0630c7dc623a3ceabbf11a956e2f2bf6341579a7180a670e600e36e",
+        "summary.json": "d9e0e62ed28c7ba34958b18f2e6baeffd82b24d05e33c5f9a3108aa5b47d7406",
+        "metrics.jsonl": "8947557bb2dfb5d04231b9568e3d57304fd67942f894a1c034d1efdc8373a681"
+      }
+    },
+    {
+      "directory": "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5",
+      "run_id": "5hnhr4tm",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/5hnhr4tm",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "5cf2d0ce4d5bf90216a824d089eb601e6cd45c8e304eb908aa1f6729e0b62119",
+        "summary.json": "17436eab17e871065e752d40757c775bc30232a350b45196015eacebef38d565",
+        "metrics.jsonl": "09835084e4b447945d61c4f02997259c4eb984dfc907a1a1e83b4b4942689683"
+      }
+    },
+    {
+      "directory": "outputs/multiseed-20261119/core-seed2/dsal-k5",
+      "run_id": "9pij1vti",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/9pij1vti",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 6,
+      "files_sha256": {
+        "config.json": "2e0e3f94e94ab110dd0f0697c4dfe07141f605b684d80dbaaca22e1e91fe2930",
+        "summary.json": "8d7a546fe95888b21731f9ab2d934b528253d380c9dbae519e67055f5cc55f05",
+        "metrics.jsonl": "a644be1ae33c0b6e50f49540f9eb693cd5006630caf08f626f3b85f0539930e5"
+      }
+    },
+    {
+      "directory": "outputs/reference-comparison",
+      "run_id": "nv8x5tld",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/nv8x5tld",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 2,
+      "files_sha256": {
+        "config.json": "0ec72f0b1d0c2229cb344251a8e2f73df2e70900147207a60e7453aeb71f159c",
+        "summary.json": "7f04d63408eaa227c2552ef4d5c113aa40d60bd4ec7c2caebf7ffba98130cd36",
+        "metrics.jsonl": "1ae364baeab40991198013a3d845ecdd92e4d61a7fd3a5ccff980c98341f145c"
+      }
+    },
+    {
+      "directory": "outputs/strict-review-20261119/ratio-sensitivity/saved-C-sensitivity-seed0",
+      "run_id": "i2c96w3y",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/i2c96w3y",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 11,
+      "files_sha256": {
+        "config.json": "17b3a22280370595d73e98c959fa3d3a73bc08b5895efd2871ed69926fd3bb59",
+        "summary.json": "ab7c9df79e1b46e1d9b1af8042266475328207d69d771c88579f35b5b1804e89",
+        "metrics.jsonl": "174f9a88fb7fef0fa7e39588f8f096ee3fe1e017566fab87e98229e51888707c"
+      }
+    },
+    {
+      "directory": "outputs/strict-review-20261119/ratio-sensitivity/saved-C-sensitivity-seed1",
+      "run_id": "cu5nowzq",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/cu5nowzq",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 11,
+      "files_sha256": {
+        "config.json": "4d28df5168c1ddeaa811ce58fd43a17d490d05a6df7052a038b11f2b04b242d3",
+        "summary.json": "0eee2de752d10e4b8879af503bcfb4f7206a573ff0301b654290bdf01752c37e",
+        "metrics.jsonl": "0ff23eb5217633f3a9708d3ef260e9a567549c2d86abcc06b393c0f3e75f4b09"
+      }
+    },
+    {
+      "directory": "outputs/strict-review-20261119/ratio-sensitivity/saved-C-sensitivity-seed2",
+      "run_id": "xq49tulq",
+      "url": "https://app.forge.coreweave.com/vu-lam-vnuhcm-university-of-science/intro-ml-group3-dsal/runs/xq49tulq",
+      "state": "finished",
+      "anonymous_config_summary_history": true,
+      "history_rows_checked": 11,
+      "files_sha256": {
+        "config.json": "076511f1bdbefbbac57602d57812a490618724ba701131f9d96f5b182c1dd689",
+        "summary.json": "973dab716cbbcd540caa7085ecfd90353a24466a7636ec8c5f5b7e7aa17e316b",
+        "metrics.jsonl": "70b76bc2495a55defb15ae9b0ae48bfdcdb2234b7c36681918d240f3a1186d54"
+      }
+    }
+  ],
+  "all_24_finished_public_full_data": true,
+  "protected_original_sha256": {
+    "data/cache/features-a5c9dfb4e37d61f538ae.pt": "b75a780b853cdf73d628a926cfeaa95d9e8843a364e52b0153314d0bc5c336f7",
+    "outputs/core-seed0/acil-k5/classifier.pt": "c19d1e4a1c589ce342f3bdf437fb56192fef940b68b7e1eb381c4c540682e772",
+    "outputs/core-seed0/acil-k5/config.json": "2ac2fb2159ed1aace7e51823293521aedde1cd984de641657dd93d6fc4a89490",
+    "outputs/core-seed0/acil-k5/summary.json": "da1c7129d48caf0745aa10c6e144645ca6222e14645fc3b36c8a03dd7b8a13f6",
+    "outputs/core-seed0/acil-k5/phases.json": "ad6d361a46b31e346bed01c086be02c3d6c24f5eef24cc9704ffa655bf45cd5b",
+    "outputs/core-seed0/acil-k5/metrics.jsonl": "edecb9a6100a79abc10b3f805409cdb4cc874937f4e451eab88e7b9ba0f8e0b5",
+    "outputs/core-seed0/dac-no-plc-k5/classifier.pt": "f45da765003e62fa71a44f59f91011976fa606e89c2d8e31a847e4c3cfa6df80",
+    "outputs/core-seed0/dac-no-plc-k5/config.json": "64a6806af726369723a4277c367928c5b4cbddb66d43510b4ec47239a0c5f19c",
+    "outputs/core-seed0/dac-no-plc-k5/summary.json": "156bbdb0d34cf03411edd688646d65e46cffadb3aa0688d6769b3efc3bce2e19",
+    "outputs/core-seed0/dac-no-plc-k5/phases.json": "18851975efeff793779b39928bd1c0e87870cb40f2cf07594078998e2bd9ab5f",
+    "outputs/core-seed0/dac-no-plc-k5/metrics.jsonl": "066f1817798a391c9087a74ade9e94be2830de7183e9cf632512d8081e199368",
+    "outputs/core-seed0/dsal-k5/classifier.pt": "9cd7c0aaf13cf6963a44a40edaca87e58c4d0c6bc20e62423098b4dcd4505b45",
+    "outputs/core-seed0/dsal-k5/config.json": "11c596456a6a73cfab6990b13414f451643e38924e260e7470fcf03adadb53d6",
+    "outputs/core-seed0/dsal-k5/summary.json": "539eefaed5733778eee69e7fe46a426f6e1c93d1e6e4bbf0c377c9c3a0459364",
+    "outputs/core-seed0/dsal-k5/phases.json": "ccb5edd5de5b1dd9578d6f0ba25cee516fc0feb3cd01bfcdc271de97f3c23261",
+    "outputs/core-seed0/dsal-k5/metrics.jsonl": "0cd3768224ecdb47c1f719696a5da797d85d186ca6faf741931627fe7e54373a",
+    "checkpoints/core-seed0-resnet32.pt": "13c9e40f006b431683556d3fd1ca5bc4533aaa6fcd2903c0f2b5abfe041c701a",
+    "data/cache/features-4bd79e8f535b5796f8c2.pt": "740ac25dada0895253830270fdee276fa08f2425db6d10466dadf50225ca2ed3",
+    "outputs/multiseed-20261119/core-seed1/acil-k5/classifier.pt": "10ca5fe3b6d6ccc13c0a7dfaee3dea5edf3f578bae53ad8aa4bb8ec28b58115a",
+    "outputs/multiseed-20261119/core-seed1/acil-k5/config.json": "bd58b0224c025c0e6712803e7b723d9bf52bade722c84aaad3ac623e3555ad6e",
+    "outputs/multiseed-20261119/core-seed1/acil-k5/summary.json": "aef07b1d61d4975bdf6e0fa973492d0e59a4e831ca3d26a98faca6125253a38e",
+    "outputs/multiseed-20261119/core-seed1/acil-k5/phases.json": "e4303906238b9684a2d8df24bc39dea1cce74c4ac25031e9c2246141bcc69430",
+    "outputs/multiseed-20261119/core-seed1/acil-k5/metrics.jsonl": "15361afe0b2a894673c8748faf333b75eb42abd6f40f5baeea97afeec475a62e",
+    "outputs/multiseed-20261119/core-seed1/dac-no-plc-k5/classifier.pt": "98dbb9c95fc7b192a25fb1f543412bad3a2997055e6c7b266345511aee5a3212",
+    "outputs/multiseed-20261119/core-seed1/dac-no-plc-k5/config.json": "1a8674e6601d40ae4b28f911d0e66353f512a8771002ba0d763a51781a69f5de",
+    "outputs/multiseed-20261119/core-seed1/dac-no-plc-k5/summary.json": "6c9362a06a20d0d960e2ee2d09db4eead87df9aec9ffc790a019b736871c06e5",
+    "outputs/multiseed-20261119/core-seed1/dac-no-plc-k5/phases.json": "fba80fc057ffd361fc8d9c5aba736cfd320a351f0b9ea3f38a11265a4396d025",
+    "outputs/multiseed-20261119/core-seed1/dac-no-plc-k5/metrics.jsonl": "fe7aa6e752050cc909ef5ff98db776d6a60f923f7b46dc93c6cc5358589149b3",
+    "outputs/multiseed-20261119/core-seed1/dsal-k5/classifier.pt": "00cad8dc33b1fb5f4bf56dde9be8a0d4f5bcd65075b204a378d3685c120abe4b",
+    "outputs/multiseed-20261119/core-seed1/dsal-k5/config.json": "4f6115bf89f284dd4938949d2fda3889cd5a7ef487225e3a5f1fc699cb2d76af",
+    "outputs/multiseed-20261119/core-seed1/dsal-k5/summary.json": "4ef805067ba54f5e3fdb01392b01634cb556dc45bdd8a6bbdcb86518dfb84150",
+    "outputs/multiseed-20261119/core-seed1/dsal-k5/phases.json": "a003834da5f100324a401b2199754a655b08b1d87f256b0a4370f8d0d115082b",
+    "outputs/multiseed-20261119/core-seed1/dsal-k5/metrics.jsonl": "fcd6172aea17060068727ecd215eab002d6e55c6b5b9600ed23309acbb63424f",
+    "checkpoints/multiseed-20261119/seed1-resnet32.pt": "ffe3da59e95e4db655a95a869363fe43157a8c200ee8326e2c3dbcc4edeb574e",
+    "data/cache/features-262a308df1b884e5907f.pt": "25248205e043760fc94eef1ef7e321d555d89a71e847b925902dde8904747dae",
+    "outputs/multiseed-20261119/core-seed2/acil-k5/classifier.pt": "47b3a3f60f7dbc13ed86a253e1ce15cb5342dd603754ec8b472f6563dc1c8127",
+    "outputs/multiseed-20261119/core-seed2/acil-k5/config.json": "451dfed22e2d15eb9411f3154a76e51813328885cbe065090cf5126eee8f526d",
+    "outputs/multiseed-20261119/core-seed2/acil-k5/summary.json": "82bdfbe8ff4f3746ec2df01c6fdbc53abf06f3de90524556f346b3aefe4df083",
+    "outputs/multiseed-20261119/core-seed2/acil-k5/phases.json": "3a910369dde9015c76187f82ea8d3d7f99f520402a00a8fda391e24056e11963",
+    "outputs/multiseed-20261119/core-seed2/acil-k5/metrics.jsonl": "0bdb04f42f0a4e5f607a8170aa44d9460d85f2fdb078cad929e8772bbbdfe96a",
+    "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/classifier.pt": "963ab9180a757768be79b416332d8fee4dedcddc05a9c15800c0e6c0695332ec",
+    "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/config.json": "5cf2d0ce4d5bf90216a824d089eb601e6cd45c8e304eb908aa1f6729e0b62119",
+    "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/summary.json": "17436eab17e871065e752d40757c775bc30232a350b45196015eacebef38d565",
+    "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/phases.json": "7c070e234a6d7d77790b36cfdd429cb15bc16e17e1b38a41bbbdcb66f41ee5e5",
+    "outputs/multiseed-20261119/core-seed2/dac-no-plc-k5/metrics.jsonl": "09835084e4b447945d61c4f02997259c4eb984dfc907a1a1e83b4b4942689683",
+    "outputs/multiseed-20261119/core-seed2/dsal-k5/classifier.pt": "64a0ad0fee34d139c414273666973f75f0a8afa67d0ad87e6af6127cc04d4af7",
+    "outputs/multiseed-20261119/core-seed2/dsal-k5/config.json": "2e0e3f94e94ab110dd0f0697c4dfe07141f605b684d80dbaaca22e1e91fe2930",
+    "outputs/multiseed-20261119/core-seed2/dsal-k5/summary.json": "8d7a546fe95888b21731f9ab2d934b528253d380c9dbae519e67055f5cc55f05",
+    "outputs/multiseed-20261119/core-seed2/dsal-k5/phases.json": "4545edd5e2322c2127f9a4259194f3ac75557f41ed6afc124b98392e5a1cfa17",
+    "outputs/multiseed-20261119/core-seed2/dsal-k5/metrics.jsonl": "a644be1ae33c0b6e50f49540f9eb693cd5006630caf08f626f3b85f0539930e5",
+    "checkpoints/multiseed-20261119/seed2-resnet32.pt": "dac8239655c02d4057874342f50c46480de437e98a6dcfcd9e25152ea0e41e04",
+    "reports/milestone2_final/DSAL_Milestone2_Lab1_3Seeds_Final.pptx": "626e03992289d39a639e256ab09027f6b330bcbbdc575d125b20d016ddaa073e"
+  },
+  "protected_original_count": 52,
+  "phase_count_comparison": [
+    {
+      "K": 5,
+      "seed": 0,
+      "paper_Abar": 66.39,
+      "paper_AK": 58.26,
+      "Abar": 65.8218716931217,
+      "AK": 56.87,
+      "gap_Abar_pp": -0.5681283068783074,
+      "gap_AK_pp": -1.3900000000000006,
+      "run_id": "i0kiycme"
+    },
+    {
+      "K": 25,
+      "seed": 0,
+      "paper_Abar": 66.2,
+      "paper_AK": 58.32,
+      "Abar": 65.54330846359984,
+      "AK": 56.830000000000005,
+      "gap_Abar_pp": -0.6566915364001602,
+      "gap_AK_pp": -1.4899999999999949,
+      "run_id": "c0niqv2k"
+    },
+    {
+      "K": 50,
+      "seed": 0,
+      "paper_Abar": 66.33,
+      "paper_AK": 58.37,
+      "Abar": 65.53609586105254,
+      "AK": 56.87,
+      "gap_Abar_pp": -0.7939041389474539,
+      "gap_AK_pp": -1.5,
+      "run_id": "mb9xncbl"
+    }
+  ],
+  "resnet_forward_comparison": {
+    "reference_commit": "0afd6bf87622e808ce7f730f8556e78229b9e758",
+    "test": "Transfer identical supporting ResNet32 parameters; compare four synthetic inputs, eval mode, float64, tolerance 1e-10",
+    "feature_max_abs_difference": 1.1368683772161603e-13,
+    "interpretation": "Architecture/forward compatibility under shared weights; does not establish matching initializations, training trajectories or CIFAR accuracy"
+  },
+  "public_repository": {
+    "name": "vtpy23/IntroductionToMachineLearningGroup3",
+    "visibility": "public",
+    "verified_with": "GitHub connector repository metadata this turn",
+    "last_published_commit": "84b9564e33156073c30e9d3ccab1b9006ae25931"
+  },
+  "secret_scan": {
+    "public_git_files_checked": 388,
+    "result": "no matching secret literals",
+    "limitation": "Pattern scan, not a proof of absence"
+  },
+  "administrative_limits": [
+    "Course names wandb.ai; anonymous Forge access verified, equivalence for grading not confirmed",
+    "Core importance/coverage is ultimately graded by instructor",
+    "No push authorized for this revision"
+  ],
+  "source_documents": [
+    {
+      "file": "01653-AAAI24.ZhuangH.pdf",
+      "alias": "paper",
+      "pages": 8,
+      "sha256": "0722e85b416a7edc19532159e4b558382238721175aaad760e540c626f1390d5"
+    },
+    {
+      "file": "Bản dịch Form đăng ký.pdf",
+      "alias": "registration",
+      "pages": 4,
+      "sha256": "38cc3954c0f047bde81083ea99ca889c3e34db3ce8dc7cd3f85cbe64de792117"
+    },
+    {
+      "file": "Bản dịch Đồ án.pdf",
+      "alias": "requirements-translated",
+      "pages": 14,
+      "sha256": "10d4049917f0d54e5271a2303050cd25edac61405c8cf8d0360796744b1c5d0c"
+    },
+    {
+      "file": "index.pdf",
+      "alias": "requirements-original",
+      "pages": 2,
+      "sha256": "1df2db000d7e60596463586ed9a2b1c22582e5cf6067c322523c109c3827642c"
+    },
+    {
+      "file": "docs/references/DS-AL-supplementary.pdf",
+      "alias": "supplementary",
+      "pages": 3,
+      "sha256": "cfdbbb5450b912d22d0a1d0e7edbbe5b22630394ffc9da65e5a9517859119275"
+    }
+  ]
+}
